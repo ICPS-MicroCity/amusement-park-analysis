@@ -1,7 +1,10 @@
 \usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
+\usepackage[backend=biber,sorting=none]{biblatex}
+\usepackage[english]{babel}
 \renewcommand{\contentsname}{Indice}
 \linespread{1.2}
+
+\addbibresource{bibliography.bib}
 
 \usepackage{geometry}
 \geometry{a4paper}
@@ -9,11 +12,11 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{csquotes}
-\usepackage{multirow}
-\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subfig}
 
 \usepackage{alltt, fancyvrb}
-\usepackage{subfigure}
 \usepackage{wrapfig}
 \usepackage[italian]{cleveref}
 \usepackage{mdframed}
