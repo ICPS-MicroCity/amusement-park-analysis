@@ -145,12 +145,13 @@ Finally it is possible to control in real-time the virtual queueing solution.
 \subsubsection{The Experience Engine (TE2) Recommendation system}
 The Experience Engine\footnote{\url{https://www.accesso.com/solutions/guest-experience}} is a platform-as-a-service (PaaS) technology
 which allows the park to connect with \textit{visitors} in real-time and provides them with relevant offers, messages and recommendations.
-It is integrated with Accesso's Virtual Queueing Products and consists of a location-based targeted system~\cite{accesso-location-based-exp} which helps alleviate
+It is integrated with Accesso's Virtual Queueing Products and could work as a location-based targeted system~\cite{accesso-location-based-exp} helping alleviate
 long lines by driving traffic to other less utilized outlets, or by incentivizing guests to dine before or after the rush
-hours with a special offer.
+hours with special offers.
 The platform communicates with Bluetooth Beacons\footnote{\url{https://en.wikipedia.org/wiki/Bluetooth_low_energy_beacon}} and,
 whenever a visitor’s device receives a beacon signal, the device notifies the TE2 platform of the proximity to a beacon.
-TE2 then determines the visitor's real interest in a scheduled experience and if so, the visitor will receive a notification.
+TE2 then determines the visitor's real interest in a scheduled experience.
+If so, the visitor will receive a notification.
 Thanks to this platform, Accesso's clients can create custom itineraries for every park's visitor.
 In Figure~\ref{fig:te2ex} is synthesized the TE2 functioning.
 
@@ -169,8 +170,16 @@ longer available to this days.
 Instead, they now provide the "Flash Pass"\footnote{\url{https://www.mirabilandia.it/en/organizza-la-tua-visita/attivita/flash-pass}},
 a paper card or bracelet that gives you priority access to the attractions by a reserved entrance but has no virtual queueing system integration.
 
-% TODO Mirabilandia provides an app that let the \textit{visitors} to:
-% buy tickets, custom experience (not smart at all) by showing (not planning) you categories of attraction
-% ("extreem", "for families", "water", etc.)
+Mirabilandia provides an app\footnote{\url{https://www.mirabilandia.it/en/prima-del-tuo-arrivo/la-nostra-app}} that lets the \textit{visitors} to:
+\begin{itemize}
+    \item buy tickets
+    \item an interactive map
+    \item itineraries
+    \item show times
+    \item selecting a plan by attraction's category ("extreem", "for families", "water", etc.)
+\end{itemize}
 
-% TODO Mirabilandia Qoda for a very limited set of attractions
+Lastly, Mirabilandia offers a virtual queueing service Qoda\footnote{\url{https://get.qoda.app/}} for a very limited set of refreshment points
+and stores.
+It works by scanning a QR code one can find at the point of interest and it will immediately tell the waiting number on
+the person's mobile phone, as well as the estimated time for their turn.
