@@ -20,11 +20,12 @@ as well as Mirabilandia's current offer in terms of smart services.
 Accesso Technology Group\footnote{\url{https://www.accesso.com/}} (formerly Lo-Q) is an English company that provides different solutions
 mostly to amusement parks like the ``Six Flags'' corporation in the US and ``LEGOLAND Windsor Resort'' in the UK but also to airports,
 ski facilities, events and places that need social distancing management and so on.
-Their two main solutions of interest for a Micro City context are virtual queueing and the personalization of
-the \textit{visitors} experience by sending them tailored contents, offers and recommendations.
+Their two main solutions of interest for a Micro City context are a virtual queueing system and the personalization of
+the \textit{visitors}' experience by sending them tailored contents, offers and recommendations.
+Furthermore, along with their virtual queueing products they integrate a location-based messaging system.
 
 \subsubsection{Lo-Queue Virtual Queueing Products}
-Their patented~\cite{q-management-system-patent} %TODO read the (many) patents and write sth about it
+Their patented~\cite{q-management-system-patent} \cite{q-system-patent}
 virtual queueing technology allows a virtual queue to dynamically adjusts to many different unpredictable real-time variables such
 as guest flow, bad weather, ride down time, etc.
 automatically revising wait times and communicating real-time updates to \textit{visitors}.
@@ -56,9 +57,9 @@ As can be observed in Figure~\ref{fig:prism}, Prism provides the following funct
 
 In addition to their patented virtual queueing technologies, Prism works on a \textbf{proprietary network} and uses three ways to communicate:
 \begin{itemize}
-    \item \textbf{Bluetooth Low Energy (BLE Beacon):} allows sending real-time messages to \textit{visitors} based on their location, triggers interactions and gain valuable insights about visitors' flow throughout the park
+    \item \textbf{Bluetooth Low Energy:} allows \textit{visitors} to receive real-time messages based on their location, and the park gains valuable insights about visitors' flow throughout the park
     \item \textbf{Near Field Communication (NFC):} used for access, payments, rentals, etc.
-    \item \textbf{Long Range Sub-GHz Two-Way Radio:} allows \textit{visitors} to reserve and modify queueing reservations without having to use their smartphone from where they are
+    \item \textbf{Long Range Sub-GHz Two-Way Radio:} allows \textit{visitors} to reserve and modify queueing reservations from where they are without having to use their smartphone
 \end{itemize}
 
 The wearable is made with waterproof materials and carries a vibrator motor for haptic feedback to interact with the user and send alerts.
@@ -140,20 +141,36 @@ Both Prism and QSmart interact with the Virtual Queue Management System, where c
 analytics and performance data as well as centralised data on park attendace.
 It is also possible to check ride usage, \textit{visitors} activity, ride downtime and transactional data per user and how log they waited for each ride.
 Finally it is possible to control in real-time the virtual queueing solution.
-However, there isn't much information about this product on the company website.
-
-%TODO talk about their proximity marketing merging the sentences and pictures about Prism
 
 \subsubsection{The Experience Engine (TE2) Recommendation system}
+The Experience Engine\footnote{\url{https://www.accesso.com/solutions/guest-experience}} is a platform-as-a-service (PaaS) technology
+which allows the park to connect with \textit{visitors} in real-time and provides them with relevant offers, messages and recommendations.
+It is integrated with Accesso's Virtual Queueing Products and consists of a location-based targeted system~\cite{accesso-location-based-exp} which helps alleviate
+long lines by driving traffic to other less utilized outlets, or by incentivizing guests to dine before or after the rush
+hours with a special offer.
+The platform communicates with Bluetooth Beacons\footnote{\url{https://en.wikipedia.org/wiki/Bluetooth_low_energy_beacon}} and,
+whenever a visitor’s device receives a beacon signal, the device notifies the TE2 platform of the proximity to a beacon.
+TE2 then determines the visitor's real interest in a scheduled experience and if so, the visitor will receive a notification.
+Thanks to this platform, Accesso's clients can create custom itineraries for every park's visitor.
+In Figure~\ref{fig:te2ex} is synthesized the TE2 functioning.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/te2ex}
+    \caption{TE2 functioning}
+    \label{fig:te2ex}
+\end{figure}
 
 \subsection{Walt Disney Company}\label{subsec:walt-disney-company}
 
 \subsection{Mirabilandia Solutions}\label{subsec:mirabilandia-solutions}
-In 2009, Mirabilandia used to sell to its \textit{visitors} the Accesso's \textit{Qbot} device -- a previous version of Prism -- but is no
+In 2009, Mirabilandia used to sell to its \textit{visitors} the Accesso's \textit{Qbot} device -- a previous version of Prism -- named "V-Pass"\cite{v-pass-mira}, but is no
 longer available to this days.
-Instead, they now provide the "Flesh Pass"\footnote{\url{https://www.mirabilandia.it/en/organizza-la-tua-visita/attivita/flash-pass}}
-a paper card or bracelet that gives to you priority access to the attractions by a reserved entrance.
+Instead, they now provide the "Flash Pass"\footnote{\url{https://www.mirabilandia.it/en/organizza-la-tua-visita/attivita/flash-pass}},
+a paper card or bracelet that gives you priority access to the attractions by a reserved entrance but has no virtual queueing system integration.
 
-Mirabilandia provides an app that let the \textit{visitors} to:
-buy tickets, custom experience (not smart at all) by showing (not planning) you categories of attraction
-("extreem", "for families", "water", etc.)
+% TODO Mirabilandia provides an app that let the \textit{visitors} to:
+% buy tickets, custom experience (not smart at all) by showing (not planning) you categories of attraction
+% ("extreem", "for families", "water", etc.)
+
+% TODO Mirabilandia Qoda for a very limited set of attractions
