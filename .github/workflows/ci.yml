@@ -17,7 +17,8 @@ jobs:
       - name: Build report
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: doc/main.tex
+          working_directory: doc
+          root_file: main.tex
 
       - name: Create tag for the current release
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
