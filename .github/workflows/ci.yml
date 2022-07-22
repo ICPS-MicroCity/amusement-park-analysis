@@ -21,11 +21,11 @@ jobs:
           root_file: main.tex
 
       - name: Create tag for the current release
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: DanySK/semver-autotag-action@0.1.0
 
       - name: Release report
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
           else
             TAG=$(git describe --tags --exact-match HEAD)
             hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
-            for file in `ls *.pdf`
+            for file in `ls doc/*.pdf`
             do
               echo "Release of $file"
               gh release upload "$TAG" $file --clobber
