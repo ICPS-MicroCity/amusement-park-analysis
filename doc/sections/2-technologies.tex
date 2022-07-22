@@ -2,16 +2,13 @@
 
 \subsection{Wi-Fi as outdoor localization system}
 
-Il Wi-Fi non e' di certo la prima tecnologia a cui si pensa quando e' richiesto di localizzare persone o dispositivi
-in un contesto outdoor. Il GPS (Global Positioning System) e' la tecnologia piu' diffusa e famosa per raggiungere questo
-tipo di obiettivo. Tuttavia, quest'ultima tecnologia presenta diverse limitazioni: la precisione e' nell'ordine di qualche
-decina di metri, l'impatto energetico nell'utilizzo su dispositivi mobile e' molto elevato e in zone ad alta densità 
-abitativa, il GPS fatica a fornire una misura accurata della posizione.
+Wi-Fi is a family of wireless network protocols, which are commonly used for local area networking of devices and Internet access, allowing nearby digital device to exchange data by radio waves.
 
-Over the past decades, localization service has been applied to a variety of different applications.
-So far, the global position system (GPS) has been the dominant technology to enable outdoor localization.
-However, since GPS localization requires the line of sight to four or more satellites, it does not work well in certain urban regions,
-such as a downtown canyon surrounded by skyscrapers.
+To date, Wi-Fi is a technology that has been pervasively adopted and made accessible to anyone because of cost, ease of installation and configuration.
+
+Unlike other technologies such as the global positioning system (GPS), Wi-Fi was not designed to perform device and/or person location. However, by exploiting ad-hoc techniques it is possible
+to leverage this tool to perform device localization. Finally, GPS does not always perform well in any context: in closed environments or where the GPS signal cannot reach, localization using
+this technology is approximate or even impractical.
 Another problem with GPS is its high power consumption, which is a serious challenge to battery-based mobile devices.
 To tackle the problems with GPS, many researchers have proposed a series of alternative localization schemes, including cellular-based systems \cite{ibrahim2010cellsense},
 infrared-based systems, ultrasonic-based systems, and radio frequency (RF)-based systems~\cite{bahl2000radar, youssef2002probabilistic}.
@@ -21,9 +18,9 @@ devices. These schemes can be divided into two groups: range-based and range-fre
 
 \begin{itemize}
     \item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like time-of-arrival (ToA),
-    time difference of arrival (TDoA), or propagation model generated from RSSI value.
+          time difference of arrival (TDoA), or propagation model generated from RSSI value.
     \item \textbf{Range-free}: one of the most widely used range-free method is fingerprint localization method. This method can be categorized into three types: visual fingerprint-based localization, motion fingerprint-based systems, and
-    signal fingerprint-based methods. In our context the last one is the most promising.
+          signal fingerprint-based methods. In our context the last one is the most promising.
 \end{itemize}
 
 \subsubsection{Signal fingerprint-based localization}
@@ -35,22 +32,23 @@ in the database which has the minimum difference with the device need to be loca
 In terms of effect, signal fingerprint-based localization has the ability to get fine-grained results. However, it is impractical to transfer this method directly from the indoor environment to the
 outdoor environment, because there are many problems such as complicated training work and complex outdoor environment.
 
-A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position 
-of a device: we use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
-We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where
-$A_i \in A$ where $A$ is the fingerprint's APs set. Due to the fact that two fingerprints may contain different set of APs, so it may appear that AP $A_i$ appears in $f$ but
-does not appear in $f^{'}$. For this situation, we assume the signal strength is weak and let the missing value equal to $-100$. The dissimilarity between $f$ and $f^{'}$ can be shown as:
+% Il resto della sezione la sposterei in una sezione successiva in cui identifichiamo la tecnologia migliore per il tracciamento delle persone. 
+% A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position
+% of a device: we use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
+% We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where
+% $A_i \in A$ where $A$ is the fingerprint's APs set. Due to the fact that two fingerprints may contain different set of APs, so it may appear that AP $A_i$ appears in $f$ but
+% does not appear in $f^{'}$. For this situation, we assume the signal strength is weak and let the missing value equal to $-100$. The dissimilarity between $f$ and $f^{'}$ can be shown as:
 
-\begin{equation}
-    \eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
-\end{equation}
+% \begin{equation}
+%     \eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
+% \end{equation}
 
-where $p = | A \cup A^{'} |$
+% where $p = | A \cup A^{'} |$
 
-We found the sample with minimum dissimilarity through compare all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
+% We found the sample with minimum dissimilarity through compare all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
 
-\begin{equation}
-    f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
-\end{equation}
+% \begin{equation}
+%     f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
+% \end{equation}
 
-$L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
+% $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
