@@ -52,3 +52,31 @@ outdoor environment, since there are many problems such as complicated training 
 % \end{equation}
 
 % $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
+
+\subsection{Bluetooth as outdoor localization system}
+Il bluetooth e' uno standard per la trasmissione di dati per reti personali wireless. Fornisce un modo standard per scambiare informazioni tra
+dispositivi attraverso una frequenza a corto raggio in grado di rilevare i dispositivi coperti dal segnale radio entro una decina di metri mettendoli
+in comunicazione tra loro.
+
+Nonostante sia una tecnologia pensata piu' di venti anni fa, vanta una massiva adozioni in molti contesti come quello medico, industriale e negli
+ultimi anni nell'Internet of Things (IoT). Questo standard venne progettato con l'obiettivo di ottenere bassi consumi, un corto raggio d'azione
+e un basso costo di produzione. Negli anni si sono susseguiti diversi aggiornamenti al protocollo, volti a migliorare da un lato l'efficienza di
+comunicazione, abilitando frequenze di trasmissione piu' elevate e dall'altro lato migliorare l'efficienza energetica dei dispositivi.
+
+Anche in questo caso il Bluetooth non e' stato pensato per svolgere funzionalità di localizzazione. Tuttavia, e' possibile sfruttare alcune
+caratteristiche del protocollo per effettuare una stime piu' o meno precisa della posizione di un dispositivo. In particolare la tecnica maggiormente
+utilizzata per raggiungere questo obiettivo e' quella basata sulla potenza del segnale identificata dall'RSSI (Receives Signal Strength Indicator).
+Altre tecniche, come il fingerprint-base localization possono essere impiegate per stimare la posizione.
+
+Con la tecnica basata su RSSI, si acquisiscono inizialmente gli RSSI di tutti i dispositivi Bluetooth raggiungibili e mediante tecniche di
+trilaterazione si stima la posizione del dispositivo. Le tecniche basate su fingerprint stimano la posizione operando in due fasi: la prima e' la fase
+di training che costruisce i fingerprint, ovvero un record che associa una posizione agli RSSI dei beacon raggiungibili da quel punto. La seconda fase
+prevede di identificare il fingerprint che meno di discosta dalla posizione in cui il dispositivo si trova in un dato momento e la posizione associata
+a quel fingerprint determina la stima della posizione. Diversi progetti e applicazioni si basano su queste due tecniche per stimare la posizione di un
+dispositivo~\cite{mcconville2021vesta, samuel2021smart}.
+
+La proliferazione di servizi di localizzazione per diverse applicazioni IoT necessita di rilevare le posizioni dei dispositivi con accuratezze molto
+elevate, nell'ordine dei centimetri. Con l'introduzione dello standard Bluetooth 5.1 e' stata introdotta una nuova funzionalità chiamata
+\textit{Direction Finding} che abilita una localizzazione puntuale dei dispositivi Bluetooth. This new localization feature provides
+two different options for positioning a Bluetooth device, namely Angle of Arrival (AoA) and Angle of Departure (AoD) compared to the previous version
+that relies only on the received signal strength indication to localize a Bluetooth device.
