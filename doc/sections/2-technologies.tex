@@ -63,14 +63,15 @@ recent years in the Internet of Things (IoT). This standard was designed with th
 and a low cost of production. Over the years, there have been several updates to the protocol, aimed at improving on the one hand the efficiency of
 communication by enabling higher transmission frequencies and on the other hand to improve the energy efficiency of devices.
 
-Bluetooth was not designed to perform location functionality. However, it is possible to exploit certain
+Bluetooth was not designed to perform localization functionality. However, it is possible to exploit certain
 features of the protocol to make a more or less precise estimate of a device's location. In particular, the technique most
 used to achieve this is that based on the signal strength identified by the RSSI (Receives Signal Strength Indicator).
 Other techniques, such as fingerprint-base localization can be employed to estimate position.
 
 With the RSSI-based technique, the RSSIs of all reachable Bluetooth devices are initially acquired, and through techniques of trilateration, the
 location of the device is estimated.\\
-Fingerprint-based techniques estimate the location by operating in two stages: the first is the training phase that deals with building fingerprints, which is a record that associates a location with the RSSIs of beacons reachable from that
+Fingerprint-based techniques estimate the location by operating in two stages: the first is the training phase that deals with building fingerprints,
+which is a record that associates a location with the RSSIs of beacons reachable from that
 point. The second phase involves identifying the fingerprint that least deviates from the position where the device is at a given time, and the
 position associated to that fingerprint determines the estimated position. Several projects and applications rely on these two techniques to estimate
 the position of a device~\cite{mcconville2021vesta, samuel2021smart}.
