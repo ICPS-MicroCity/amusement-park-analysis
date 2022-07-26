@@ -1,36 +1,62 @@
-\section{Technologies}
+\section{Technologies for visitors localization}\label{sec:technologies}
+Visitors localization could be useful for both proximity marketing and calculating the number of people in a queue.
+Indoor localization could be helpful in our context as there are restaurants, shops and some attractions
+(e.g.\ Reset\footnote{\url{https://www.mirabilandia.it/en/attivita/attrazioni/reset}}) not easily reached by the outdoor localization technologies.
+Moreover, the accuracy of outdoor localization technologies (e.g.\ GPS) may not be enough accurate for instance for the prize games area\footnote{\url{https://www.mirabilandia.it/en/attivita/attrazioni/altri-giochi-e-giochi-a-premio}}
+where the stands are located next to each other.
 
-\subsection{Wi-Fi as outdoor localization system}
+Some technologies identified for these purposes will be described in the following sections.
+
+\subsection{Wi-Fi as outdoor localization system}\label{subsec:wi-fi-as-outdoor-localization-system}
 
 Wi-Fi is a family of wireless network protocols, which are commonly used for local area networking of devices and Internet access, allowing nearby digital device to exchange data by radio waves.
 
 To date, Wi-Fi is a technology that has been pervasively adopted and made accessible to anyone because of cost, ease of installation and configuration.
 
-Unlike other technologies such as the global positioning system (GPS), Wi-Fi was not designed to perform device and/or person location. However, by exploiting ad-hoc techniques it is possible
-to leverage this tool to perform device localization. Finally, GPS does not always perform well in any context: in closed environments or where the GPS signal cannot reach, localization using
+Unlike other technologies such as the global positioning system (GPS), Wi-Fi was not designed to perform device and/or person location.
+However, by exploiting ad-hoc techniques it is possible to leverage this tool to perform device localization.
+Finally, GPS does not always perform well in any context: in closed environments or where the GPS signal cannot reach, localization using
 this technology is approximate or even impractical.
 Another problem with GPS is its high power consumption, which is a serious challenge to battery-based mobile devices.
-To tackle the problems with GPS, many researchers have proposed a series of alternative localization schemes, including cellular-based systems \cite{ibrahim2010cellsense},
+To tackle the problems with GPS, many researchers have proposed a series of alternative localization schemes, including cellular-based systems~\cite{ibrahim2010cellsense},
 infrared-based systems, ultrasonic-based systems, and radio frequency (RF)-based systems~\cite{bahl2000radar, youssef2002probabilistic}.
 
 Many researchers have proposed a variety of different schemes for outdoor localization based on mobile
-devices. These schemes can be divided into two groups: range-based and range-free methods.
+devices.
+These schemes can be divided into two groups: range-based and range-free methods.
 
 \begin{itemize}
       \item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like time-of-arrival (ToA),
             time difference of arrival (TDoA), or propagation model generated from RSSI value.
-      \item \textbf{Range-free}: one of the most widely used range-free method is fingerprint localization method. This method can be categorized into three types:
-            visual fingerprint-based localization, motion fingerprint-based systems, and signal fingerprint-based methods. In our context the latter is the most promising.
+      \item \textbf{Range-free}: one of the most widely used range-free method is fingerprint localization method.
+            This method can be categorized into three types:
+            visual fingerprint-based localization, motion fingerprint-based systems, and signal fingerprint-based methods.
+            In our context the latter is the most promising.
 \end{itemize}
 
 \subsubsection{Signal fingerprint-based localization}
-Signal fingerprint-based localization is widely used in places where a large number of Wi-Fi infrastructures are deployed. This methods commonly consist of offline training phase
-and online fingerprint matching phase. The goal of the first phase is to form a fingerprint database which stores the correlation between \textit{Received Signal Strength} (RSS) from
-various \textit{Access Points}(APs) and fix locations. The device's location is determined at the matching stage. In this process we use matching algorithm to search the fingerprint
-in the database which has the minimum difference with the device that needs to be located. The associated label is our estimated location.
+Signal fingerprint-based localization is widely used in places where a large number of Wi-Fi infrastructures are deployed.
+This methods commonly consist of offline training phase and online fingerprint matching phase.
+The goal of the first phase is to form a fingerprint database which stores the correlation between \textit{Received Signal Strength} (RSS) from
+various \textit{Access Points}(APs) and fixed locations.
+The device's location is determined at the matching stage.
+In this process we use matching algorithm to search the fingerprint
+in the database which has the minimum difference with the device that needs to be located.
+The associated label is our estimated location.
 
-In terms of effect, signal fingerprint-based localization has the ability to get fine-grained results. However, it is impractical to transfer this method directly from the indoor to the
-outdoor environment, since there are many problems such as complicated training work and complex outdoor conditions.
+\subsubsection{Signal fingerprint-based localization improvement with NFC technology}
+In terms of effect, signal fingerprint-based localization has the ability to get fine-grained results.
+However, as any radio environment is dynamic: unpredictable movements of the people or large unforeseen gatherings,
+alterations in the radio network itself, and environmental effects such as change in humidity levels etc~\cite{chaudhry2013indoor}.
+Therefore, the RF values measured for location estimation at any given point in time may significantly deviate from
+those stored in the database created at the training phase.
+As a result, the location estimation based on a static database may be inaccurate.
+Also, the training phase needs a human operator (or a human-assisted machine) to thoroughly collect the RF context and
+the location at which the context was collected from.
+To tackle these problems, as suggested in~\cite{chaudhry2013indoor}, it could be useful a system which considers the NFC technology:
+reference points of precisely known locations are spread in the environment, marked by NFC tags, to build the database of fingerprints around.
+This could improve the training phase and allows easy adaptation to environmental changes.
+
 
 % Il resto della sezione la sposterei in una sezione successiva in cui identifichiamo la tecnologia migliore per il tracciamento delle persone. 
 % A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position
@@ -52,6 +78,10 @@ outdoor environment, since there are many problems such as complicated training 
 % \end{equation}
 
 % $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
+
+%TODO \subsection{Virtual Queueing - technologies for waiting time etimation}
+%TODO \subsection{Queue length estimation: NFC(people scanning a tag letting know they are there) vs Bluetooth(automatically doing that)} ??
+
 
 \subsection{Bluetooth as outdoor localization system}
 Bluetooth is a data transmission standard for personal wireless networks. It provides a standard way to exchange information between
