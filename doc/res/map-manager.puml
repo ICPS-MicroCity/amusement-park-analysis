@@ -1,0 +1,24 @@
+@startuml map-manager
+left to right direction
+skinparam nodesep 80
+skinparam ranksep 40
+
+component "Map Manager" {
+    component "RSSI Collector" as rssi
+    component "Filter" as filter
+    component "Inference Engine" as inference
+    database "Fingerprint DB" as fingerprint
+    database "Real-time positions DB" as history
+}
+
+interface "Device RSSI" as device_rssi
+interface "Guest position" as endpoint
+
+device_rssi ..> rssi
+rssi ..> filter
+filter ..> inference
+inference -- fingerprint
+inference -- history
+inference .left.> endpoint
+
+@enduml
