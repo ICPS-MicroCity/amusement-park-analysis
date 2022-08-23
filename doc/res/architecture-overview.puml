@@ -1,0 +1,28 @@
+@startuml architecture-overview
+'left to right direction
+skinparam componentStyle rectangle
+skinparam nodesep 100
+skinparam ranksep 80
+' node "Recommender" as recommender {
+'     [Attractions recommender]
+'     [Show recommender]
+'     [Restaurant recommender]
+'     [Shop recommender]
+' }
+
+[Recommender] as recommender
+[Planner] as planner
+[Map manager] as map_manager
+[Virtual Queueing System] as vqs
+'actor Guest as guest
+
+planner ..> map_manager : uses
+recommender ..> map_manager : uses
+vqs <.. planner : uses
+vqs <.. recommender : uses
+' guest <--> vqs : interact with
+' guest .. map_manager : interacts with
+' guest .. recommender
+' guest .. planner
+
+@enduml
