@@ -4,5 +4,6 @@
             "language": "latex",
             "scheme": "file"
         }
-    ]
+    ],
+    "editor.formatOnSave": true
 }

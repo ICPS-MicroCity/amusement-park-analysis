@@ -20,6 +20,7 @@
 \usepackage[italian]{cleveref}
 \usepackage{mdframed}
 
+\usepackage{longtable}
 
 \usepackage{color}
 \usepackage{xcolor}
@@ -72,6 +73,12 @@
 	\textbf{#1} & #2\\
 	\hline
 }
+
+\newcommand{\ult}[3]{
+	\textbf{#1} & \textbf{#2} & #3\\
+	\hline
+}
+
 \newcommand{\case}[4]{
 	#1 & #2 & #3 & #4\\
 	\hline

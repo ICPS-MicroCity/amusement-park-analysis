@@ -1,4 +1,50 @@
-\section{Technologies for visitors localization}\label{sec:technologies}
+\section{Overall architecture}\label{sec:mira-microcity}
+
+As mentioned in the previous section, Mirabilandia does not offer a recommendation or virtual queuing services.
+In this section, we describe a possible implementation of the "smart micro-city" concept applied to the context of amusement parks, specifically that
+of Mirabilandia.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/architecture-overview.eps}
+	\caption{Overview architecture of Mirabilandia as a micro-city.
+		The component diagram shows the rough architecture in the context of Mirabilandia, showing the main dependencies between them.
+	}
+	\label{fig:architecture-overview}
+\end{figure}
+
+Following the analysis of the ``as-is'' system and the goals set to adapt the smart micro-city concept on Mirabilandia,
+figure~\ref{fig:architecture-overview} shows the component diagram modeling the entities involved and the main relationships between them.
+
+The main components of the system are the following:
+
+\begin{itemize}
+	\item \textit{Map Manager}: is responsible for tracking the guest within the park and providing information about the current position
+	\item \textit{Virtual Queueing System}: is responsible for managing the virtual queue for each attraction
+	\item \textit{Recommender}: is responsible for providing recommendations to the guests based on their preferences and position within the park
+	\item \textit{Planner}: is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
+\end{itemize}
+
+From the diagram emerge that \textit{Map Manager} and \textit{Virtual Queueing System} are the main components of the system since they are the ones
+that provide information to the other components. The \textit{Map Manager} provides information about the current position of the guests
+to the \textit{Recommender} which uses this information to provide recommendations to the guests. Moreover, gives information also to the
+\textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual Queueing System} is used by
+the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality of the visit within the park
+and by the \textit{Recommender} to fetch information about the current waiting time of the attractions and opportunistically advise the attraction.
+
+\section{Map Manager}
+
+The location of guests within the amusement park is critical for several reasons: guest location information is used to make recommendations and to determine the best plan for each guest. So, good tracking is crucial for the good working of the overall system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/map-manager.eps}
+	\caption{Component diagram showing the internal architecture of the \textit{Map Manager} component.
+	}
+	\label{fig:map-manager}
+\end{figure}
+
+\subsection{Technologies for visitors localization}\label{sec:technologies}
 Visitors localization could be useful for both proximity marketing and calculating the number of people in a queue.
 Indoor localization could be helpful in our context as there are restaurants, shops and some attractions
 (e.g.\ Reset\footnote{\url{https://www.mirabilandia.it/en/attivita/attrazioni/reset}}) not easily reached by the outdoor localization technologies.
@@ -7,7 +53,7 @@ where the stands are located next to each other.
 
 Some technologies identified for these purposes will be described in the following sections.
 
-\subsection{Wi-Fi as outdoor localization system}\label{subsec:wi-fi-as-outdoor-localization-system}
+\subsubsection{Wi-Fi as outdoor localization system}\label{subsec:wi-fi-as-outdoor-localization-system}
 
 Wi-Fi is a family of wireless network protocols, which are commonly used for local area networking of devices and Internet access, allowing nearby digital device to exchange data by radio waves.
 
@@ -26,12 +72,12 @@ devices.
 These schemes can be divided into two groups: range-based and range-free methods.
 
 \begin{itemize}
-      \item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like time-of-arrival (ToA),
-            time difference of arrival (TDoA), or propagation model generated from RSSI value.
-      \item \textbf{Range-free}: one of the most widely used range-free method is fingerprint localization method.
-            This method can be categorized into three types:
-            visual fingerprint-based localization, motion fingerprint-based systems, and signal fingerprint-based methods.
-            In our context the latter is the most promising.
+	\item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like time-of-arrival (ToA),
+	      time difference of arrival (TDoA), or propagation model generated from RSSI value.
+	\item \textbf{Range-free}: one of the most widely used range-free method is fingerprint localization method.
+	      This method can be categorized into three types:
+	      visual fingerprint-based localization, motion fingerprint-based systems, and signal fingerprint-based methods.
+	      In our context the latter is the most promising.
 \end{itemize}
 
 \subsubsection{Signal fingerprint-based localization}
@@ -57,33 +103,7 @@ To tackle these problems, as suggested in~\cite{chaudhry2013indoor}, it could be
 reference points of precisely known locations are spread in the environment, marked by NFC tags, to build the database of fingerprints around.
 This could improve the training phase and allows easy adaptation to environmental changes.
 
-
-% Il resto della sezione la sposterei in una sezione successiva in cui identifichiamo la tecnologia migliore per il tracciamento delle persone. 
-% A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position
-% of a device: we use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
-% We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where
-% $A_i \in A$ where $A$ is the fingerprint's APs set. Due to the fact that two fingerprints may contain different set of APs, so it may appear that AP $A_i$ appears in $f$ but
-% does not appear in $f^{'}$. For this situation, we assume the signal strength is weak and let the missing value equal to $-100$. The dissimilarity between $f$ and $f^{'}$ can be shown as:
-
-% \begin{equation}
-%     \eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
-% \end{equation}
-
-% where $p = | A \cup A^{'} |$
-
-% We found the sample with minimum dissimilarity through compare all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
-
-% \begin{equation}
-%     f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
-% \end{equation}
-
-% $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
-
-%TODO \subsection{Virtual Queueing - technologies for waiting time etimation}
-%TODO \subsection{Queue length estimation: NFC(people scanning a tag letting know they are there) vs Bluetooth(automatically doing that)} ??
-
-
-\subsection{Bluetooth as outdoor localization system}
+\subsubsection{Bluetooth as outdoor localization system}
 Bluetooth is a data transmission standard for personal wireless networks. It provides a standard way to exchange information between
 devices through a short-range frequency capable of detecting devices covered by the radio signal within about ten meters by putting them
 in communication with each other.
@@ -114,3 +134,34 @@ This new localization feature provides two different options for positioning a B
 To be more precise, the former technique allows a receiver equipped with a multi-antenna array to identify the angular position of a transmitter
 based on the phase delay of the signal received from the transmitter; the latter allows the transmitting device with multiple antennas to transmit a
 radio signal that permits the receiver to determine the directional angle to the transmitter
+
+\subsection{Suitable localization techniques for Mirabilandia}
+% Il resto della sezione la sposterei in una sezione successiva in cui identifichiamo la tecnologia migliore per il tracciamento delle persone. 
+% A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position
+% of a device: we use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
+% We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where
+% $A_i \in A$ where $A$ is the fingerprint's APs set. Due to the fact that two fingerprints may contain different set of APs, so it may appear that AP $A_i$ appears in $f$ but
+% does not appear in $f^{'}$. For this situation, we assume the signal strength is weak and let the missing value equal to $-100$. The dissimilarity between $f$ and $f^{'}$ can be shown as:
+
+% \begin{equation}
+%     \eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
+% \end{equation}
+
+% where $p = | A \cup A^{'} |$
+
+% We found the sample with minimum dissimilarity through compare all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
+
+% \begin{equation}
+%     f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
+% \end{equation}
+
+% $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
+
+%TODO \subsection{Virtual Queueing - technologies for waiting time etimation}
+%TODO \subsection{Queue length estimation: NFC(people scanning a tag letting know they are there) vs Bluetooth(automatically doing that)} ??
+
+\section{Virtual Queuing System}
+
+\section{Recommender}
+
+\section{Planner}

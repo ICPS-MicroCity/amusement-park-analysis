@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \input{packages}
 \input{preamble}
 
@@ -8,10 +8,27 @@
 \tableofcontents
 \clearpage
 
-\inputn{sections/0-introduction}
-\inputn{sections/1-state-of-the-art.tex}
-\input{sections/1.1-mira-microcity.tex}
-\input{sections/2-technologies.tex}
+\chapter{Domain Analysis}\label{chap:domain-analysis}
+\input{sections/da-01-introduction.tex}
+\input{sections/da-02-context.tex}
+\input{sections/da-03-ul.tex}
+\input{sections/da-04-model.tex}
+\input{sections/da-05-examples.tex}
+
+\chapter{Case Study}\label{chap:case-study}
+\input{sections/cs-01-introduction.tex}
+\input{sections/cs-02-case-study.tex}
+\input{sections/cs-03-ul.tex}
+\input{sections/cs-04-scenarios.tex}
+\input{sections/cs-05-requirements.tex}
+
+\chapter{Mirabilandia Case Study}\label{chap:mira-case-study}
+\input{sections/mira-01-introduction.tex}
+\input{sections/mira-02-current.tex}
+
+\chapter{Mirabilandia as a Micro City}\label{chap:mira-micro-city}
+\input{sections/mira-03-microcity.tex}
+
 \nocite{*}
 \newpage
 \printbibliography[heading=bibintoc]
