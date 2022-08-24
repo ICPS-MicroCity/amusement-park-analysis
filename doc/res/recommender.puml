@@ -3,6 +3,7 @@ left to right direction
 
 component "Map Manager" as map_manager
 component "Virtual Queing System" as virtual_queing
+component "Visitor Manager" as visitor_manager
 
 component "Recommender" {
     left to right direction
@@ -25,6 +26,9 @@ attraction_recommender .up.> map_manager
 show_recommender .up.> map_manager
 restaurant_recommender .up.> map_manager
 attraction_recommender .up.> virtual_queing
+attraction_recommender .up.> visitor_manager
+show_recommender .up.> visitor_manager
+
 
 notifier_manager .. visitor
 

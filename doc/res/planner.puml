@@ -7,11 +7,13 @@ component "Planner" as planner {
 
 component "Virtual Queuing System" as vqs
 component "Map Manager" as mm
+component "Visitor Manager" as vm
 
 actor "Visitor" as visitor
 
 itinerary <.up. vqs
 itinerary <.up. mm
+vm <.. itinerary
 
 itinerary .. visitor
 

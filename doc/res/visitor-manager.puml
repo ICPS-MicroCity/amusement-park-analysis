@@ -1,0 +1,18 @@
+@startuml visitor-manager
+left to right direction
+component "Visitor Manager" as vm {
+    component "Login Manager" as lm
+    component "Tickets Manager" as tm
+    component "Preferences Manager" as pm
+    database "User Info DB" as uidb
+    database "Tickets DB" as tdb
+
+    lm -- uidb
+    pm -- uidb
+    tm -- tdb
+}
+
+interface Preferences as pref
+pm .up.> pref
+
+@enduml

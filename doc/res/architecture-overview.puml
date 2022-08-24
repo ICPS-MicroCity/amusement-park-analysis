@@ -1,5 +1,6 @@
 @startuml architecture-overview
-'left to right direction
+top to bottom direction
+
 'skinparam componentStyle rectangle
 skinparam nodesep 100
 skinparam ranksep 80
@@ -11,15 +12,19 @@ skinparam ranksep 80
 ' }
 
 [Recommender] as recommender
+[Visitors Manager] as vm
 [Planner] as planner
 [Map manager] as map_manager
 [Virtual Queueing System] as vqs
+
 'actor Guest as guest
 
 planner ..> map_manager : uses
 recommender ..> map_manager : uses
 vqs <.. planner : uses
 vqs <.. recommender : uses
+vm <.left. recommender : uses
+vm <.right. planner : uses
 ' guest <--> vqs : interact with
 ' guest .. map_manager : interacts with
 ' guest .. recommender
