@@ -1,0 +1,31 @@
+@startuml recommender
+left to right direction
+
+component "Map Manager" as map_manager
+component "Virtual Queing System" as virtual_queing
+
+component "Recommender" {
+    left to right direction
+    component "Notifier Manager" as notifier_manager
+    component "Shop recommender" as shop_recommender
+    component "Attraction recommender" as attraction_recommender
+    component "Show recommender" as show_recommender
+    component "Restaurant recommender" as restaurant_recommender
+}
+
+actor "Visitor" as visitor
+
+shop_recommender -- notifier_manager
+attraction_recommender -- notifier_manager
+show_recommender -- notifier_manager
+restaurant_recommender -- notifier_manager
+
+shop_recommender .up.> map_manager
+attraction_recommender .up.> map_manager
+show_recommender .up.> map_manager
+restaurant_recommender .up.> map_manager
+attraction_recommender .up.> virtual_queing
+
+notifier_manager .. visitor
+
+@enduml

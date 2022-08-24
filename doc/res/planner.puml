@@ -1,0 +1,18 @@
+@startuml planner
+left to right direction
+
+component "Planner" as planner {
+    component "Itinerary Service" as itinerary
+}
+
+component "Virtual Queuing System" as vqs
+component "Map Manager" as mm
+
+actor "Visitor" as visitor
+
+itinerary <.up. vqs
+itinerary <.up. mm
+
+itinerary .. visitor
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml virtual-queuing
+left to right direction
+component "Virtual Queuing System" as vqs {
+    component "Queue Manager" as qm
+    queue "Queue n" as qn
+    queue "Queue 2" as q2
+    queue "Queue 1" as q1
+
+    qm -down- qn
+    qm -down- q2
+    qm -down- q1
+}
+
+interface "Source 1" as s1
+interface "Source 2" as s2
+interface "Source n" as sn
+
+interface "Waiting Time" as wt
+
+qm <.up. sn
+qm <.up. s2
+qm <.up. s1
+
+qm .left.> wt
+
+@enduml
