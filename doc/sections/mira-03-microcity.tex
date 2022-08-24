@@ -189,6 +189,23 @@ radio signal that permits the receiver to determine the directional angle to the
 	\label{fig:planner-arch}
 \end{figure}
 
+\subsection{Sub-GHz Wireless Sensor Network for crowd density estimation}\label{subsec:sub-ghz-wireless-sensor-network-for-crowd-density-estimation}
+In our context, crowd density estimation could be advantageous to redirect visitors toward less crowded places within the park.
+The classic approach to obtaining this information is to make use of an optical camera-based system but the accuracy of these systems can be
+rather dependent on the lighting conditions and they tend to require the availability of a large amount of computing power.
+Furthermore, the use of optical cameras raises the spectre of privacy-related issues.
+A WSN-based system could potentially be used to simply avoid these issues~\cite{denis2018large}.
+In fact, the use of sub-GHz frequencies could be the best decision, due to their increased range and penetration capabilities through objects, walls and human individuals~\cite{denis2018large}.
+Moreover, this kind of transceivers, compared to the regular WiFi, have a significant lower power-consumption~\cite{fudickar2014comparing}.
+
+As presented in~\cite{denis2018large}, they managed to show the feasibility of using a sub-GHz wireless network to estimate the
+density of large-scale crowds calculating the mean RSS-differences within a WSN between an empty and an active environment and used them
+as input to a probabilistic neural network.
+Whereas in~\cite{fudickar2014comparing}, showed that Sub GHz transceivers achieve significant lower RSS errors and are less influenced by obstacles attenuations.
+Their localisation achieved ca. 1 m more accurate median error distances than the corresponding versions that utilise WiFi transceivers.
+In addition, the battery runtimes are extended by 48\% when using Sub GHz transceivers instead of WiFi transceivers.
+
+
 \section{Visitors Manager}
 
 \begin{figure}[H]
