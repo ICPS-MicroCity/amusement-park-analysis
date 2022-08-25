@@ -167,7 +167,7 @@ In this scenario, Bluetooth technology has been discarded because of the low sig
 than would be needed by taking advantage of Wi-Fi, also because in outdoor environments Bluetooth provides lower guarantees in terms of signal
 stability and this results in possible inaccuracies in location estimation.
 Finally, the introduction of the 5.1 standard is fairly new, and while it is not a problem in terms of adoption, there are still no comprehensive
-studies on its effectiveness in amusement park-like settings.
+studies on its effectiveness in amusement park-like environment.
 
 Below we will illustrate a possible technique for implementing park visitor tracking by exploiting Wi-Fi as a supporting technology.
 The development of this technique is based on work done by~\cite{du2018hybrid}~and~\cite{chaudhry2013indoor}.
@@ -178,7 +178,7 @@ The localization scheme consists of three main phases:
 	\item \textbf{Training phase:} in this phase, the system collects the RSSI values of the Wi-Fi APs in the park and associates them with a
 	      physical position. This phase could be performed by a human operator or a human-assisted machine
 	\item \textbf{Tiling phase:} in this phase the system divides the park into a grid of tiles and caches the values belonging to it
-	\item \textbf{Inference phase:} in this phase users' devices can calculate the dissimilarity between the collected patterns and the sample
+	\item \textbf{Inference phase:} in this phase the system calculates the dissimilarity between the collected patterns and the sample
 	      patterns in the database built before. The location of the fingerprint with the minimum difference will be selected as an estimation for the
 	      location of the device.
 \end{itemize}
@@ -241,7 +241,7 @@ The adoption of this technique leads to several advantages:
 \end{itemize}
 
 We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness
-(more accurate location and lower consumption) and costs.
+(more accurate location and lower consumption) and costs instead of using a traditional system like GPS.
 
 
 \section{Virtual Queuing System}
