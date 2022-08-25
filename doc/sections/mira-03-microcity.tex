@@ -162,29 +162,65 @@ installation and configuration. The choice of using Wi-Fi as a technology to sup
 	\item The spread of the technology is relatively wide, so any visitor's device support this technology.
 	\item The literature about localization using Wi-Fi is relatively large, so it is feasible to use this technology.
 \end{itemize}
-% Il resto della sezione la sposterei in una sezione successiva in cui identifichiamo la tecnologia migliore per il tracciamento delle persone. 
-% A new approach in signal fingerprint-based localization is proposed in~\cite{du2018hybrid}. In the article they propose the following technique to stimate the position
-% of a device: we use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
-% We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where
-% $A_i \in A$ where $A$ is the fingerprint's APs set. Due to the fact that two fingerprints may contain different set of APs, so it may appear that AP $A_i$ appears in $f$ but
-% does not appear in $f^{'}$. For this situation, we assume the signal strength is weak and let the missing value equal to $-100$. The dissimilarity between $f$ and $f^{'}$ can be shown as:
 
-% \begin{equation}
-%     \eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
-% \end{equation}
+In this scenario, Bluetooth technology has been discarded because of the low signal range and this would force the installation of many more devices
+than would be needed by taking advantage of Wi-Fi, also because in outdoor environments Bluetooth provides lower guarantees in terms of signal
+stability and this results in possible inaccuracies in location estimation.
+Finally, the introduction of the 5.1 standard is fairly new, and while it is not a problem in terms of adoption, there are still no comprehensive
+studies on its effectiveness in amusement park-like settings.
 
-% where $p = | A \cup A^{'} |$
+Below we will illustrate a possible technique for implementing park visitor tracking by exploiting Wi-Fi as a supporting technology.
+The development of this technique is based on work done by~\cite{du2018hybrid}~and~\cite{chaudhry2013indoor}.
 
-% We found the sample with minimum dissimilarity through compare all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
+The localization scheme consists of three main phases:
 
-% \begin{equation}
-%     f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
-% \end{equation}
+\begin{itemize}
+	\item \textbf{Training phase:} in this phase, the system collects the RSSI values of the Wi-Fi APs in the park and associates them with a
+	      physical position. This phase could be performed by a human operator or a human-assisted machine
+	\item \textbf{Tiling phase:} in this phase the system divides the park into a grid of tiles and caches the values belonging to it
+	\item \textbf{Inference phase:} in this phase users' devices can calculate the dissimilarity between the collected patterns and the sample
+	      patterns in the database built before. The location of the fingerprint with the minimum difference will be selected as an estimation for the
+	      location of the device.
+\end{itemize}
 
-% $L(f^{*})$ is the corresponding location of $f^{*}$ which represent the estimated place.
+The \textit{training phase} is the most important and challenging phase of the scheme. It is the phase in which the system collects the RSSI values
+of the Wi-Fi APs in the park and associates them with a physical position. The accuracy of this phase is crucial: a wrong position in a fingerprint
+could result in inaccurate location estimation. The collection of the fingerprint database could be done in several ways: by a human operator, which
+walking around the park collects the RSSI values of the Wi-Fi APs and associates them with a physical position, creating a fingerprint record.
+Alternatively, a fleet of robots (like drones) could be used to collect the RSSI values and associate them with a physical position. This scenario
+is ambitious but could be faster and less error-prone than the human ones.
 
-%TODO \subsection{Virtual Queueing - technologies for waiting time etimation}
-%TODO \subsection{Queue length estimation: NFC(people scanning a tag letting know they are there) vs Bluetooth(automatically doing that)} ??
+The \textit{tile phase} serves as an optimization method for the inference phase. The map is divided into regions, each containing fingerprints of the
+locations contained in it. In this way, it is not required to use the entire fingerprint database, but only the region (or regions) of interest.
+Finally, each tile can be cached for additional performance improvements during the inference phase.
+Determining which tile should be used for the inference step is not an easy task. Choosing the wrong tile may result in an incorrect
+position estimate. At the same time, it is particularly inefficient to estimate the position on the entire fingerprint database.
+For this reason, a sensor-assisted matching method can restrict the matching operation in a small space through sensor information including direction and travel distance. The current location can be calculated from the initial location \texttt{P}. The distance and direction can
+be estimated using the dead reckoning method with built-in inertial sensors like accelerometer, gyroscope, and compass.
+Given the longitude and latitude of the start point, the distance and bearing from the start point, and the destination point can be calculated using
+the Haversine formula. In this way, a subset of the local fingerprint database cache can be obtained.
+
+The \textit{inference phase} is the most important phase of the scheme. It is the phase in which the system calculates the position of the device.
+We use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
+We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where $A_i \in A$ where $A$ is the fingerprint's APs set.
+Since two fingerprints may contain a different set of APs, AP $A_i$ may appear in $f$ but does not appear in $f^{'}$.
+For this situation, we assume the signal strength is weak and let the missing value equal to $-100$.
+The dissimilarity between $f$ and $f^{'}$ can be shown as:
+
+\begin{equation}
+	\eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
+\end{equation}
+
+where $p = | A \cup A^{'} |$
+
+We found the sample with minimum dissimilarity by comparing all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
+
+\begin{equation}
+	f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
+\end{equation}
+
+$L(f^{*})$ is the corresponding location of $f^{*}$ which represents the estimated place.
+
 
 \section{Virtual Queuing System}
 \begin{figure}[H]
