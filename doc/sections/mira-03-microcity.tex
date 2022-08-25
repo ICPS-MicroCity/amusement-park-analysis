@@ -195,14 +195,17 @@ locations contained in it. In this way, it is not required to use the entire fin
 Finally, each tile can be cached for additional performance improvements during the inference phase.
 Determining which tile should be used for the inference step is not an easy task. Choosing the wrong tile may result in an incorrect
 position estimate. At the same time, it is particularly inefficient to estimate the position on the entire fingerprint database.
-For this reason, a sensor-assisted matching method can restrict the matching operation in a small space through sensor information including direction and travel distance. The current location can be calculated from the initial location \texttt{P}. The distance and direction can
+For this reason, a sensor-assisted matching method can restrict the matching operation in a small space through sensor information including
+direction and travel distance. The current location can be calculated from the initial location \texttt{P}. The distance and direction can
 be estimated using the dead reckoning method with built-in inertial sensors like accelerometer, gyroscope, and compass.
 Given the longitude and latitude of the start point, the distance and bearing from the start point, and the destination point can be calculated using
 the Haversine formula. In this way, a subset of the local fingerprint database cache can be obtained.
 
 The \textit{inference phase} is the most important phase of the scheme. It is the phase in which the system calculates the position of the device.
-We use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs in the fingerprint.
-We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where $A_i \in A$ where $A$ is the fingerprint's APs set.
+We use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs
+in the fingerprint.
+We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of
+fingerprints $f^{'}$ and $f$ at each $A_i$ where $A_i \in A$ where $A$ is the fingerprint's APs set.
 Since two fingerprints may contain a different set of APs, AP $A_i$ may appear in $f$ but does not appear in $f^{'}$.
 For this situation, we assume the signal strength is weak and let the missing value equal to $-100$.
 The dissimilarity between $f$ and $f^{'}$ can be shown as:
@@ -216,10 +219,29 @@ where $p = | A \cup A^{'} |$
 We found the sample with minimum dissimilarity by comparing all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
 
 \begin{equation}
-	f^{*} = \arg \max_{f_i \in F} \ \eta(f, f_i)
+	f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)
 \end{equation}
 
 $L(f^{*})$ is the corresponding location of $f^{*}$ which represents the estimated place.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/fingerprint-schema.eps}
+	\caption{Main steps in the proposed schema for Wi-Fi fingerprint-based localization technique.}
+	\label{fig:fingerprint-schema}
+\end{figure}
+
+In figure~\ref{fig:fingerprint-schema} are summarized the steps for the localization based on Wi-Fi.
+
+The adoption of this technique leads to several advantages:
+\begin{itemize}
+	\item The accuracy of the localization is improved compared with the GPS one~\cite{du2018hybrid}
+	\item The power consumption needed to implement this system is sensible lower than the GPS~\cite{du2018hybrid}
+	\item The flexibility of this technique enables the computation of the location either on the device or on the server.
+\end{itemize}
+
+We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness
+(more accurate location and lower consumption) and costs.
 
 
 \section{Virtual Queuing System}
