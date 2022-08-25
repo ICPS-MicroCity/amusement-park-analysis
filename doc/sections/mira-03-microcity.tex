@@ -275,6 +275,19 @@ We believe that Wi-Fi-based calculation of visitor location within the amusement
 	\label{fig:recommender-arch}
 \end{figure}
 
+\subsection{Proximity Marketing with WiFi}\label{subsec:technologies-for-proximity-marketing}
+Proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}.
+However, it is possible to enable IoT-based proximity communication running as a service using network information, exploiting WiFi.
+This offers better value than Bluetooth in terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure.
+The detection of Wi-Fi networks already provides some data about location, namely information about proximity so
+proximity-based rules replace location information, where Wi-Fi hot spots work as presence sensors~\cite{dmitry2013network}.
+
+This paper~\cite{mndebele2017iot} for instance, presents a proximity marketing as a service (PMaas) system that targets people in a specific location and delivers messages to their mobile devices via wireless connectivity technology as long as they remain in the specified location and only while they are connected to a particular network segment or specific access point.
+To do so, the system uses network information, i.e. the network name, and GPS parameters derived from the position of the mobile device.
+The marketing messages are sent by a cloud-based platform to the eligible devices and a mobile app listens for messages
+applicable to the subscriber, while the subscriber is in the relevant proximity.
+
+
 \section{Planner}
 
 \begin{figure}[H]
