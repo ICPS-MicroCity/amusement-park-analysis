@@ -8,35 +8,26 @@ component "Visitor Manager" as visitor_manager
 component "Recommendation System" {
     left to right direction
     component "Notifier Manager" as notifier_manager
-    component "Shop recommender" as shop_recommender
-    component "Attraction recommender" as attraction_recommender
-    component "Show recommender" as show_recommender
-    component "Restaurant recommender" as restaurant_recommender
+    component "Attractions recommender" as attractions_recommender
+    component "Shows recommender" as shows_recommender
     component "Reward Manager" as reward_manager
 }
 
 actor "Visitor" as visitor
 
-attraction_recommender .up.> virtual_queing
+attractions_recommender .up.> virtual_queing
 
-visitor_manager <.up. attraction_recommender
-show_recommender .up.> visitor_manager
+visitor_manager <.down. attractions_recommender
+shows_recommender .down.> visitor_manager
 
-shop_recommender .right.> map_manager
-attraction_recommender .right.> map_manager
-show_recommender .right.> map_manager
-restaurant_recommender .right.> map_manager
+attractions_recommender .up.> map_manager
+shows_recommender .up.> map_manager
 
-reward_manager -- shop_recommender
-reward_manager -- attraction_recommender
-reward_manager -- show_recommender
-reward_manager -- restaurant_recommender
+reward_manager -- attractions_recommender
+reward_manager -- shows_recommender
 
-shop_recommender -- notifier_manager
-attraction_recommender -- notifier_manager
-show_recommender -- notifier_manager
-restaurant_recommender -- notifier_manager
-
+attractions_recommender -- notifier_manager
+shows_recommender -- notifier_manager
 
 notifier_manager .. visitor
 

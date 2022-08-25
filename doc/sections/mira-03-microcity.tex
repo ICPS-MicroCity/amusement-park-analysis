@@ -1,8 +1,6 @@
 \section{Overall architecture}\label{sec:mira-microcity}
 
-As mentioned in the previous section, Mirabilandia does not offer a recommendation or virtual queuing services.
-In this section, we describe a possible implementation of the "smart micro-city" concept applied to the context of amusement parks, specifically that
-of Mirabilandia.
+In this section, we will describe a possible implementation of the Micro-city applied to the Mirabilandia amusement park.
 
 \begin{figure}[H]
 	\centering
@@ -13,24 +11,25 @@ of Mirabilandia.
 	\label{fig:architecture-overview}
 \end{figure}
 
-Following the analysis of the ``as-is'' system and the goals set to adapt the smart micro-city concept on Mirabilandia,
-figure~\ref{fig:architecture-overview} shows the component diagram modeling the entities involved and the main relationships between them.
+Following the analysis of the ``as-is'' system and the goals set % TODO write the goals?
+to adapt the smart micro-city concept to Mirabilandia, the figure~\ref{fig:architecture-overview} shows the component diagram that models the entities involved and the main relationships between them.
 
 The main components of the system are the following:
 
 \begin{itemize}
 	\item \textit{Map Manager}: is responsible for tracking the guest within the park and providing information about the current position
 	\item \textit{Virtual Queueing System}: is responsible for managing the virtual queue for each attraction
-	\item \textit{Recommender}: is responsible for providing recommendations to the guests based on their preferences and position within the park
+	\item \textit{Recommendation System}: is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections.
 	\item \textit{Planner}: is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
 \end{itemize}
 
 From the diagram emerge that \textit{Map Manager} and \textit{Virtual Queueing System} are the main components of the system since they are the ones
 that provide information to the other components. The \textit{Map Manager} provides information about the current position of the guests
-to the \textit{Recommender} which uses this information to provide recommendations to the guests. Moreover, gives information also to the
+to the \textit{Recommendation System} which uses this information to provide recommendations to the guests. Moreover, gives information also to the
 \textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual Queueing System} is used by
 the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality of the visit within the park
-and by the \textit{Recommender} to fetch information about the current waiting time of the attractions and opportunistically advise the attraction.
+and by the \textit{Recommendation System} to fetch information about the current waiting time of the attractions and opportunistically advise the attraction.
+% TODO fix the section considering the Visitor Manager
 
 \section{Map Manager}
 
@@ -169,7 +168,22 @@ radio signal that permits the receiver to determine the directional angle to the
 	\label{fig:virtual-queueing-arch}
 \end{figure}
 
-\section{Recommender}
+\section{Recommendation System}
+The Recommendation System is a crucial component to ensure the improvement of the visitors' experience.
+In fact, it is responsible for collecting data and providing tailored recommendations to the visitors
+and uses a Reward System to provide rewards based on the suggested actions.
+The Recommendation System is composed of:
+Attractions (i.e. roller coasters, restaurants, shops, etc.) and Shows
+\begin{itemize}
+	\item a \textit{Attractions Recommender}
+	\item a \textit{Shows Recommender} which takes visitor's information from the Visitor Manager to get their pre-compiled preferences about the shows they are interest in, and from the Map Manager, to get the visitor's location and send a notification based on their proximity to a point of interest.
+\end{itemize}
+
+
+Due to its "situatedness" nature, is triggered by the presence of a suitable visitor in a place of interest.
+
+The Reward System collects all the rewards to be given to the visitors and the Recommender (which knows the visitor's preferences)
+decide which one to send.
 
 \begin{figure}[H]
 	\centering
