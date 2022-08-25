@@ -304,6 +304,10 @@ In addition, the battery runtimes are extended by 48\% when using Sub GHz transc
 
 \section{Visitors Manager}
 
+The Visitor Manager is in charge of managing park visitor information. In particular, it is responsible for managing the visitor sign-up, the
+preferences they express when accessing the park, as well as maintaining a whole range of information useful for user profiling.
+Moreover, the Visitor Manager is responsible for managing the visitor's tickets, which are used to access the park and to pay for the services.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/visitor-manager.eps}
@@ -311,3 +315,17 @@ In addition, the battery runtimes are extended by 48\% when using Sub GHz transc
 	}
 	\label{fig:visitor-manager-arch}
 \end{figure}
+
+The figure~\ref{fig:visitor-manager-arch} shows the internal architecture of the Visitor Manager component. The Visitor Manager is composed of three main modules:
+
+\begin{itemize}
+	\item \textbf{Ticket Manager:} handles all the ticket-related operations like discounts, promotional offers, sales etc.
+	\item \textbf{Login Manager:} handles all the login-related operations like sign-up, login, logout, password recovery etc.
+	\item \textbf{Preferences Manager:} handles all the preferences related to a visitor like the preferred attractions, attractions to avoid, etc.
+\end{itemize}
+
+This component, through the data gathered from each visitor, provides the \textit{Recommender System} with the necessary information to provide the best recommendations to the visitors.
+
+Given the characteristics of this service and the operations it must perform, it is considered unnecessary to develop its version but rather to
+take advantage of platforms already in the market that offers this kind of functionality (user management, user profiling, preference management,
+etc.). For these reasons, it is not deemed necessary to examine this component further.
