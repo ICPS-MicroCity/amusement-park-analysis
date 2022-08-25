@@ -1,0 +1,36 @@
+@startuml fingerprint-schema
+top to bottom direction
+skinparam nodesep 90
+skinparam ranksep 80
+skinparam componentStyle rectangle
+
+component "Fingerprint collector" as collector
+
+database "Fingerprint DB" as fdb
+database "Cache tile DB" as cache_tile
+
+component "Wi-Fi Signal information" as wifi_signal
+component "Sensors information" as sensors_information
+component "Localization Algorithm" as localization_algorithm
+
+interface "Estimated Location" as estimated_location
+
+actor "Device" as device
+actor "Fingerprint devices" as fingerprint_device
+
+fingerprint_device -> collector
+fingerprint_device -> collector
+fingerprint_device -> collector
+
+collector --> fdb : populate fingerprint database
+fdb <.down.> cache_tile : synchronize cache tile
+
+device -up-> wifi_signal : send RSSI information
+device -right-> sensors_information
+wifi_signal -right-> cache_tile
+sensors_information -down-> localization_algorithm
+
+cache_tile -down-> localization_algorithm
+localization_algorithm ..> estimated_location
+
+@enduml
