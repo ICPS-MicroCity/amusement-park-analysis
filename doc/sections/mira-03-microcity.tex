@@ -1,18 +1,40 @@
+\section{Overview}\label{sec:overview}
+% TODO finire
+Given the previous analysis, we identified the macro categories of a Mirabilandia as a Micro City.
+The main elements we need are a way to manage the recommender that is tightly coupled with a reward system since every suggested action provides some kind of reward.
+
+Some examples of the relationship between a recommended action and its reward are listed in~\ref{tab:actions-rewards}.
+\begin{longtable}{|l|l|}
+	\hline
+	\textbf{Action} & \textbf{Reward} \\
+	\hline
+	Go watch this show & Get a reserved seat in the front row \\
+	\hline
+	Go to this roller coaster & Get a reduced waiting time \\
+	\hline
+	Go to this shop & Get a discount on t-shirts \\
+	\hline
+	Throw your plastic bottle in the smart trash can & Get a coin for the arcade \\
+	\hline 
+	\caption{Some examples of actions and their respective reward.}
+	\label{tab:actions-rewards}
+\end{longtable}
+
 \section{Overall architecture}\label{sec:mira-microcity}
 
-In this section, we will describe a possible implementation of the Micro-city applied to the Mirabilandia amusement park.
+In this section, we will describe a possible implementation of the Mirabilandia Micro-City.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/architecture-overview.eps}
-	\caption{Overview architecture of Mirabilandia as a micro-city.
-		The component diagram shows the rough architecture in the context of Mirabilandia, showing the main dependencies between them.
+	\caption{Overall architecture of the Mirabilandia Micro-City.
+		The Component Diagram shows the rough architecture and the main dependencies between the elements.
 	}
 	\label{fig:architecture-overview}
 \end{figure}
 
 Following the analysis of the ``as-is'' system and the goals set % TODO write the goals?
-to adapt the smart micro-city concept to Mirabilandia, the figure~\ref{fig:architecture-overview} shows the component diagram that models the entities involved and the main relationships between them.
+to adapt the Micro-City concept to Mirabilandia, the figure~\ref{fig:architecture-overview} shows the component diagram that models the entities involved and the main relationships between them.
 
 The main components of the system are the following:
 
@@ -265,31 +287,32 @@ We believe that Wi-Fi-based calculation of visitor location within the amusement
 \end{figure}
 
 \section{Recommendation System}
-The Recommendation System is a crucial component to ensure the improvement of the visitors' experience.
-In fact, it is responsible for collecting data and providing tailored recommendations to the visitors
-and uses a Reward System to provide rewards based on the suggested actions.
-The Recommendation System is composed of:
-Attractions (i.e. roller coasters, restaurants, shops, etc.) and Shows
-\begin{itemize}
-	\item a \textit{Attractions Recommender}
-	\item a \textit{Shows Recommender} which takes visitor's information from the Visitor Manager to get their pre-compiled preferences about the shows they are interest in, and from the Map Manager, to get the visitor's location and send a notification based on their proximity to a point of interest.
-\end{itemize}
-
-
-Due to its "situatedness" nature, is triggered by the presence of a suitable visitor in a place of interest.
-
-The Reward System collects all the rewards to be given to the visitors and the Recommender (which knows the visitor's preferences)
-decide which one to send.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/recommender.eps}
-	\caption{Component diagram showing the internal architecture of the \textit{Recommender System} component.
+	\caption{Component diagram showing the internal architecture of the \textit{Recommender System}.
 	}
 	\label{fig:recommender-arch}
 \end{figure}
 
-\subsection{Proximity Marketing with WiFi}\label{subsec:technologies-for-proximity-marketing}
+The Recommendation System is a crucial component to ensure the improvement of the visitors' experience.
+In fact, it is responsible for collecting data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions.
+The Recommendation System is composed of:
+\begin{itemize}
+	\item a \textit{Reward Manager} which stores all the rewards available to be given to the visitors for a given recommendation.
+	\item a \textit{Notification Manager} which sends the recommendation to the visitor's wearable.
+	\item a \textit{Shows Recommender} which takes visitor's information from the Visitor Manager to get their pre-compiled preferences about the shows they are interested in, and from the Map Manager, to get the visitor's location and send a notification based on their proximity to a point of interest. For instance, a notification will contain a warning that a show near them is about to start.
+	Other than the notification, the visitor will receive a reward for the suggestions they take: in the example above, the reward could be a reserved seat in the front row.
+	\item an \textit{Attractions Recommender} which takes all same the visitor's information as the Shows Recommender but instead of shows, it collects data about their preferred roller coasters, shops, etc. It gets the visitors' location from the Map Manager as well in order to send \textit{situated} recommendations.
+	In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations based on the waiting time of the attractions.
+\end{itemize}
+
+Since the system described above is a situated recommendation system, to broadcasts notifications the same method of the very similar Proximity Marketing technique could be used.
+In fact, almost the same technologies are required to implement such a system.
+In the following section, we will examine some of the current technologies that are available to implement such a system.
+
+\subsection{Proximity Marketing using WiFi}\label{sec:situated-recommendation-system-technologies}
 Proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}.
 However, it is possible to enable IoT-based proximity communication running as a service using network information, exploiting WiFi.
 This offers better value than Bluetooth in terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure.
