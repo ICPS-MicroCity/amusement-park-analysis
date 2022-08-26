@@ -4,14 +4,14 @@ top to bottom direction
 'skinparam componentStyle rectangle
 skinparam nodesep 100
 skinparam ranksep 80
-' node "Recommender" as recommender {
+' node "Recommendation System" as recommendation_system {
 '     [Attractions recommender]
 '     [Show recommender]
 '     [Restaurant recommender]
 '     [Shop recommender]
 ' }
 
-[Recommender] as recommender
+[Recommendation System] as recommendation_system
 [Visitors Manager] as vm
 [Planner] as planner
 [Map manager] as map_manager
@@ -20,14 +20,14 @@ skinparam ranksep 80
 'actor Guest as guest
 
 planner ..> map_manager : uses
-recommender ..> map_manager : uses
+recommendation_system ..> map_manager : uses
 vqs <.. planner : uses
-vqs <.. recommender : uses
-vm <.left. recommender : uses
+vqs <.. recommendation_system : uses
+vm <.left. recommendation_system : uses
 vm <.right. planner : uses
 ' guest <--> vqs : interact with
 ' guest .. map_manager : interacts with
-' guest .. recommender
+' guest .. recommendation_system
 ' guest .. planner
 
 @enduml
