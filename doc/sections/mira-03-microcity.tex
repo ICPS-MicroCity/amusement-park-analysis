@@ -344,7 +344,7 @@ Finally, the two characteristics are in some ways in opposition to each other: i
 the user has indicated, then the user is very likely to queue a lot and consequently lower the level of the visitor experience. On the other hand, if
 one identifies a plan that maximizes the visitor's experience, then it is quite likely that the latter will be offered attractions that are not of
 his or her interest.
-The difficulty in finding the best plan for each visitor lies in balancing, primarily, these two properties. 
+The difficulty in finding the best plan for each visitor lies in balancing, primarily, these two properties.
 
 \begin{figure}[H]
 	\centering
@@ -353,6 +353,15 @@ The difficulty in finding the best plan for each visitor lies in balancing, prim
 	}
 	\label{fig:planner-arch}
 \end{figure}
+
+In addition, park activities are as dynamic as park visitors are so it is easy to see that the needs of both parties may change in the process. Therefore, it is appropriate to provide that the plans generated for visitors can change dynamically to adapt to changes in the environment.
+An attraction may break down and therefore all plans that provided for the use of that ride must be adapted to the change.
+Again, overcrowding at an attraction may be the reason why certain visitors' plans change to avoid excessively long queues.
+
+From the above considerations, it is clear how the planner needs to know in real-time: the queue status of each attraction, the preferences expressed
+by each user, and the relative location within the park. Figure~\ref{fig:planner-arch} shows the dependencies that the planner has with the rest of
+the system, in particular, the information flows that the planner needs to generate the plans are represented.
+The core of the \textit{Planner} is the \textit{Itinerary Service} which collects all the information from the other components and provides the plans to each visitor.
 
 \subsection{Sub-GHz Wireless Sensor Network for crowd density estimation}\label{subsec:sub-ghz-wireless-sensor-network-for-crowd-density-estimation}
 In our context, crowd density estimation could be advantageous to redirect visitors toward less crowded places within the park.
