@@ -204,12 +204,12 @@ The Recommendation System is a crucial component to ensure the improvement of th
 In fact, it is responsible for collecting data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions.
 The Recommendation System is composed of:
 \begin{itemize}
-	\item a \textit{Reward Manager} which stores all the rewards available to be given to the visitors for a given recommendation.
-	\item a \textit{Notification Manager} which sends the recommendation to the visitor's wearable.
-	\item a \textit{Shows Recommender} which takes visitor's information from the Visitor Manager to get their pre-compiled preferences about the shows they are interested in, and from the Map Manager, to get the visitor's location and send a notification based on their proximity to a point of interest. For instance, a notification will contain a warning that a show near them is about to start.
-	Other than the notification, the visitor will receive a reward for the suggestions they take: in the example above, the reward could be a reserved seat in the front row.
-	\item an \textit{Attractions Recommender} which takes all same the visitor's information as the Shows Recommender but instead of shows, it collects data about their preferred roller coasters, shops, etc. It gets the visitors' location from the Map Manager as well in order to send \textit{situated} recommendations.
-	In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations based on the waiting time of the attractions.
+	\item \textit{Reward Manager} has access to all the rewards available to be given to visitors for a given recommendation. It works as displayed in figure~\ref{fig:reward}.
+	The visitors will receive a reward for the suggestions they take.
+	\item \textit{Notification Manager} which sends the recommendation to the visitor's wearable.
+	\item \textit{Shows Recommender} and \textit{Attractions Recommender} take visitor's information from the Visitor Manager to get their pre-compiled preferences.
+	In the former case, the subject would be a shows they are interested in, in the latter their preferred roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
+	In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations also considering the waiting time of the attractions.
 \end{itemize}
 
 Since the system described above is a situated recommendation system, to broadcasts notifications the same method of the very similar Proximity Marketing technique could be used.
