@@ -1,0 +1,25 @@
+modifyLineBreaks:
+    textWrapOptions:
+        columns: 150
+        multipleSpacesToSingle: 1            
+        removeBlockLineBreaks: 1
+        blocksFollow:
+           headings: 1
+           commentOnPreviousLine: 1
+           par: 1
+           blankLine: 1
+           verbatim: 1
+           filecontents: 1
+           other: '\\\]|\\item(?:\h|\[)'      # regex
+        blocksBeginWith:
+           A-Z: 1
+           a-z: 1
+           0-9: 0
+           other: 0                           # regex
+        blocksEndBefore:
+           commentOnOwnLine: 1
+           verbatim: 1
+           filecontents: 1
+           other: '\\begin\{|\\\[|\\end\{'    # regex
+        huge: overflow                        # forbid mid-word line breaks
+        separator: ""

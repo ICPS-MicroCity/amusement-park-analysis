@@ -5,5 +5,11 @@
             "scheme": "file"
         }
     ],
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "latex-workshop.latexindent.args": [
+        "-m",
+        "-l",
+        "%WORKSPACE_FOLDER%/latexindent.yaml",
+        "%TMPFILE%"
+    ]
 }
