@@ -164,7 +164,7 @@ installation and configuration. The choice of using Wi-Fi as a technology to sup
 \end{itemize}
 
 In this scenario, Bluetooth technology has been discarded because of the low signal range and this would force the installation of many more devices
-than would be needed by taking advantage of Wi-Fi, also because in outdoor environments Bluetooth provides lower guarantees in terms of signal
+than would be needed by taking advantage of Wi-Fi; also because in outdoor environments Bluetooth provides lower guarantees in terms of signal
 stability and this results in possible inaccuracies in location estimation.
 Finally, the introduction of the 5.1 standard is fairly new, and while it is not a problem in terms of adoption, there are still no comprehensive
 studies on its effectiveness in amusement park-like environment.
@@ -190,39 +190,51 @@ walking around the park collects the RSSI values of the Wi-Fi APs and associates
 Alternatively, a fleet of robots (like drones) could be used to collect the RSSI values and associate them with a physical position. This scenario
 is ambitious but could be faster and less error-prone than the human ones.
 
-The \textit{tile phase} serves as an optimization method for the inference phase. The map is divided into regions, each containing fingerprints of the
-locations contained in it. In this way, it is not required to use the entire fingerprint database, but only the region (or regions) of interest.
+The \textit{tile phase} consists of a series of optimizations exploited by the \textit{inference phase} to reduce the inference time.
+The map is divided into regions, each containing fingerprints of the locations contained in it.
+In this way, it is not required to use the entire fingerprint database, but only the region (or regions) of interest.
 Finally, each tile can be cached for additional performance improvements during the inference phase.
 Determining which tile should be used for the inference step is not an easy task. Choosing the wrong tile may result in an incorrect
-position estimate. At the same time, it is particularly inefficient to estimate the position on the entire fingerprint database.
+position estimate. At the same time, it is particularly inefficient to estimate the position by leveraging the entire fingerprint database.
 For this reason, a sensor-assisted matching method can restrict the matching operation in a small space through sensor information including
-direction and travel distance. The current location can be calculated from the initial location \texttt{P}. The distance and direction can
-be estimated using the dead reckoning method with built-in inertial sensors like accelerometer, gyroscope, and compass.
+direction and travel distance. The current location can be calculated from an initial location, which can be taken from the GPS, for example.
+The distance and direction can be estimated using the dead reckoning~\footnote{\url{https://en.wikipedia.org/wiki/Dead_reckoning}} method with
+built-in inertial sensors like accelerometer, gyroscope, and compass.
 Given the longitude and latitude of the start point, the distance and bearing from the start point, and the destination point can be calculated using
-the Haversine formula. In this way, a subset of the local fingerprint database cache can be obtained.
+the Haversine formula~\footnote{\url{https://en.wikipedia.org/wiki/Haversine_formula}}. In this way, a subset of the local fingerprint database cache
+can be obtained.
 
 The \textit{inference phase} is the most important phase of the scheme. It is the phase in which the system calculates the position of the device.
-We use $f = {r_1, r_2, \ldots, r_n}$ to indicate a \textit{fingerprint} where $r_i$ represents the RSS value of captured AP and $n$ the number of APs
-in the fingerprint.
-We calculate the dissimilarity between two fingerprints based on RSS difference. Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of
-fingerprints $f^{'}$ and $f$ at each $A_i$ where $A_i \in A$ where $A$ is the fingerprint's APs set.
-Since two fingerprints may contain a different set of APs, AP $A_i$ may appear in $f$ but does not appear in $f^{'}$.
+Let's denote by $f = {r_1, r_2, \ldots, r_n}$ a \textit{fingerprint} record where $r_i$ represents the RSS value of captured AP and $n$ the number of
+APs in the fingerprint record.
+Let's calculate the dissimilarity between two fingerprints based on the RSSI difference.
+Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference of fingerprints $f^{'}$ and $f$ at each $A_i$ where $A_i \in A$ where $A$ is the
+fingerprint's APs set.
+Since two fingerprints may contain a different set of APs, the access point $A_i$ may appear in $f$ but does not appear in $f^{'}$.
 For this situation, we assume the signal strength is weak and let the missing value equal to $-100$.
-The dissimilarity between $f$ and $f^{'}$ can be shown as:
+The dissimilarity between $f$ and $f^{'}$ is calculated via the following formula:
 
 \begin{equation}
 	\eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}
+	\label{eq:dissimilarity}
 \end{equation}
 
 where $p = | A \cup A^{'} |$
 
-We found the sample with minimum dissimilarity by comparing all samples stored in the fingerprint database $F$ with the query fingerprint $f$.
+The location is calculated via the sample with minimum dissimilarity by comparing all samples stored in the fingerprint database $F$ with the query
+fingerprint $f$.
 
 \begin{equation}
 	f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)
+	\label{eq:min-dissimilarity}
 \end{equation}
 
 $L(f^{*})$ is the corresponding location of $f^{*}$ which represents the estimated place.
+
+As can be seen from formula~\ref{eq:min-dissimilarity}, the iteration over all fingerprints cannot scale at all: the time needed to iterate all
+the fingerprints are proportional to the number of them. In large maps, the number of fingerprints could become very huge degrading the inference
+time. It is in this situation that tiling improves performance due to dimension reduction; this reduction is determined by the $k$ factor, where
+$k$ is the number of tiles of the map.
 
 \begin{figure}[H]
 	\centering
