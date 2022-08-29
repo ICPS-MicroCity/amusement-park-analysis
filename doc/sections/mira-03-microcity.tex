@@ -39,10 +39,11 @@ to adapt the Micro-City concept to Mirabilandia, the figure~\ref{fig:architectur
 The main components of the system are the following:
 
 \begin{itemize}
-	\item \textit{Map Manager}: is responsible for tracking the guest within the park and providing information about the current position
-	\item \textit{Virtual Queueing System}: is responsible for managing the virtual queue for each attraction
-	\item \textit{Recommendation System}: is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections.
-	\item \textit{Planner}: is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
+	\item \textit{Map Manager:} is responsible for tracking the guest within the park and providing information about the current position
+	\item \textit{Virtual Queueing System:} is responsible for managing the virtual queue for each attraction
+	\item \textit{Recommendation System:} is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections.
+	\item \textit{Planner:} is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
+	\item \textit{Visitor Manager:} is responsible for the management of the users' information, preferences and tickets selling 
 \end{itemize}
 
 From the diagram emerge that \textit{Map Manager} and \textit{Virtual Queueing System} are the main components of the system since they are the ones
@@ -51,7 +52,7 @@ to the \textit{Recommendation System} which uses this information to provide rec
 \textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual Queueing System} is used by
 the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality of the visit within the park
 and by the \textit{Recommendation System} to fetch information about the current waiting time of the attractions and opportunistically advise the attraction.
-% TODO fix the section considering the Visitor Manager
+The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding users' preferences.
 
 \section{Map Manager}
 
