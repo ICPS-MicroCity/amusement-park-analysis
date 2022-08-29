@@ -184,24 +184,33 @@ radio signal that permits the receiver to determine the directional angle to the
 The planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it.
 The main goal of this component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the
 best possible experience.
-Although these two features may seem quite similar, they are to be understood respectively as the ability to satisfy user preferences i.e., to
-determine a plan that provides, for example, the attractions or the kind of attractions indicated, and the ability to define a plan that maximizes
-the time spent in the attractions.
-Finally, the two characteristics are in some ways in opposition to each other: if a plan is identified that provides for the only attractions that
-the user has indicated, then the user is very likely to queue a lot and consequently lower the level of the visitor experience. On the other hand, if
-one identifies a plan that maximizes the visitor's experience, then it is quite likely that the latter will be offered attractions that are not of
-his or her interest.
+Although these two characteristics may be similar, they are to be understood respectively as the ability to cater to user preferences and the
+ability to reduce the waiting time on various rides (and thus maximize the time spent on attractions).
+The characteristics just described, if formalized, can be used to define a metric for evaluating the quality of the plan offered to visitors.
+These two indicators can be defined as follows:
+
+\begin{itemize}
+	\item \textbf{CR (Completed Rides) Indicator:} indicates the number of rides completed within one hour
+	\item \textbf{WT (Wandering Time) Indicator:} indicates the quantity of time spent in the queues within one hour.
+\end{itemize}
+
+% TODO: improving the section 
+
+Finally, the two indicators are in opposition to each other: if a plan is identified to provide the only attractions that
+the user has indicated, then the user is very likely to queue a lot and consequently lower the visitor experience.
+On the other hand, if a plan maximizes the visitor's experience, then it is quite likely that will be offered to them attractions that are not of
+their interest.
 The difficulty in finding the best plan for each visitor lies in balancing, primarily, these two properties.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/planner.eps}
-	\caption{Component diagram showing the internal architecture of the \textit{Planner} component.
-	}
+	\caption{Component diagram showing the internal architecture of the \textit{Planner} component.}
 	\label{fig:planner-arch}
 \end{figure}
 
-In addition, park activities are as dynamic as park visitors are so it is easy to see that the needs of both parties may change in the process. Therefore, it is appropriate to provide that the plans generated for visitors can change dynamically to adapt to changes in the environment.
+In addition, park activities are as dynamic as park visitors are so it is easy to see that the needs of both parties may change in the process.
+Therefore, it is appropriate to provide that the plans generated for visitors can change dynamically to adapt to changes in the environment.
 An attraction may break down and therefore all plans that provided for the use of that ride must be adapted to the change.
 Again, overcrowding at an attraction may be the reason why certain visitors' plans change to avoid excessively long queues.
 
