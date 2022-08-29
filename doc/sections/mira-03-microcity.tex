@@ -276,16 +276,6 @@ The adoption of this technique leads to several advantages:
 We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness
 (more accurate location and lower consumption) and costs instead of using a traditional system like GPS.
 
-
-\section{Virtual Queuing System}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{img/virtual-queuing.eps}
-	\caption{Component diagram showing the internal architecture of the \textit{Virtual Queueing} component.
-	}
-	\label{fig:virtual-queueing-arch}
-\end{figure}
-
 \section{Recommendation System}
 
 \begin{figure}[H]
@@ -326,6 +316,21 @@ To do so, the system uses network information, i.e. the network name, and GPS pa
 The marketing messages are sent by a cloud-based platform to the eligible devices and a mobile app listens for messages
 applicable to the subscriber, while the subscriber is in the relevant proximity.
 
+\section{Virtual Queuing System}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/virtual-queuing.eps}
+	\caption{Component diagram showing the internal architecture of the \textit{Virtual Queueing} component.
+	}
+	\label{fig:virtual-queueing-arch}
+\end{figure}
+
+The Virtual Queueing System manages the waiting time of the people in the attractions queues.
+It could base its estimations on various sources such as sensors (cameras, NFC, Bluetooth) or
+a button pressed on the visitor's wearable which communicates its presence in the queue.
+In fact, the best way to implement this mechanism depends on the assumptions we could do about the context: in a Mirabilandia as a Micro City scenario every visitor has a wearable where to enqueue themselves so there is no need to use high or low budget sensors.
+
+However, some sensors could be used to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
 
 \section{Planner}
 
