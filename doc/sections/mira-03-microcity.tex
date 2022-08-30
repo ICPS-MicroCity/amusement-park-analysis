@@ -1,40 +1,36 @@
 \section{Overview}\label{sec:overview}
-% TODO finire
-Given the previous analysis, we identified the macro categories of a Mirabilandia as a Micro City. The main elements we need are a way to manage the
-recommender that is tightly coupled with a reward system since every suggested action provides some kind of reward.
+The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the requirements, the technologies and providing concrete solutions.
 
-Some examples of the relationship between a recommended action and its reward are listed in~\ref{tab:actions-rewards}.
+We will illustrate an architecture with all the components needed to satisfy the characteristics of an amusement park as a Micro City: offer a tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards system.
+
+The goal of the architecture section is to define a way to keep track of visitors' position within the park, provide a recommendation and reward system, a way to smartly manage queues and visitors' information as well as provide a customizable plan of a day in the park.
+
+As per the recommendation and reward systems, is important to point out their tightly coupled relationship since every suggested action provides some kind of recompense.
+In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
+
 \begin{longtable}{|l|l|}
 	\hline
 	\textbf{Action}                                  & \textbf{Reward}                      \\
 	\hline
-	Go watch this show                               & Get a reserved seat in the front row \\
+	This show is starting in 5 minutes  & You can get a reserved seat in the front row \\
 	\hline
-	Go to this roller coaster                        & Get a reduced waiting time           \\
+	If you go to this roller coaster    & You can get a reduced queueing waiting time           \\
 	\hline
-	Go to this shop                                  & Get a discount on t-shirts           \\
+	If you go to this shop              & You can get a discount on t-shirts           \\
 	\hline
-	Throw your plastic bottle in the smart trash can & Get a coin for the arcade            \\
+	Throw the plastic bottle in a smart bin & You can get a coin for the arcade            \\
 	\hline
-	\caption{Some examples of actions and their respective reward.}
+	\caption{Possible actions within Mirabilandia as a Micro City and their respective reward.}
 	\label{tab:actions-rewards}
 \end{longtable}
 
+In the following sections, we will explore suitable technologies for our case study, showing their possible use applied to Mirabilandia.
+
+Finally, we will discuss possible deployment techniques in the park environment. 
+
 \section{Overall architecture}\label{sec:mira-microcity}
-
-In this section, we will describe a possible implementation of the Mirabilandia Micro-City.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/architecture-overview.eps}
-	\caption{Overall architecture of the Mirabilandia Micro-City.
-		The Component Diagram shows the rough architecture and the main dependencies between the elements.
-	}
-	\label{fig:architecture-overview}
-\end{figure}
-
 Following the analysis of the ``as-is'' system and the goals set to adapt the Micro-City concept to Mirabilandia,
-figure~\ref{fig:architecture-overview} shows the component diagram that models the entities involved and the main relationships between them. % TODO write the goals?
+figure~\ref{fig:architecture-overview} shows the component diagram that models the entities involved and the main relationships between them.
 
 The main components of the system are the following:
 
@@ -45,6 +41,15 @@ The main components of the system are the following:
 	\item \textit{Planner:} is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
 	\item \textit{Visitor Manager:} is responsible for the management of the users' information, preferences and tickets selling
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/architecture-overview.eps}
+	\caption{Overall architecture of the Mirabilandia Micro-City.
+		The Component Diagram shows the rough architecture and the main dependencies between the elements.
+	}
+	\label{fig:architecture-overview}
+\end{figure}
 
 From the diagram emerge that \textit{Map Manager} and \textit{Virtual Queueing System} are the main components of the system since they are the ones
 that provide information to the other components. The \textit{Map Manager} provides information about the current position of the guests to the
@@ -72,15 +77,14 @@ determine the best plan for each guest. So, good tracking is crucial for the goo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/recommender.eps}
+	\includegraphics[width=1\textwidth]{img/recommender.eps}
 	\caption{Component diagram showing the internal architecture of the \textit{Recommender System}.
 	}
 	\label{fig:recommender-arch}
 \end{figure}
 
 The Recommendation System is a crucial component to ensure the improvement of the visitors' experience. In fact, it is responsible for collecting
-data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions. The
-Recommendation System is composed of:
+data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions. The Recommendation System is composed of:
 \begin{itemize}
 	\item \textit{Reward Manager} has access to all the rewards available to be given to visitors for a given recommendation. It works as displayed in figure~\ref{fig:reward}.
 	      The visitors will receive a reward for the suggestions they take.
@@ -88,10 +92,11 @@ Recommendation System is composed of:
 	\item \textit{Shows Recommender} and \textit{Attractions Recommender} take visitor's information from the Visitor Manager to get their pre-compiled preferences.
 	      In the former case, the subject would be a shows they are interested in, in the latter their preferred roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
 	      In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations also considering the waiting time of the attractions.
+	\item \textit{Recommendation History} is responsible for storing the recommendations in order to improve the accuracy.
 \end{itemize}
 
 Since the system described above is a situated recommendation system, to broadcasts notifications the same method of the very similar Proximity
-Marketing technique could be used. In fact, almost the same technologies are required to implement such a system. In the following section, we will
+Marketing techniques could be used. In fact, almost the same technologies are required to implement such a system. In the following section, we will
 examine some of the current technologies that are available to implement such a system.
 
 \section{Virtual Queuing System}
@@ -178,7 +183,8 @@ advantage of platforms already in the market that offers this kind of functional
 For these reasons, it is not deemed necessary to examine this component further.
 
 \section{Suitable technologies for Mirabilandia as a Micro City}
-% TODO: scrivere introduzione alla sezione
+This chapter will examine in detail the technologies that are suitable for implementing the systems described above.
+Particularly the techniques available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
 
 \subsection{Proximity Marketing using Wi-Fi}\label{sec:situated-recommendation-system-technologies}
 Proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}. However, it is possible to
@@ -224,7 +230,7 @@ To design and develop an effective technique for the location of visitors, the f
 	\item The use of dedicated hardware results in an extra cost that is difficult for both the amusement park and visitors to bear.
 \end{itemize}
 
-Some technologies identified for these purposes will be described in the following sections, taking into account the constraint defined above.
+Some technologies identified for these purposes will be described taking into account the constraint defined above.
 
 \subsubsection{Wi-Fi as outdoor localization system}\label{subsec:wi-fi-as-outdoor-localization-system}
 
@@ -298,8 +304,8 @@ based on the phase delay of the signal received from the transmitter; the latter
 radio signal that permits the receiver to determine the directional angle to the transmitter.
 
 \section{Identified technologies to make Mirabilandia a Micro City}
-% TODO: introduzione alla sezione
-
+The technologies illustrated above can be used and applied to the Mirabilandia environment.
+The following paragraphs have the objective to describe how this would be possible with a fair degree of detail.
 \subsection{Localization techniques}
 In this section, we will discuss the suitability of the localization techniques described in the previous section for Mirabilandia.
 
