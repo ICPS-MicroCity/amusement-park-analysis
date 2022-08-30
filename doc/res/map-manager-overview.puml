@@ -1,0 +1,21 @@
+@startuml map-manager-overview
+left to right direction
+skinparam nodesep 80
+skinparam ranksep 40
+
+actor "Device" as device
+
+component "Map Manager" as mm {
+    component "Device Information Ingestion" as dii
+    component "Location Inference" as li
+    database "Location Data" as ld
+}
+
+interface "Location Endpoint" as le
+
+device -down-> dii
+dii .left.> li
+li <..> ld
+li .left.> le
+
+@enduml
