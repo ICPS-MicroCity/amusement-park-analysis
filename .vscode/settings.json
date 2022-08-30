@@ -6,6 +6,7 @@
         }
     ],
     "editor.formatOnSave": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latexindent.args": [
         "-m",
         "-l",
