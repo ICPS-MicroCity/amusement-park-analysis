@@ -109,10 +109,6 @@ data and providing tailored recommendations to the visitors and uses a Reward Sy
 	\item \textit{Recommendation History} is responsible for storing the recommendations in order to improve the accuracy.
 \end{itemize}
 
-Since the system described above is a situated recommendation system, to broadcasts notifications the same method of the very similar Proximity
-Marketing techniques could be used. In fact, almost the same technologies are required to implement such a system. In the following section, we will
-examine some of the current technologies that are available to implement such a system.
-
 \section{Virtual Queuing System}
 \begin{figure}[H]
 	\centering
@@ -125,14 +121,13 @@ examine some of the current technologies that are available to implement such a 
 The Virtual Queueing System manages the waiting time of the people in the attractions queues. It could base its estimations on various sources such
 as sensors (cameras, NFC, Bluetooth) or a button pressed on the visitor's wearable which communicates its presence in the queue. In fact, the best
 way to implement this mechanism depends on the assumptions we could do about the context: in a Mirabilandia as a Micro City scenario every visitor
-has a wearable where to enqueue themselves so there is no need to use high or low budget sensors.
+has a wearable where to enqueue themselves so there is no need to use high or low-budget sensors.
 
 However, some sensors could be used to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
 
 \section{Planner}\label{sec:planner}
 
-The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this
-component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
+The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
 
 \begin{figure}[H]
 	\centering
@@ -185,18 +180,28 @@ For these reasons, it is not deemed necessary to examine this component further.
 This chapter will examine in detail the technologies that are suitable for implementing the systems described above.
 Particularly the techniques available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
 
-\subsection{Proximity Marketing using Wi-Fi}\label{sec:situated-recommendation-system-technologies}
-Proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}. However, it is possible to
+\subsection{Proximity Marketing Technologies}\label{sec:proximity-marketing-technologies}
+The situated Recommendation System broadcasts notifications to devices near a certain spot.
+This is the same mechanism used for Proximity Marketing techniques and seems advantageous to use the same technologies to implement such a system since there is plenty of information in the literature regarding proximity marketing.
+In the following section, we will examine some of the current technologies used to implement this kind of system.
+
+\subsubsection{Proximity Marketing with Beacons}\label{sec:proximity-marketing-with-beacons}
+Bluetooth low energy is one of the forms of Bluetooth which is designed for IoT-based applications. 
+Bluetooth low energy is a standard of Bluetooth that does not provide a connection functionality (pairing) but instead, transmits signals continuously.
+These signals can be detected by clients that are on the lookout for that particular beacon~\cite{muddinagiri2020implementation}.
+Once a person with a device with Bluetooth turned on is near the beacon, the device collects the Beacon's ID, sends it to a server that retrieves the corresponding marketing information and returns it to the user with a message.
+
+\subsubsection{Proximity Marketing using Wi-Fi}\label{sec:proximity-marketing-wifi}
+Even though proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}, it is possible to
 enable IoT-based proximity communication running as a service using network information, exploiting Wi-Fi. This offers better value than Bluetooth in
-terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure. The
-detection of Wi-Fi networks already provides some data about location, namely information about proximity so proximity-based rules replace location
+terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure.
+The detection of Wi-Fi networks already provides some data about location, namely information about proximity so proximity-based rules replace location
 information, where Wi-Fi hot spots work as presence sensors~\cite{dmitry2013network}.
 
-This paper~\cite{mndebele2017iot} for instance, presents a proximity marketing as a service (PMaas). The system targets people in a specific location
+This paper~\cite{mndebele2017iot} for instance, presents a proximity marketing technique as a service (PMaas). The system targets people in a specific location
 and delivers messages to their mobile devices via wireless connectivity technology as long as they remain in the specified location. Moreover, they
 have to be connected to a particular network segment or specific access point. To do so, the system uses network information, i.e. the network name,
-and GPS parameters derived from the position of the mobile device. The marketing messages are sent by a cloud-based platform to the eligible devices
-and a mobile app listens for messages applicable to the subscriber, while the subscriber is in the relevant proximity.
+and GPS parameters derived from the position of the mobile device. The marketing messages are sent by a cloud-based platform to the eligible devices and a mobile app listens for messages applicable to the subscriber, while the subscriber is in the relevant proximity.
 
 \subsection{Technologies for crowd density estimation}\label{subsec:sub-ghz-wireless-sensor-network-for-crowd-density-estimation}
 In our context, crowd density estimation could be advantageous to redirect visitors toward less crowded places within the park. The classic approach
@@ -523,3 +528,19 @@ information that is useful for making the position computation, which, however, 
 opportunistically determine where it is best to perform the computation of the position estimate.
 
 % TODO: deployment architecture image!
+
+\subsection{Situated Recommendation system}
+To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a certain spot isn't crucial.
+
+In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system generates a recommendation for the user based on the action, the position and the visitor's information.
+
+This way, the "situated" part of the system can be implemented in a very simple way.
+
+The system workflow is shown in Figure~\ref{fig:situated-recommendation}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/situated-recommendation.eps}
+	\caption{Situated Recommendation System components.}
+	\label{fig:situated-recommendation}
+\end{figure}

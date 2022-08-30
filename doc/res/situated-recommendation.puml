@@ -1,0 +1,17 @@
+@startuml situated-recommendation
+skinparam linetype ortho
+skinparam ranksep 59
+
+component "User Position" as user_position
+actor "Wearable" as wearable
+component "Recommendation System" as recommedation_system
+
+database "ID-Actions storage" as storage
+
+user_position ..> wearable : id
+
+wearable ..> recommedation_system : "user info\n position id"
+recommedation_system ..> wearable : "recommendation"
+recommedation_system -- storage
+
+@enduml
