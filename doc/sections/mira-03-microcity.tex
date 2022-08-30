@@ -65,13 +65,27 @@ preferences.
 The location of guests within the amusement park is critical for several reasons: guest location information is used to make recommendations and to
 determine the best plan for each guest. So, good tracking is crucial for the good working of the overall system.
 
+The \textit{Map Manager} component is composed of the following elements:
+\begin{itemize}
+	\item \textit{Device Information Ingestion:} is responsible for receiving, from the guests' devices, information that can be used to estimate the
+	      current location of the guests. This component is the entry point of the \textit{Map Manger}.
+	\item \textit{Location Inference:} is responsible for calculating the position of the guests based on the information received from the
+	      \textit{Device Information Ingestion} component. This component leverage \textit{Location Data} to calculate the position of the guests.
+	      Finally, this component exposes an interface to expose the current position of the guests to other components requiring information about
+	      guests' positions within the park.
+\end{itemize}
+
+The figure~\ref{fig:map-manager} shows the component diagram that models the \textit{Map Manager} internal architecture.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/map-manager.eps}
-	\caption{Component diagram showing the internal architecture of the \textit{Map Manager} component.
-	}
+	\includegraphics[width=0.7\textwidth]{img/map-manager-overview.eps}
+	\caption{Component diagram showing the internal architecture of the \textit{Map Manager} component.}
 	\label{fig:map-manager}
 \end{figure}
+
+Given the importance of this component and the amount of work it will have to do, attention must be paid to aspects of high availability to prevent
+this component from stopping working since the operation of other services depends on it.
 
 \section{Recommendation System}
 
