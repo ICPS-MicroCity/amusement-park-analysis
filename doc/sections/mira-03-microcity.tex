@@ -408,3 +408,21 @@ The adoption of this technique leads to several advantages:
 
 We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness (more
 accurate location and lower consumption) and costs instead of using a traditional system like GPS.
+
+\section{Deployment strategy for a real case scenario}
+In this section, we will examine a possible deployment strategy for the proposed system. In particular, we will take into account all the pros and
+cons of a full cloud solution, a full edge solution, and a hybrid solution.
+
+\subsection{Edge computing vs Cloud computing}
+First, it's important to understand that cloud and edge computing are different, noninterchangeable technologies that cannot replace one another.
+Edge computing is used to process time-sensitive data, while cloud computing is used to process data that is not time-driven. While cloud computing
+is designed to provide high availability and on-demand scaling, the latency introduced by the communication could increase a lot the response time.
+Edge computing is designed to reduce latency by processing data locally. The main advantage of edge computing is the reduction of latency, but it has
+some drawbacks. The main one is the lack of scalability. Edge computing is not designed to scale, so it's not possible to add more nodes to increase
+processing power. Another drawback is the high cost of the infrastructure.
+
+Thus, we can conclude that the cloud has the advantages of providing high computing power and scaling on demand; on the other hand, it has as its
+main disadvantage the high delay in communication between devices and the cloud itself. On the other hand, the edge has the disadvantage of having
+limited computational resources and higher utilization costs but has the advantage of having very fast communication times with devices.
+
+\subsection{Hybrid architecture: edge and cloud}
