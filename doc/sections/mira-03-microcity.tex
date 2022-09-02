@@ -535,7 +535,7 @@ To implement the situated Recommendation system in Mirabilandia we could assume 
 In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system generates a recommendation for the user based on the action, the position and the visitor's information.
 
 This way, the "situated" part of the system can be implemented in a very simple way:
-every location of interest is previously set and every time a visitor is near to it, on, the device or the system used to spot the presence send to the visitor's wearable its id.
+every location of interest is previously set and every time a visitor is near sends to the visitor's wearable its id.
 Then, the wearable sends to the recommendation system the visitor's info and the collected id, checks the correspondence of the id with an action, decides if the visitor is feasible to get the corresponding recommendation and, if so, sends the recommendation to the visitor.
 The Recommendation System will implement the usual Machine Learning algorithms to take the decision of sending a recommendation.
 
