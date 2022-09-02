@@ -426,3 +426,24 @@ main disadvantage the high delay in communication between devices and the cloud 
 limited computational resources and higher utilization costs but has the advantage of having very fast communication times with devices.
 
 \subsection{Hybrid architecture: edge and cloud}
+The advantages of one approach and the other do not by themselves justify the choice of one or the other. Rather, we believe that the adoption of
+both technologies lead to a concrete advantage in the realization of Mirabilandia as a Micro City.
+
+We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify
+whether it is best implemented in a cloud or edge context.
+
+Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
+communications; dealing mainly with managing user master data and their preferences in addition to being in charge of ticket sales, this component
+can exist in a cloud context or an external CRM can be leveraged.
+
+The Recommendation System % TODO: Linda, could you write something about the choice for this component? Thx
+
+The \textit{Planner} is responsible for managing the plans for each park visitor. This task requires fairly high computational capabilities since the
+plan can evolve. Although itinerary management is a relevant aspect, the speed of plan generation is not considered of primary importance. Even if
+the updated plan is propagated to visitors within a few seconds or a few tens of seconds, it is not believed to infect the overall visitor
+experience. Given these requirements, it is believed that a cloud solution can adhere well to the needs of this component. The choice of the cloud is
+further strengthened by the fact that the computational requirements can vary quite a bit over time: there may be times of the year when the
+attendance of people at the amusement park is rather limited, so the plans to be calculated turn out to be fewer in number and therefore less
+computational capacity is required. Conversely, on the other hand, at peak times visitor turnout requires significantly increased computational
+capacity to meet the demands. The dynamism with which resources can be allocated or de-allocated is something that the cloud natively handles, thus
+representing the optimal solution for implementing such a service.
