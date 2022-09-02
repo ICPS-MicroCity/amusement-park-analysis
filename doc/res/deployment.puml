@@ -1,5 +1,19 @@
 @startuml deployment
 top to bottom direction
 
+cloud "Cloud" as c {
+    component "Visitor Manager" as vm
+    component "Planner" as planner
+}
 
+cloud "Edge" as edge {
+    component "Map Manager" as mm
+}
+
+actor "Device" as d
+
+planner .right.> vm
+planner .down..> mm
+
+mm <.d.> d
 @enduml
