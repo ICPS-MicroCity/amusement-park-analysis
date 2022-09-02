@@ -12,5 +12,6 @@
         "-l",
         "%WORKSPACE_FOLDER%/latexindent.yaml",
         "%TMPFILE%"
-    ]
+    ],
+    "latex-workshop.latex.outDir": "%DIR%/out"
 }
