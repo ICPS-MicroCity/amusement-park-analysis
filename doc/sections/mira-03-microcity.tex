@@ -432,11 +432,11 @@ both technologies lead to a concrete advantage in the realization of Mirabilandi
 We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify
 whether it is best implemented in a cloud or edge context.
 
+% TODO: Linda's components
+
 Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
 communications; dealing mainly with managing user master data and their preferences in addition to being in charge of ticket sales, this component
 can exist in a cloud context or an external CRM can be leveraged.
-
-The Recommendation System % TODO: Linda, could you write something about the choice for this component? Thx
 
 The \textit{Planner} is responsible for managing the plans for each park visitor. This task requires fairly high computational capabilities since the
 plan can evolve. Although itinerary management is a relevant aspect, the speed of plan generation is not considered of primary importance. Even if
@@ -447,3 +447,16 @@ attendance of people at the amusement park is rather limited, so the plans to be
 computational capacity is required. Conversely, on the other hand, at peak times visitor turnout requires significantly increased computational
 capacity to meet the demands. The dynamism with which resources can be allocated or de-allocated is something that the cloud natively handles, thus
 representing the optimal solution for implementing such a service.
+
+The Map Manager is responsible for maintaining information on the location of each visitor within the park. It is the component that has the most
+interaction with visitor devices and the one that requires a near-real-time operation. This component requires component-device communication to be
+as fast as possible to calculate the corresponding location. In this context, the computational complexity required for position computation is not
+very high, but low latency in communications is required. For this reason, an edge solution would be ideal to implement such a system. To further
+reduce the latency in communication, it is possible to think of a hybrid scenario: initially, it is the device that, using the same algorithm,
+estimates its position within the park and directly sends the position information to the service. In this way the \textit{Map Manager} acts as an
+aggregator of information that it then makes available to the other services. If the device fails to compute the position promptly or due to other
+factors it is deemed that the computation should be done offline, then the device reverts to operating as described above, i.e., it sends only the
+information that is useful for making the position computation, which, however, will be done by the \textit{Map Manager}. In this way, one can
+opportunistically determine where it is best to perform the computation of the position estimate.
+
+% TODO: deployment architecture image!
