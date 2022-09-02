@@ -532,18 +532,18 @@ opportunistically determine where it is best to perform the computation of the p
 \subsection{Situated Recommendation system}
 To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a certain spot could be abstracted.
 
-In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system generates a recommendation for the user based on the action, the position and the visitor's information.
-
+In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system  a recommendation for the user based on the action, the position and the visitor's information.
+generates
 This way, the "situated" part of the system can be implemented in a very simple way:
 every location of interest is previously set and every time a visitor is near sends to the visitor's wearable its id.
 Then, the wearable sends to the recommendation system the visitor's info and the collected id, checks the correspondence of the id with an action, decides if the visitor is feasible to get the corresponding recommendation and, if so, sends the recommendation to the visitor.
 The Recommendation System will implement the usual Machine Learning algorithms to take the decision of sending a recommendation.
 
-The activity diagram of the process is shown in Figure~\ref{fig:situated-recommendation}.
+The sequence diagram of the process is shown in Figure~\ref{fig:situated-recommendation}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.3\textwidth]{img/situated-recommendation.eps}
+	\includegraphics[width=0.7\textwidth]{img/seq_diag_situated.eps}
 	\caption{Situated Recommendation System components.}
 	\label{fig:situated-recommendation}
 \end{figure}

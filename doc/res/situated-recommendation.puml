@@ -1,17 +1,37 @@
 @startuml situated-recommendation
-skinparam linetype ortho
-skinparam ranksep 59
 
-component "User Position" as user_position
-actor "Wearable" as wearable
-component "Recommendation System" as recommedation_system
 
-database "ID-Actions storage" as storage
+participant "User Position" as user_position
+actor Wearable as wearable
+participant "Recommendation System" as recommendation_system
+database "ID-Actions" as id_actions
 
-user_position ..> wearable : id
 
-wearable ..> recommedation_system : "user info\n position id"
-recommedation_system ..> wearable : "recommendation"
-recommedation_system -- storage
+user_position -> wearable : id
+wearable -> recommendation_system : position id, user info
+recommendation_system -> id_actions : position id
+id_actions --> recommendation_system : action
+recommendation_system -> recommendation_system : generate \n recommendation
+
+alt recommendation feasible
+recommendation_system -> wearable : recommendation 
+else recommendation not available
+recommendation_system --> wearable
+end
+
+recommendation_system --> user_position
+
+
+' component "User Position" as user_position
+' actor "Wearable" as wearable
+' component "Recommendation System" as recommedation_system
+
+' database "ID-Actions storage" as storage
+
+' user_position ..> wearable : id
+
+' wearable ..> recommedation_system : "user info\n position id"
+' recommedation_system ..> wearable : "recommendation"
+' recommedation_system -- storage
 
 @enduml
