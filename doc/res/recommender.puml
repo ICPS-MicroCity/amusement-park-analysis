@@ -7,13 +7,17 @@ component "Visitor Manager" as visitor_manager
 
 component "Recommendation System" {
     left to right direction
-    component "Notifier Manager" as notifier_manager
     component "Attractions recommender" as attractions_recommender
-    component "Shows recommender" as shows_recommender
+    database "Recommendation history" as recommendation_history    
+    component "Notifier Manager" as notifier_manager
     component "Reward Manager" as reward_manager
+    component "Shows recommender" as shows_recommender
 }
 
 actor "Visitor" as visitor
+
+shows_recommender -- recommendation_history
+attractions_recommender -- recommendation_history
 
 attractions_recommender .up.> virtual_queing
 
