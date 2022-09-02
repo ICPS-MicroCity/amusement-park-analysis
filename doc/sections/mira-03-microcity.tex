@@ -65,19 +65,33 @@ preferences.
 The location of guests within the amusement park is critical for several reasons: guest location information is used to make recommendations and to
 determine the best plan for each guest. So, good tracking is crucial for the good working of the overall system.
 
+The \textit{Map Manager} component is composed of the following elements:
+\begin{itemize}
+	\item \textit{Device Information Ingestion:} is responsible for receiving, from the guests' devices, information that can be used to estimate the
+	      current location of the guests. This component is the entry point of the \textit{Map Manger}.
+	\item \textit{Location Inference:} is responsible for calculating the position of the guests based on the information received from the
+	      \textit{Device Information Ingestion} component. This component leverage \textit{Location Data} to calculate the position of the guests.
+	      Finally, this component exposes an interface to expose the current position of the guests to other components requiring information about
+	      guests' positions within the park.
+\end{itemize}
+
+The figure~\ref{fig:map-manager} shows the component diagram that models the \textit{Map Manager} internal architecture.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/map-manager.eps}
-	\caption{Component diagram showing the internal architecture of the \textit{Map Manager} component.
-	}
+	\includegraphics[width=0.7\textwidth]{img/map-manager-overview.eps}
+	\caption{Component diagram showing the internal architecture of the \textit{Map Manager} component.}
 	\label{fig:map-manager}
 \end{figure}
+
+Given the importance of this component and the amount of work it will have to do, attention must be paid to aspects of high availability to prevent
+this component from stopping working since the operation of other services depends on it.
 
 \section{Recommendation System}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{img/recommender.eps}
+	\includegraphics[width=\textwidth]{img/recommender.eps}
 	\caption{Component diagram showing the internal architecture of the \textit{Recommender System}.
 	}
 	\label{fig:recommender-arch}
@@ -113,22 +127,8 @@ However, some sensors could be used to automatically detect corner case scenario
 
 \section{Planner}
 
-The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
-Although these two characteristics may be similar, they are to be understood respectively as the ability to cater to user preferences and the ability
-to reduce the waiting time on various rides (and thus maximize the time spent on attractions). The characteristics just described, if formalized, can
-be used to define a metric for evaluating the quality of the plan offered to visitors. These two indicators can be defined as follows:
-
-\begin{itemize}
-	\item \textbf{CR (Completed Rides) Indicator:} indicates the number of rides completed within one hour
-	\item \textbf{WT (Wandering Time) Indicator:} indicates the quantity of time spent in the queues within one hour.
-\end{itemize}
-
-% TODO: improving the section 
-
-Finally, the two indicators are in opposition to each other: if a plan is identified to provide the only attractions that the user has indicated,
-then the user is very likely to queue a lot and consequently lower the visitor experience. On the other hand, if a plan maximizes the visitor's
-experience, then it is quite likely that will be offered to them attractions that are not of their interest. The difficulty in finding the best plan
-for each visitor lies in balancing, primarily, these two properties.
+The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this
+component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
 
 \begin{figure}[H]
 	\centering
@@ -311,6 +311,45 @@ radio signal that permits the receiver to determine the directional angle to the
 \section{Identified technologies to make Mirabilandia a Micro City}
 The technologies illustrated above can be used and applied to the Mirabilandia environment.
 The following paragraphs have the objective to describe how this would be possible with a fair degree of detail.
+\subsection{Planner strategies and considerations}
+In this section, we are not going to provide an actual technology or algorithm for making plans, but rather we want to focus on what goals an
+algorithm in charge of calculating the best plan should achieve based on various factors.
+
+As mentioned in the section~\ref{sec:planner}, we should take into account three main aspects in building the optimal plan for each visitor: the
+satisfaction of the guest's preferences, the maximization of the number of attractions visited and the minimization of the waiting time at each
+attraction. The first two aspects may be similar but they are to be understood respectively as the ability to cater to user preferences and the
+ability to maximize the number of attractions visited. The third aspect is the ability to minimize the waiting time at each attraction. The first two
+aspects are related to the user's satisfaction, while the third aspect is related to the user's experience.
+
+To evaluate the effectiveness of the plan, some metrics and indicators should be developed. Below is described a set of metrics and indicators that
+could be useful in the evaluation of a plan.
+
+\begin{itemize}
+	\item \textbf{Completed Rides Indicator} (CRI): indicates the number of rides completed within one hour
+	\item \textbf{Wandering Time Indicator} (WTI): indicates the quantity of time spent in the queues within one hour
+	\item \textbf{User Satisfaction Indicator} (USI): indicates the number of rides completed in an hour but which were expressed as preferences by the visitor.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/indiciescorrelation.png}
+	\caption{Correlation between the three indicators: \textit{CRI}, \textit{WTI} and \textit{USI}. This chart aims to give an empirical indication of the correlations between the three indicators. It's not based on any real data but it's a good way to understand the correlation between the three indicators.}
+	\label{fig:indicies}
+\end{figure}
+
+In figure~\ref{fig:indicies}, is shown a possible correlation between the three indicators. The chart aims to provide an intuition about the trend of
+the three indicators. We specify that it is not derived from any measurements nor available data, but in our opinion is a good way to get what the
+indices mean.
+
+The \textit{CRI} and \textit{USI} ad in opposition to the \textit{WTI}: if a plan is identified to provide only attractions that the user has
+indicated, then the user is very likely to queue a lot and consequently increase the \textit{WTI} indicator. On the other hand, if a plan maximizes
+the visitor's experience (increasing the \textit{CRI} indicator), then is quite likely that will be offered to them attractions that are not of their
+interest, reducing the \textit{USI} indicator. The challenge behind the planning algorithm is to find a balance between these three indicators.
+
+These indicators of course could be applied offline to evaluate the overall performance of the planner, but they could also be used online to adjust
+in real-time the plan according to the environment changes. It is believed that a machine-learning approach could help the planning system to obtain
+a better plan in real-time since it could learn from the past experiences of the visitors and adapt the plan accordingly. Moreover, due to the
+complexity of the environment could not be feasible to tackle all possible scenarios, so a machine-learning approach could help to improve the plan.
 
 \subsection{Localization techniques}
 In this section, we will discuss the suitability of the localization techniques described in the previous section for Mirabilandia.
