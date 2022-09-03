@@ -460,7 +460,7 @@ We believe that Wi-Fi-based calculation of visitor location within the amusement
 accurate location and lower consumption) and costs instead of using a traditional system like GPS.
 
 
-\subsection{Situated Recommendation system}
+\subsection{Situated Recommendation system}\label{sec:situated-recommendation-sys}
 To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a certain spot could be abstracted.
 
 In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system sends a recommendation for the user based on the action, the position and the visitor's information.
@@ -516,6 +516,13 @@ We then go on to analyze the requirements of each system component described in 
 As we previously said in other sections, our situated Recommendation System is similar to a Proximity Marketing system.
 Thus, the deployment strategy could use some state-of-the-art technologies that can be found in the literature regarding this topic.
 Mirabilandia has a large number of visitors every day and current technology infrastructures and architectures need to be designed to process in real-time the great amount of information data that is being made available from such several devices with a so high concentration.
+Given that, our solution will provide the system with a three-layered structure: the edge layer, the fog layer and the cloud layer:
+\begin{itemize}
+	\item The edge layer will be composed of the devices that will contain the visitors' information, as well as the id of their position - as per section~\ref{sec:situated-recommendation-sys}.
+	These devices will send that information to the fog layer.
+	\item The fog layer provides real-time computing and storage
+	resources to the edge elements. For instance, the database ID-Actions depicted in~\ref{fig:situated-recommendation} could be placed here since some actions can be sent to all the wearables independently from the visitor and therefore has no need for a tailored recommendation.
+\end{itemize}
 
 \subsubsection{Virtual Queueing System deployment strategy}
 
