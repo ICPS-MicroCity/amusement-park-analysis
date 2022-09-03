@@ -425,14 +425,27 @@ Thus, we can conclude that the cloud has the advantages of providing high comput
 main disadvantage the high delay in communication between devices and the cloud itself. On the other hand, the edge has the disadvantage of having
 limited computational resources and higher utilization costs but has the advantage of having very fast communication times with devices.
 
-\subsection{Hybrid architecture: edge and cloud}
-The advantages of one approach and the other do not by themselves justify the choice of one or the other. Rather, we believe that the adoption of
-both technologies lead to a concrete advantage in the realization of Mirabilandia as a Micro City.
+\subsection{Fog computing}
+Traditional cloud-based IoT systems are challenged by the large scale, heterogeneity, and high latency witnessed in some cloud ecosystems. 
+Fog computing is a possible solution as it's a distributed computing paradigm that extends cloud computing to the edge of the network:
+it allows the decentralization of applications, management, data analytics, etc. into the network itself.
 
-We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify
-whether it is best implemented in a cloud or edge context.
+This model enables ubiquitous access to a shared continuum of scalable computing resources.
+The deployment of distributed, latency-aware applications and services is facilitated and consists of fog nodes (physical or virtual), residing between smart end devices and centralized (cloud) services.
+The fog nodes are context-aware and support a common data management and communication system.
+They can be organized in clusters - either vertically (to support isolation), horizontally (to support federation), or relative to fog nodes' latency distance to the smart end devices. Fog computing minimizes the request-response time from/to supported applications, and provides, for the end-devices, local computing resources and, when needed, network connectivity to centralized services~\cite{iorga2018fog}.
 
-\subsubsection{Recommendation system deployment strategy}
+This is an interesting model for some components of our use case.
+
+\subsection{Hybrid architecture: edge, cloud and fog}
+The advantages of one approach and the other do not by themselves justify the choice of one or the other. Rather, we believe that the adoption of all the technologies leads to a concrete advantage in the realization of Mirabilandia as a Micro City.
+
+We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify whether it is best implemented in a cloud, edge or fog context.
+
+\subsubsection{Recommendation System deployment strategy}
+As we previously said in other sections, our situated Recommendation System is similar to a Proximity Marketing system.
+Thus, the deployment strategy could use some state-of-the-art technologies that can be found in the literature regarding this topic.
+Mirabilandia has a large number of visitors every day and current technology infrastructures and architectures need to be designed to process in real-time the great amount of information data that is being made available from such several devices with a so high concentration.
 
 \subsubsection{Virtual Queueing System deployment strategy}
 
