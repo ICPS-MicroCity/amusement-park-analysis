@@ -6,10 +6,12 @@
         }
     ],
     "editor.formatOnSave": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latexindent.args": [
         "-m",
         "-l",
         "%WORKSPACE_FOLDER%/latexindent.yaml",
         "%TMPFILE%"
-    ]
+    ],
+    "latex-workshop.latex.outDir": "%DIR%/out"
 }
