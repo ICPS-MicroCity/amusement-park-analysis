@@ -436,10 +436,12 @@ whether it is best implemented in a cloud or edge context.
 
 \subsubsection{Virtual Queueing System deployment strategy}
 
+\subsubsection{Visitor Manager deployment strategy}
 Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
 communications; dealing mainly with managing user master data and their preferences in addition to being in charge of ticket sales, this component
 can exist in a cloud context or an external CRM can be leveraged.
 
+\subsubsection{Planner deployment strategy}
 The \textit{Planner} is responsible for managing the plans for each park visitor. This task requires fairly high computational capabilities since the
 plan can evolve. Although itinerary management is a relevant aspect, the speed of plan generation is not considered of primary importance. Even if
 the updated plan is propagated to visitors within a few seconds or a few tens of seconds, it is not believed to infect the overall visitor
@@ -450,10 +452,11 @@ computational capacity is required. Conversely, on the other hand, at peak times
 capacity to meet the demands. The dynamism with which resources can be allocated or de-allocated is something that the cloud natively handles, thus
 representing the optimal solution for implementing such a service.
 
-The \textit{Map Manager} is responsible for maintaining information on the location of each visitor within the park. It is the component that has the most
-interaction with visitor devices and the one that requires a near-real-time operation. This component requires component-device communication to be
-as fast as possible to calculate the corresponding location. In this context, the computational complexity required for position computation is not
-very high, but low latency in communications is required. For this reason, an edge solution would be ideal to implement such a system. To further
+\subsubsection{Map Manager deployment strategy}
+The \textit{Map Manager} is responsible for maintaining information on the location of each visitor within the park. It is the component that has the
+most interaction with visitor devices and the one that requires a near-real-time operation. This component requires component-device communication to
+be as fast as possible to calculate the corresponding location. In this context, the computational complexity required for position computation is
+not very high, but low latency in communications is required. For this reason, an edge solution would be ideal to implement such a system. To further
 reduce the latency in communication, it is possible to think of a hybrid scenario: initially, it is the device that, using the same algorithm,
 estimates its position within the park and directly sends the position information to the service. In this way the \textit{Map Manager} acts as an
 aggregator of information that it then makes available to the other services. If the device fails to compute the position promptly or due to other
