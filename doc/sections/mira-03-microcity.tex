@@ -1,5 +1,5 @@
 \section{Overview}\label{sec:overview}
-The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the requirements, the technologies and providing concrete solutions.
+The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the architectural requirements, the technologies and providing concrete solutions.
 
 We will illustrate an architecture with all the components needed to satisfy the characteristics of an amusement park as a Micro City: offer a tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards system.
 
@@ -24,7 +24,7 @@ In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
 	\label{tab:actions-rewards}
 \end{longtable}
 
-In the following sections, we will explore suitable technologies for our case study, showing their possible use applied to Mirabilandia.
+After the architecture description, we will explore suitable technologies for our case study, showing their possible use applied to Mirabilandia.
 
 Finally, we will discuss possible deployment techniques in the park environment. 
 
@@ -35,10 +35,10 @@ figure~\ref{fig:architecture-overview} shows the component diagram that models t
 The main components of the system are the following:
 
 \begin{itemize}
-	\item \textit{Map Manager:} is responsible for tracking the guest within the park and providing information about the current position
+	\item \textit{Map Manager:} is responsible for tracking the visitors within the park and providing information about their current position
 	\item \textit{Virtual Queueing System:} is responsible for managing the virtual queue for each attraction
-	\item \textit{Recommendation System:} is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections.
-	\item \textit{Planner:} is responsible for planning the itinerary of the guests based on their preferences and crowding of rides
+	\item \textit{Recommendation System:} is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections
+	\item \textit{Planner:} is responsible for planning the itinerary of the visitors based on their preferences and the crowding of rides
 	\item \textit{Visitor Manager:} is responsible for the management of the users' information, preferences and tickets selling
 \end{itemize}
 
@@ -51,28 +51,25 @@ The main components of the system are the following:
 	\label{fig:architecture-overview}
 \end{figure}
 
-From the diagram emerge that \textit{Map Manager} and \textit{Virtual Queueing System} are the main components of the system since they are the ones
+From the diagram emerge that \textit{Map Manager}, \textit{Virtual Queueing System} and the \textit{Visitors Manager} are the main components of the system since they are the ones
 that provide information to the other components. The \textit{Map Manager} provides information about the current position of the guests to the
 \textit{Recommendation System} which uses this information to provide recommendations to the guests. Moreover, gives information also to the
 \textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual Queueing System} is used by
 the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality of the visit within the park
-and by the \textit{Recommendation System} to fetch information about the current waiting time of the attractions and opportunistically advise the
-attraction. The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding users'
-preferences.
+and by the \textit{Recommendation System} to fetch information about the visitor's preferences and opportunistically advise the
+attraction. The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding pre-defined users' preferences.
 
 \section{Map Manager}
 
-The location of guests within the amusement park is critical for several reasons: guest location information is used to make recommendations and to
-determine the best plan for each guest. So, good tracking is crucial for the good working of the overall system.
+The location of visitors within the amusement park is critical for several reasons: it is used to make recommendations and to
+determine the best plan for each visitor. So, a good tracking system is crucial for the correct working of the overall system.
 
-The \textit{Map Manager} component is composed of the following elements:
+The \textit{Map Manager} is composed of the following elements:
 \begin{itemize}
-	\item \textit{Device Information Ingestion:} is responsible for receiving, from the guests' devices, information that can be used to estimate the
-	      current location of the guests. This component is the entry point of the \textit{Map Manger}.
-	\item \textit{Location Inference:} is responsible for calculating the position of the guests based on the information received from the
-	      \textit{Device Information Ingestion} component. This component leverage \textit{Location Data} to calculate the position of the guests.
-	      Finally, this component exposes an interface to expose the current position of the guests to other components requiring information about
-	      guests' positions within the park.
+	\item \textit{Device Information Ingestion:} receives from the visitors' devices information that can be used to estimate their current location. This component is the entry point of the \textit{Map Manger}.
+	\item \textit{Location Inference:} is responsible for calculating the position of the visitors based on the information received from the
+	      \textit{Device Information Ingestion} component. This component leverage \textit{Location Data} to calculate the position.
+	      Finally, this component exposes an interface to provide the current position of the visitors to other components requiring information about visitors' positions within the park.
 \end{itemize}
 
 The figure~\ref{fig:map-manager} shows the component diagram that models the \textit{Map Manager} internal architecture.
@@ -85,7 +82,7 @@ The figure~\ref{fig:map-manager} shows the component diagram that models the \te
 \end{figure}
 
 Given the importance of this component and the amount of work it will have to do, attention must be paid to aspects of high availability to prevent
-this component from stopping working since the operation of other services depends on it.
+this component to stop working since the operation of other services depends on it.
 
 \section{Recommendation System}
 
@@ -100,13 +97,13 @@ this component from stopping working since the operation of other services depen
 The Recommendation System is a crucial component to ensure the improvement of the visitors' experience. In fact, it is responsible for collecting
 data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions. The Recommendation System is composed of:
 \begin{itemize}
-	\item \textit{Reward Manager} has access to all the rewards available to be given to visitors for a given recommendation. It works as displayed in figure~\ref{fig:reward}.
+	\item \textit{Reward Manager:} has access to all the rewards available to be given to visitors for a given recommendation. It works as previously displayed in figure~\ref{fig:reward}.
 	      The visitors will receive a reward for the suggestions they take.
-	\item \textit{Notification Manager} which sends the recommendation to the visitor's wearable.
-	\item \textit{Shows Recommender} and \textit{Attractions Recommender} take visitor's information from the Visitor Manager to get their pre-compiled preferences.
-	      In the former case, the subject would be a shows they are interested in, in the latter their preferred roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
+	\item \textit{Notification Manager:} which sends the recommendation to the visitor's wearable.
+	\item \textit{Shows Recommender} and \textit{Attractions Recommender:} take visitor's information from the Visitor Manager to get their pre-compiled preferences.
+	      In the former case, the subject would be shows and events they are interested in, in the latter their preferred roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
 	      In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations also considering the waiting time of the attractions.
-	\item \textit{Recommendation History} is responsible for storing the recommendations in order to improve the accuracy.
+	\item \textit{Recommendation History:} is responsible for storing the recommendations in order to improve the accuracy for future scenarios.
 \end{itemize}
 
 \section{Virtual Queuing System}
