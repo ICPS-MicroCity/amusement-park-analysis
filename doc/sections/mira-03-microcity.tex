@@ -521,10 +521,15 @@ Given that, our solution will provide the system with a three-layered structure:
 	\item The edge layer will be composed of the devices that will contain the visitors' information, as well as the id of their position - as per section~\ref{sec:situated-recommendation-sys}.
 	These devices will send that information to the fog layer.
 	\item The fog layer provides real-time computing and storage
-	resources to the edge elements. For instance, the database ID-Actions depicted in~\ref{fig:situated-recommendation} could be placed here since some actions can be sent to all the wearables independently from the visitor and therefore has no need for a tailored recommendation.
+	resources to the edge elements. For instance, the database ID-Actions depicted in~\ref{fig:situated-recommendation} could be placed here since some pre-defined actions can be sent to all the visitors without a tailored recommendation.
+	Moreover, could implement the Notifier Manager which should occur as quickly as possible since the visitor's position could change within seconds.
+	\item The cloud layer provides scalable computing power for machine learning algorithms used for the recommendation.
 \end{itemize}
 
 \subsubsection{Virtual Queueing System deployment strategy}
+Even though the Virtual Queueing System should be fairly fast in calculating the waiting time - since it should be updated every time a visitor enter or leaves the queue or an external event occurs - we believe that the cloud is the best solution for this system.
+In fact, as long as the visitor is notified of the waiting time, it doesn't need to be updated in real-time.
+The cloud is the best solution for the machine learning algorithms it would use to do the calculations and it allows to scale the resources implied depending on the number of visitors.
 
 \subsubsection{Visitor Manager deployment strategy}
 Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
