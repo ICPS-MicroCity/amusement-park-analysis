@@ -109,20 +109,22 @@ data and providing tailored recommendations to the visitors and uses a Reward Sy
 \section{Virtual Queuing System}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{img/virtual-queuing.eps}
+	\includegraphics[width=0.7\textwidth]{img/virtual-queuing.eps}
 	\caption{Component diagram showing the internal architecture of the \textit{Virtual Queueing} component.
 	}
 	\label{fig:virtual-queueing-arch}
 \end{figure}
 
 The Virtual Queueing System manages the waiting time of the people in the attractions queues. It could base its estimations on various sources such
-as sensors (cameras, NFC, Bluetooth) or a button pressed on the visitor's wearable which communicates its presence in the queue. In fact, the best
-way to implement this mechanism depends on the assumptions we could do about the context: in a Mirabilandia as a Micro City scenario every visitor
-has a wearable where to enqueue themselves so there is no need to use high or low-budget sensors.
+as sensors (cameras, NFC, Bluetooth) or a button pressed on the visitor's wearable which communicates its presence in the queue.
+
+The best way to implement this mechanism depends on the assumptions we could do about the context.
+For a Mirabilandia as a Micro City scenario, every visitor has a wearable that allows them to enqueue themselves so we can assume that there is no need to use high or low-budget sensors:
+if a visitor wants to make a ride on a roller coaster must reserve a spot in a virtual queue.
 
 However, some sensors could be used to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
 
-\section{Planner}
+\section{Planner}\label{sec:planner}
 
 The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
 
@@ -166,8 +168,7 @@ main modules:
 	\item \textbf{Preferences Manager:} handles all the preferences related to a visitor like the preferred attractions, attractions to avoid, etc.
 \end{itemize}
 
-This component, through the data gathered from each visitor, provides the \textit{Recommender System} with the necessary information to provide the
-best recommendations to the visitors.
+This component, through the data gathered from each visitor, provides the \textit{Recommender System} with the visitor's preferences.
 
 Given the characteristics of this service and the operations it must perform, it is considered unnecessary to develop its version but rather to take
 advantage of platforms already in the market that offers this kind of functionality (user management, user profiling, preference management, etc.).
@@ -177,10 +178,10 @@ For these reasons, it is not deemed necessary to examine this component further.
 This chapter will examine in detail the technologies that are suitable for implementing the systems described above.
 Particularly the techniques available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
 
-\subsection{Proximity Marketing Technologies}\label{sec:proximity-marketing-technologies}
+\subsection{Technologies for Proximity Marketing}\label{sec:proximity-marketing-technologies}
 The situated Recommendation System broadcasts notifications to devices near a certain spot.
 This is the same mechanism used for Proximity Marketing techniques and seems advantageous to use the same technologies to implement such a system since there is plenty of information in the literature regarding proximity marketing.
-In the following section, we will examine some of the current technologies used to implement this kind of system.
+In the following section, we will examine some of the current technologies used to implement this kind of systems.
 
 \subsubsection{Proximity Marketing with Beacons}\label{sec:proximity-marketing-with-beacons}
 Bluetooth low energy (BLE) is a Bluetooth specification designed for IoT-based applications where power consumption is a critical aspect.
@@ -224,14 +225,16 @@ Moreover, the accuracy of outdoor localization technologies (e.g.\ GPS) may not 
 area\footnote{\url{https://www.mirabilandia.it/en/attivita/attrazioni/altri-giochi-e-giochi-a-premio}} where the stands are located next to each
 other.
 
-To design and develop an effective technique for the location of visitors, the following constraints were considered:
-\begin{itemize}
-	\item The use of a custom device is not feasible since most people reject the use of a custom device. Using each visitor's device would be a better choice
-	      because they do not have the impediment of an extra device and do not need any training to use it
-	\item The use of dedicated hardware results in an extra cost that is difficult for both the amusement park and visitors to bear.
-\end{itemize}
+% Not sure the following part fits in this section:
 
-Some technologies identified for these purposes will be described taking into account the constraint defined above.
+% To design and develop an effective technique for the location of visitors, the following constraints were considered:
+% \begin{itemize}
+% 	\item The use of a custom device is not feasible since most people reject the use of a custom device. Using each visitor's wearable would be a better choice
+% 	      because they do not have the impediment of an extra device and do not need any training to use it
+% 	\item The use of dedicated hardware results in an extra cost that is difficult for both the amusement park and visitors to bear.
+% \end{itemize}
+
+% Some technologies identified for these purposes will be described taking into account the constraint defined above.
 
 \subsubsection{Wi-Fi as outdoor localization system}\label{subsec:wi-fi-as-outdoor-localization-system}
 
@@ -248,8 +251,7 @@ problem with GPS is its high power consumption, which is a serious challenge to 
 researchers have proposed a series of alternative localization schemes, including cellular-based systems~\cite{ibrahim2010cellsense}, infrared-based
 systems, ultrasonic-based systems, and radio frequency (RF)-based systems~\cite{bahl2000radar, youssef2002probabilistic}.
 
-Many researchers have proposed a variety of different schemes for outdoor localization based on mobile devices. These schemes can be divided into two
-groups: range-based and range-free methods.
+Many researchers have proposed a variety of different schemes for outdoor localization based on mobile devices. These schemes can be divided into two groups: range-based and range-free methods.
 
 \begin{itemize}
 	\item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like
@@ -304,7 +306,7 @@ To be more precise, the former technique allows a receiver equipped with a multi
 based on the phase delay of the signal received from the transmitter; the latter allows the transmitting device with multiple antennas to transmit a
 radio signal that permits the receiver to determine the directional angle to the transmitter.
 
-\section{Identified technologies to make Mirabilandia a Micro City}
+\section{Identified technologies to transform Mirabilandia in a Micro City}
 The technologies illustrated above can be used and applied to the Mirabilandia environment.
 The following paragraphs have the objective to describe how this would be possible with a fair degree of detail.
 \subsection{Planner strategies and considerations}
