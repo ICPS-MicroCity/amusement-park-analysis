@@ -528,7 +528,8 @@ Given that, our solution will provide the system with a three-layered structure:
 \subsubsection{Virtual Queueing System deployment strategy}
 Even though the Virtual Queueing System should be fairly fast in calculating the waiting time - since it should be updated every time a visitor enter or leaves the queue or an external event occurs - we believe that the cloud is the best solution for this system.
 In fact, as long as the visitor is notified of the waiting time, it doesn't need to be updated in real-time.
-The cloud is the best solution for the machine learning algorithms it would use to do the calculations and it allows to scale the resources implied depending on the number of visitors.
+The Virtual Queueing System could use machine learning algorithms to better do its calculations considering the guest's flow, bad weather, ride downtime etc. and therefore it needs a lot of computing power.
+The cloud is the best solution for these operations and it allows to scale of the resources implied depending on the number of visitors.
 
 \subsubsection{Visitor Manager deployment strategy}
 Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
