@@ -3,7 +3,7 @@
 
 participant "User Position" as user_position
 actor Wearable as wearable
-participant "Recommendation System" as recommendation_system
+participant "Shows/Attractions Recommenders" as recommendation_system
 database "ID-Actions" as id_actions
 
 
