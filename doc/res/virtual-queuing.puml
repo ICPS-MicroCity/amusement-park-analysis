@@ -17,9 +17,13 @@ interface "Source n" as sn
 
 interface "Waiting Time" as wt
 
+actor "Visitor" as visitor
+
 qm <.up. sn
 qm <.up. s2
 qm <.up. s1
+
+q2 <-- visitor: enqueue
 
 qm .left.> wt
 
