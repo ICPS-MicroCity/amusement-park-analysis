@@ -1,22 +1,26 @@
 \section{Overview}\label{sec:overview}
-The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the architectural requirements, the technologies and providing concrete solutions.
+The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the architectural requirements, the
+technologies and providing concrete solutions.
 
-We will illustrate an architecture with all the components needed to satisfy the characteristics of an amusement park as a Micro City: offer a tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards system.
+We will illustrate an architecture with all the components needed to satisfy the characteristics of an amusement park as a Micro City: offer a
+tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards
+system.
 
-The goal of the architecture section is to define a way to keep track of visitors' position within the park, provide a recommendation and reward system, a way to smartly manage queues and visitors' information as well as provide a customizable plan of a day in the park.
+The goal of the architecture section is to define a way to keep track of visitors' position within the park, provide a recommendation and reward
+system, a way to smartly manage queues and visitors' information as well as provide a customizable plan of a day in the park.
 
-As per the recommendation and reward systems, is important to point out their tightly coupled relationship since every suggested action provides some kind of recompense.
-In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
+As per the recommendation and reward systems, is important to point out their tightly coupled relationship since every suggested action provides some
+kind of recompense. In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
 
 \begin{longtable}{|l|l|}
 	\hline
-	\textbf{Action}                                  & \textbf{Reward}                      \\
+	\textbf{Action}                         & \textbf{Reward}                              \\
 	\hline
-	This show is starting in 5 minutes  & You can get a reserved seat in the front row \\
+	This show is starting in 5 minutes      & You can get a reserved seat in the front row \\
 	\hline
-	If you go to this roller coaster    & You can get a reduced queueing waiting time           \\
+	If you go to this roller coaster        & You can get a reduced queueing waiting time  \\
 	\hline
-	If you go to this shop              & You can get a discount on t-shirts           \\
+	If you go to this shop                  & You can get a discount on t-shirts           \\
 	\hline
 	Throw the plastic bottle in a smart bin & You can get a coin for the arcade            \\
 	\hline
@@ -26,7 +30,7 @@ In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
 
 After the architecture description, we will explore suitable technologies for our case study, showing their possible use applied to Mirabilandia.
 
-Finally, we will discuss possible deployment techniques in the park environment. 
+Finally, we will discuss possible deployment techniques in the park environment.
 
 \section{Overall architecture}\label{sec:mira-microcity}
 Following the analysis of the ``as-is'' system and the goals set to adapt the Micro-City concept to Mirabilandia,
@@ -51,18 +55,19 @@ The main components of the system are the following:
 	\label{fig:architecture-overview}
 \end{figure}
 
-From the diagram emerge that \textit{Map Manager}, \textit{Virtual Queueing System} and the \textit{Visitors Manager} are the main components of the system since they are the ones
-that provide information to the other components. The \textit{Map Manager} provides information about the current position of the guests to the
-\textit{Recommendation System} which uses this information to provide recommendations to the guests. Moreover, gives information also to the
-\textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual Queueing System} is used by
-the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality of the visit within the park
-and by the \textit{Recommendation System} to fetch information about the visitor's preferences and opportunistically advise the
-attraction. The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding pre-defined users' preferences.
+From the diagram emerge that \textit{Map Manager}, \textit{Virtual Queueing System} and the \textit{Visitors Manager} are the main components of the
+system since they are the ones that provide information to the other components. The \textit{Map Manager} provides information about the current
+position of the guests to the \textit{Recommendation System} which uses this information to provide recommendations to the guests. Moreover, gives
+information also to the \textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual
+	Queueing System} is used by the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality
+of the visit within the park and by the \textit{Recommendation System} to fetch information about the visitor's preferences and opportunistically
+advise the attraction. The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding
+pre-defined users' preferences.
 
 \section{Map Manager}
 
-The location of visitors within the amusement park is critical for several reasons: it is used to make recommendations and to
-determine the best plan for each visitor. So, a good tracking system is crucial for the correct working of the overall system.
+The location of visitors within the amusement park is critical for several reasons: it is used to make recommendations and to determine the best plan
+for each visitor. So, a good tracking system is crucial for the correct working of the overall system.
 
 The \textit{Map Manager} is composed of the following elements:
 \begin{itemize}
@@ -95,7 +100,8 @@ this component to stop working since the operation of other services depends on 
 \end{figure}
 
 The Recommendation System is a crucial component to ensure the improvement of the visitors' experience. In fact, it is responsible for collecting
-data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions. The Recommendation System is composed of:
+data and providing tailored recommendations to the visitors and uses a Reward System to provide rewards based on the suggested actions. The
+Recommendation System is composed of:
 \begin{itemize}
 	\item \textit{Reward Manager:} has access to all the rewards available to be given to visitors for a given recommendation. It works as previously displayed in figure~\ref{fig:reward}.
 	      The visitors will receive a reward for the suggestions they take.
@@ -118,15 +124,16 @@ data and providing tailored recommendations to the visitors and uses a Reward Sy
 The Virtual Queueing System manages the waiting time of the people in the attractions queues. It could base its estimations on various sources such
 as sensors (cameras, NFC, Bluetooth) or a button pressed on the visitor's wearable which communicates its presence in the queue.
 
-The best way to implement this mechanism depends on the assumptions we could do about the context.
-For a Mirabilandia as a Micro City scenario, every visitor has a wearable that allows them to enqueue themselves so we can assume that there is no need to use high or low-budget sensors:
-if a visitor wants to make a ride on a roller coaster must reserve a spot in a virtual queue.
+The best way to implement this mechanism depends on the assumptions we could do about the context. For a Mirabilandia as a Micro City scenario, every
+visitor has a wearable that allows them to enqueue themselves so we can assume that there is no need to use high or low-budget sensors: if a visitor
+wants to make a ride on a roller coaster must reserve a spot in a virtual queue.
 
 However, some sensors could be used to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
 
 \section{Planner}\label{sec:planner}
 
-The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
+The Planner covers a main role in the overall system: the quality of experience of the user in the park depends also on it. The main goal of this
+component is to satisfy as much as possible the needs and preferences expressed by visitors and at the same time ensure the best possible experience.
 
 \begin{figure}[H]
 	\centering
@@ -175,31 +182,34 @@ advantage of platforms already in the market that offers this kind of functional
 For these reasons, it is not deemed necessary to examine this component further.
 
 \section{Suitable technologies for Mirabilandia as a Micro City}
-This chapter will examine in detail the technologies that are suitable for implementing the systems described above.
-Particularly the techniques available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
+This chapter will examine in detail the technologies that are suitable for implementing the systems described above. Particularly the techniques
+available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
 
 \subsection{Technologies for Proximity Marketing}\label{sec:proximity-marketing-technologies}
-The situated Recommendation System broadcasts notifications to devices near a certain spot.
-This is the same mechanism used for Proximity Marketing techniques and seems advantageous to use the same technologies to implement such a system since there is plenty of information in the literature regarding proximity marketing.
-In the following section, we will examine some of the current technologies used to implement this kind of systems.
+The situated Recommendation System broadcasts notifications to devices near a certain spot. This is the same mechanism used for Proximity Marketing
+techniques and seems advantageous to use the same technologies to implement such a system since there is plenty of information in the literature
+regarding proximity marketing. In the following section, we will examine some of the current technologies used to implement this kind of systems.
 
 \subsubsection{Proximity Marketing with Beacons}\label{sec:proximity-marketing-with-beacons}
-Bluetooth low energy (BLE) is a Bluetooth specification designed for IoT-based applications where power consumption is a critical aspect.
-It is a standard of Bluetooth that does not provide a connection functionality (pairing) but instead, transmits signals continuously.
-These signals can be detected by clients that are on the lookout for that particular beacon~\cite{muddinagiri2020implementation}.
-Once a person with a device with Bluetooth turned on is near the beacon, the device collects the Beacon's ID, sends it to a server that retrieves the corresponding marketing information and returns it to the user with a message.
+Bluetooth low energy (BLE) is a Bluetooth specification designed for IoT-based applications where power consumption is a critical aspect. It is a
+standard of Bluetooth that does not provide a connection functionality (pairing) but instead, transmits signals continuously. These signals can be
+detected by clients that are on the lookout for that particular beacon~\cite{muddinagiri2020implementation}. Once a person with a device with
+Bluetooth turned on is near the beacon, the device collects the Beacon's ID, sends it to a server that retrieves the corresponding marketing
+information and returns it to the user with a message.
 
 \subsubsection{Proximity Marketing using Wi-Fi}\label{sec:proximity-marketing-wifi}
 Even though proximity-driven marketing systems have mostly been developed with the use of Bluetooth beacons~\cite{mndebele2017iot}, it is possible to
 enable IoT-based proximity communication running as a service using network information, exploiting Wi-Fi. This offers better value than Bluetooth in
-terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure.
-The detection of Wi-Fi networks already provides some data about location, namely information about proximity so proximity-based rules replace location
+terms of efficiency and cost-effectiveness, as it can be used to implement IoT-based proximity solutions that run on existing infrastructure. The
+detection of Wi-Fi networks already provides some data about location, namely information about proximity so proximity-based rules replace location
 information, where Wi-Fi hot spots work as presence sensors~\cite{dmitry2013network}.
 
-This paper~\cite{mndebele2017iot} for instance, presents a proximity marketing technique as a service (PMaaS). The system targets people in a specific location
-and delivers messages to their mobile devices via wireless connectivity technology as long as they remain in the specified location. Moreover, they
-have to be connected to a particular network segment or specific access point. To do so, the system uses network information, i.e. the network name,
-and GPS parameters derived from the position of the mobile device. The marketing messages are sent by a cloud-based platform to the eligible devices and a mobile app listens for messages applicable to the subscriber, while the subscriber is in the relevant proximity.
+This paper~\cite{mndebele2017iot} for instance, presents a proximity marketing technique as a service (PMaaS). The system targets people in a
+specific location and delivers messages to their mobile devices via wireless connectivity technology as long as they remain in the specified
+location. Moreover, they have to be connected to a particular network segment or specific access point. To do so, the system uses network
+information, i.e. the network name, and GPS parameters derived from the position of the mobile device. The marketing messages are sent by a
+cloud-based platform to the eligible devices and a mobile app listens for messages applicable to the subscriber, while the subscriber is in the
+relevant proximity.
 
 \subsection{Technologies for crowd density estimation}\label{subsec:sub-ghz-wireless-sensor-network-for-crowd-density-estimation}
 In our context, crowd density estimation could be advantageous to redirect visitors toward less crowded places within the park. The classic approach
@@ -251,7 +261,8 @@ problem with GPS is its high power consumption, which is a serious challenge to 
 researchers have proposed a series of alternative localization schemes, including cellular-based systems~\cite{ibrahim2010cellsense}, infrared-based
 systems, ultrasonic-based systems, and radio frequency (RF)-based systems~\cite{bahl2000radar, youssef2002probabilistic}.
 
-Many researchers have proposed a variety of different schemes for outdoor localization based on mobile devices. These schemes can be divided into two groups: range-based and range-free methods.
+Many researchers have proposed a variety of different schemes for outdoor localization based on mobile devices. These schemes can be divided into two
+groups: range-based and range-free methods.
 
 \begin{itemize}
 	\item \textbf{Range-based}: range-based methods are mainly based on relative distance, which can be obtained through measuring methods like
@@ -307,8 +318,8 @@ based on the phase delay of the signal received from the transmitter; the latter
 radio signal that permits the receiver to determine the directional angle to the transmitter.
 
 \section{Identified technologies to transform Mirabilandia in a Micro City}
-The technologies illustrated above can be used and applied to the Mirabilandia environment.
-The following paragraphs have the objective to describe how this would be possible with a fair degree of detail.
+The technologies illustrated above can be used and applied to the Mirabilandia environment. The following paragraphs have the objective to describe
+how this would be possible with a fair degree of detail.
 \subsection{Planner strategies and considerations}
 In this section, we are not going to provide an actual technology or algorithm for making plans, but rather we want to focus on what goals an
 algorithm in charge of calculating the best plan should achieve based on various factors.
@@ -458,16 +469,16 @@ The adoption of this technique leads to several advantages:
 We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness (more
 accurate location and lower consumption) and costs instead of using a traditional system like GPS.
 
-
 \subsection{Situated Recommendation system}\label{sec:situated-recommendation-sys}
-To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a certain spot could be abstracted.
+To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a
+certain spot could be abstracted.
 
-In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system sends a recommendation for the user based on the action, the position and the visitor's information.
-generates
-This way, the ``situated'' part of the system can be implemented in a very simple way:
-every location of interest is previously set and every time a visitor is near, sends to the visitor's wearable its id.
-Then, the wearable sends to the recommendation system the visitor's info and the collected id, checks the correspondence of the id with an action, decides if the visitor is feasible to get the corresponding recommendation and, if so, sends the recommendation to the visitor.
-The Recommendation System will implement the usual Machine Learning algorithms to take the decision of sending a recommendation.
+In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system sends a recommendation
+for the user based on the action, the position and the visitor's information. generates This way, the ``situated'' part of the system can be
+implemented in a very simple way: every location of interest is previously set and every time a visitor is near, sends to the visitor's wearable its
+id. Then, the wearable sends to the recommendation system the visitor's info and the collected id, checks the correspondence of the id with an
+action, decides if the visitor is feasible to get the corresponding recommendation and, if so, sends the recommendation to the visitor. The
+Recommendation System will implement the usual Machine Learning algorithms to take the decision of sending a recommendation.
 
 The sequence diagram of the process is shown in Figure~\ref{fig:situated-recommendation}.
 
@@ -480,56 +491,75 @@ The sequence diagram of the process is shown in Figure~\ref{fig:situated-recomme
 
 \section{Deployment strategy for a real case scenario}
 In this section, we will examine a possible deployment strategy for the proposed system. In particular, we will take into account all the pros and
-cons of a full cloud solution, a full edge solution, and a hybrid solution.
-
-\subsection{Edge computing vs Cloud computing}
-First, it's important to understand that cloud and edge computing are different, noninterchangeable technologies that cannot replace one another.
-Edge computing is used to process time-sensitive data, while cloud computing is used to process data that is not time-driven. While cloud computing
-is designed to provide high availability and on-demand scaling, the latency introduced by the communication could increase a lot the response time.
-Edge computing is designed to reduce latency by processing data locally. The main advantage of edge computing is the reduction of latency, but it has
-some drawbacks. The main one is the lack of scalability. Edge computing is not designed to scale, so it's not possible to add more nodes to increase
-processing power. Another drawback is the high cost of the infrastructure.
-
-Thus, we can conclude that the cloud has the advantages of providing high computing power and scaling on demand; on the other hand, it has as its
-main disadvantage the high delay in communication between devices and the cloud itself. On the other hand, the edge has the disadvantage of having
-limited computational resources and higher utilization costs but has the advantage of having very fast communication times with devices.
+cons of a full cloud solution, a full fog solution, and a hybrid solution.
 
 \subsection{Fog computing}
-Traditional cloud-based IoT systems are challenged by the large scale, heterogeneity, and high latency witnessed in some cloud ecosystems. 
-Fog computing is a possible solution as it's a distributed computing paradigm that extends cloud computing to the edge of the network:
-it allows the decentralization of applications, management, data analytics, etc. into the network itself.
+Traditional cloud-based IoT systems are challenged by the large scale, heterogeneity, and high latency witnessed in some cloud ecosystems. Fog
+computing is a possible solution as it's a distributed computing paradigm that extends cloud computing to the edge of the network: it allows the
+decentralization of applications, management, data analytics, etc. into the network itself.
 
-This model enables ubiquitous access to a shared continuum of scalable computing resources.
-The deployment of distributed, latency-aware applications and services is facilitated and consists of fog nodes (physical or virtual), residing between smart end devices and centralized (cloud) services.
-The fog nodes are context-aware and support a common data management and communication system.
-They can be organized in clusters - either vertically (to support isolation), horizontally (to support federation), or relative to fog nodes' latency distance to the smart end devices. Fog computing minimizes the request-response time from/to supported applications, and provides, for the end-devices, local computing resources and, when needed, network connectivity to centralized services~\cite{iorga2018fog}.
+This model enables ubiquitous access to a shared continuum of scalable computing resources. The deployment of distributed, latency-aware applications
+and services is facilitated and consists of fog nodes (physical or virtual), residing between smart end devices and centralized (cloud) services. The
+fog nodes are context-aware and support a common data management and communication system. They can be organized in clusters - either vertically (to
+support isolation), horizontally (to support federation), or relative to fog nodes' latency distance to the smart end devices. Fog computing
+minimizes the request-response time from/to supported applications, and provides, for the end-devices, local computing resources and, when needed,
+network connectivity to centralized services~\cite{iorga2018fog}.
 
 This is an interesting model for some components of our use case.
 
-\subsection{Hybrid architecture: edge, cloud and fog}
-The advantages of one approach and the other do not by themselves justify the choice of one or the other. Rather, we believe that the adoption of all the technologies leads to a concrete advantage in the realization of Mirabilandia as a Micro City.
+\subsection{Fog computing vs Cloud computing}
+First, it's important to understand that cloud and fog computing are different, noninterchangeable technologies that cannot replace one another. Fog
+computing is used to process time-sensitive data, while cloud computing is used to process data that is not time-driven. While cloud computing is
+designed to provide high availability and on-demand scaling, the latency introduced by the communication could increase a lot the response time. Fog
+computing is designed to reduce latency by processing data locally. The main advantage of fog computing is the reduction of latency, but it has some
+drawbacks. The main one is the lack of scalability. Fog computing is not designed to scale, so it's not possible to add more nodes to increase
+processing power. Another drawback is the high cost of the infrastructure.
 
-We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify whether it is best implemented in a cloud, edge or fog context.
+Thus, we can conclude that the cloud has the advantages of providing high computing power and scaling on demand; on the other hand, it has as its
+main disadvantage the high delay in communication between devices and the cloud itself. On the other hand, the fog has the disadvantage of having
+limited computational resources and higher utilization costs but has the advantage of having very fast communication times with devices.
+
+\subsection{Hybrid architecture: cloud, fog and edge}\label{sec:hybrid-arch}
+The advantages of one approach and the other do not by themselves justify the choice of one or the other. Rather, we believe that the adoption of all
+the technologies leads to a concrete advantage in the realization of Mirabilandia as a Micro City.
+
+We then go on to analyze the requirements of each system component described in section~\ref{sec:mira-microcity}, and for each one, we will identify
+whether it is best implemented in a cloud, fog or edge context.
+
+\subsubsection{Mirabilanda Micro City deployment architecture}
+In figure~\ref{fig:deployment} is shown a possible deployment strategy for the Mirabilandia Micro City. The architecture is based on the hybrid
+architecture described in section~\ref{sec:hybrid-arch}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/deployment.eps}
+	\caption{Component diagram showing a possible deployment strategy for the Mirabilandia Micro City.}
+	\label{fig:deployment}
+\end{figure}
+
+In the following sections, we will describe in detail all the deployment strategies for each component of the Mirabilandia Micro City.
 
 \subsubsection{Recommendation System deployment strategy}
-As we previously said in other sections, our situated Recommendation System is similar to a Proximity Marketing system.
-Thus, the deployment strategy could use some state-of-the-art technologies that can be found in the literature regarding this topic.
-Mirabilandia has a large number of visitors every day and current technology infrastructures and architectures need to be designed to process in real-time the great amount of information data that is being made available from such several devices with a so high concentration.
-Given that, our solution will provide the system with a three-layered structure: the edge layer, the fog layer and the cloud layer:
+As we previously said in other sections, our situated Recommendation System is similar to a Proximity Marketing system. Thus, the deployment strategy
+could use some state-of-the-art technologies that can be found in the literature regarding this topic. Mirabilandia has a large number of visitors
+every day and current technology infrastructures and architectures need to be designed to process in real-time the great amount of information data
+that is being made available from such several devices with a so high concentration. Given that, our solution will provide the system with a
+three-layered structure: the edge layer, the fog layer and the cloud layer:
 \begin{itemize}
-	\item The edge layer will be composed of the devices that will contain the visitors' information, as well as the id of their position - as per section~\ref{sec:situated-recommendation-sys}.
-	These devices will send that information to the fog layer.
-	\item The fog layer provides real-time computing and storage
-	resources to the edge elements. For instance, the database ID-Actions depicted in~\ref{fig:situated-recommendation} could be placed here since some pre-defined actions can be sent to all the visitors without a tailored recommendation.
-	Moreover, could implement the Notifier Manager which should occur as quickly as possible since the visitor's position could change within seconds.
-	\item The cloud layer provides scalable computing power for machine learning algorithms used for the recommendation.
+	\item The edge layer will be composed of the devices that will contain the visitors' information, as well as the id of their position - as per
+	      section~\ref{sec:situated-recommendation-sys}. These devices will send that information to the fog layer.
+	\item The fog layer provides real-time computing and storage resources to the edge elements. The \textit{Recommendation System} is placed here since a
+	      recommendation should occur as quickly as possible since the visitor's position could change within seconds.
+	\item The cloud layer provides scalable computing power for machine learning algorithms to aggregate useful information for the \textit{Recommendation
+		      System} components in the fog layer.
 \end{itemize}
 
 \subsubsection{Virtual Queueing System deployment strategy}
-Even though the Virtual Queueing System should be fairly fast in calculating the waiting time - since it should be updated every time a visitor enter or leaves the queue or an external event occurs - we believe that the cloud is the best solution for this system.
-In fact, as long as the visitor is notified of the waiting time, it doesn't need to be updated in real-time.
-The Virtual Queueing System could use machine learning algorithms to better do its calculations considering the guest's flow, bad weather, ride downtime etc. and therefore it needs a lot of computing power.
-The cloud is the best solution for these operations and it allows to scale of the resources implied depending on the number of visitors.
+Even though the Virtual Queueing System should be fairly fast in calculating the waiting time - since it should be updated every time a visitor enter
+or leaves the queue or an external event occurs - we believe that the cloud is the best solution for this system. In fact, as long as the visitor is
+notified of the waiting time, it doesn't need to be updated in real-time. The Virtual Queueing System could use machine learning algorithms to better
+do its calculations considering the guest's flow, bad weather, ride downtime etc. and therefore it needs a lot of computing power. The cloud is the
+best solution for these operations and it allows to scale of the resources implied depending on the number of visitors.
 
 \subsubsection{Visitor Manager deployment strategy}
 Concerning the \textit{Visitor Manager} component, this has no particular constraints either in terms of computational complexity or latency in
@@ -551,12 +581,10 @@ representing the optimal solution for implementing such a service.
 The \textit{Map Manager} is responsible for maintaining information on the location of each visitor within the park. It is the component that has the
 most interaction with visitor devices and the one that requires a near-real-time operation. This component requires component-device communication to
 be as fast as possible to calculate the corresponding location. In this context, the computational complexity required for position computation is
-not very high, but low latency in communications is required. For this reason, an edge solution would be ideal to implement such a system. To further
+not very high, but low latency in communications is required. For this reason, a fog solution would be ideal to implement such a system. To further
 reduce the latency in communication, it is possible to think of a hybrid scenario: initially, it is the device that, using the same algorithm,
-estimates its position within the park and directly sends the position information to the service. In this way the \textit{Map Manager} acts as an
+estimates its position within the park and directly sends the position information to the service. In this way, the \textit{Map Manager} acts as an
 aggregator of information that it then makes available to the other services. If the device fails to compute the position promptly or due to other
 factors it is deemed that the computation should be done offline, then the device reverts to operating as described above, i.e., it sends only the
-information that is useful for making the position computation, which, however, will be done by the \textit{Map Manager}. In this way, one can
+information that is useful for making the position computation, which will be done by the \textit{Map Manager}. In this way, one can
 opportunistically determine where it is best to perform the computation of the position estimate.
-
-% TODO: deployment architecture image!
