@@ -4,16 +4,29 @@ top to bottom direction
 cloud "Cloud" as c {
     component "Visitor Manager" as vm
     component "Planner" as planner
+    component "ML Recommendation Algorithm" as ml
+    component "Virtual Queuing System" as vqs
 }
 
-cloud "Edge" as edge {
+cloud "Fog" as fog {
+    component "Recommendation System" as rs
     component "Map Manager" as mm
+
+    mm <.right. rs
 }
 
-actor "Device" as d
+
+actor "Wearable" as d
+
+ml .d.> rs
+
+rs .u.> vqs
+rs .u.> vm
 
 planner .right.> vm
 planner .down..> mm
+
+rs .d.> d
 
 mm <.d.> d
 @enduml
