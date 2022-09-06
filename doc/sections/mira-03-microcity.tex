@@ -1,13 +1,10 @@
 \section{Overview}\label{sec:overview}
-The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City analyzing the architectural requirements, the
-technologies and providing concrete solutions.
+The objective of this chapter is to provide our solution to transform Mirabilandia into a Micro City by analyzing the architectural requirements, technologies and providing concrete solutions.
 
 We will illustrate an architecture with all the components needed to satisfy the characteristics of an amusement park as a Micro City: offer a
-tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards
-system.
+tailored and dynamic experience based on visitors' preferences and a situated recommendation system (Section~\ref{sec:requirements}) with a rewards system.
 
-The goal of the architecture section is to define a way to keep track of visitors' position within the park, provide a recommendation and reward
-system, a way to smartly manage queues and visitors' information as well as provide a customizable plan of a day in the park.
+The architecture section describes the components' structure to implement the tracking of visitors' position within the park, the recommendation and reward system, a smart way to manage queues and visitors' information as well as provides a customizable plan of a day in the park.
 
 As per the recommendation and reward systems, is important to point out their tightly coupled relationship since every suggested action provides some
 kind of recompense. In ~\ref{tab:actions-rewards} are listed some examples of this relationship.
@@ -16,11 +13,11 @@ kind of recompense. In ~\ref{tab:actions-rewards} are listed some examples of th
 	\hline
 	\textbf{Action}                         & \textbf{Reward}                              \\
 	\hline
-	This show is starting in 5 minutes      & You can get a reserved seat in the front row \\
+	"Scuola di Polizia" is starting in 5 minutes      & You can get a reserved seat in the front row \\
 	\hline
-	If you go to this roller coaster        & You can get a reduced queueing waiting time  \\
+	If you go to the Katun        & You can get a reduced queueing waiting time  \\
 	\hline
-	If you go to this shop                  & You can get a discount on t-shirts           \\
+	If you go to the Mayan Shop                  & You can get a discount on t-shirts           \\
 	\hline
 	Throw the plastic bottle in a smart bin & You can get a coin for the arcade            \\
 	\hline
@@ -41,7 +38,7 @@ The main components of the system are the following:
 \begin{itemize}
 	\item \textit{Map Manager:} is responsible for tracking the visitors within the park and providing information about their current position
 	\item \textit{Virtual Queueing System:} is responsible for managing the virtual queue for each attraction
-	\item \textit{Recommendation System:} is responsible for providing recommendations to the visitors based on different factors that will be further discussed in the next sections
+	\item \textit{Recommendation System:} is responsible for providing recommendations to the visitors based on different factors like for example their interests or some other external elements
 	\item \textit{Planner:} is responsible for planning the itinerary of the visitors based on their preferences and the crowding of rides
 	\item \textit{Visitor Manager:} is responsible for the management of the users' information, preferences and tickets selling
 \end{itemize}
@@ -49,24 +46,26 @@ The main components of the system are the following:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/architecture-overview.eps}
-	\caption{Overall architecture of the Mirabilandia Micro-City.
-		The Component Diagram shows the rough architecture and the main dependencies between the elements.
+	\caption{Overall architecture of the Mirabilandia Micro City.
+		The Component Diagram shows the rough architecture and the main dependencies between the components.
 	}
 	\label{fig:architecture-overview}
 \end{figure}
 
 From the diagram emerge that \textit{Map Manager}, \textit{Virtual Queueing System} and the \textit{Visitors Manager} are the main components of the
 system since they are the ones that provide information to the other components. The \textit{Map Manager} provides information about the current
-position of the guests to the \textit{Recommendation System} which uses this information to provide recommendations to the guests. Moreover, gives
+position of the guests to the \textit{Recommendation System} which uses this information to provide situated recommendations to the guests. Moreover, gives
 information also to the \textit{Planner} to avoid crowd situations and maintain a uniform distribution of guests in the park. The \textit{Virtual
-	Queueing System} is used by the \textit{Planner} to plan the itinerary of the guests and adapt it to reduce the waiting time and improve the quality
-of the visit within the park and by the \textit{Recommendation System} to fetch information about the visitor's preferences and opportunistically
-advise the attraction. The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding
+	Queueing System} is used by the \textit{Planner} to plan the itinerary of the visitors and adapt it to reduce the waiting time and improve the quality
+of the visit within the park.
+Moreover, it is exploited by \textit{Recommendation System} that, when a visitor is near an attraction, sends to them a notification to suggest taking advantage of it in exchange for a reward.
+
+The \textit{Visitor Manager} provides information to the \textit{Recommendation System} and the \textit{Planner} regarding
 pre-defined users' preferences.
 
 \section{Map Manager}
 
-The location of visitors within the amusement park is critical for several reasons: it is used to make recommendations and to determine the best plan
+The location of visitors within the amusement park is critical for several reasons: it is used to make situated recommendations and to determine the best plan
 for each visitor. So, a good tracking system is crucial for the correct working of the overall system.
 
 The \textit{Map Manager} is composed of the following elements:
@@ -86,9 +85,6 @@ The figure~\ref{fig:map-manager} shows the component diagram that models the \te
 	\label{fig:map-manager}
 \end{figure}
 
-Given the importance of this component and the amount of work it will have to do, attention must be paid to aspects of high availability to prevent
-this component to stop working since the operation of other services depends on it.
-
 \section{Recommendation System}
 
 \begin{figure}[H]
@@ -107,7 +103,7 @@ Recommendation System is composed of:
 	      The visitors will receive a reward for the suggestions they take.
 	\item \textit{Notification Manager:} which sends the recommendation to the visitor's wearable.
 	\item \textit{Shows Recommender} and \textit{Attractions Recommender:} take visitor's information from the Visitor Manager to get their pre-compiled preferences.
-	      In the former case, the subject would be shows and events they are interested in, in the latter their preferred roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
+	      In the former case, the subject would be shows and events they are interested in; in the latter, preferences about roller coasters, shops, etc. They also get the visitors' location from the Map Manager in order to make a recommendation based on their proximity to a point of interest (\textit{situated} recommendations).
 	      In addition, the Attractions Recommender uses the Virtual Queueing System data, to provide recommendations also considering the waiting time of the attractions.
 	\item \textit{Recommendation History:} is responsible for storing the recommendations in order to improve the accuracy for future scenarios.
 \end{itemize}
@@ -128,7 +124,7 @@ The best way to implement this mechanism depends on the assumptions we could do 
 visitor has a wearable that allows them to enqueue themselves so we can assume that there is no need to use high or low-budget sensors: if a visitor
 wants to make a ride on a roller coaster must reserve a spot in a virtual queue.
 
-However, some sensors could be used to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
+However, some sensors could be used anyway to automatically detect corner case scenarios such as temporary roller coasters malfunctioning, bad weather etc.
 
 \section{Planner}\label{sec:planner}
 
@@ -142,21 +138,22 @@ component is to satisfy as much as possible the needs and preferences expressed 
 	\label{fig:planner-arch}
 \end{figure}
 
-In addition, park activities are as dynamic as park visitors are so it is easy to see that the needs of both parties may change in the process.
+In addition, park activities are as dynamic as park visitors are, so it is easy to see that the needs of both parties may change in the process.
 Therefore, it is appropriate to provide that the plans generated for visitors can change dynamically to adapt to changes in the environment. An
 attraction may break down and therefore all plans that provided for the use of that ride must be adapted to the change. Again, overcrowding at an
 attraction may be the reason why certain visitors' plans change to avoid excessively long queues.
 
-From the above considerations, it is clear how the Planner needs to know in real-time: the queue status of each attraction, the preferences expressed
+From the above considerations, it is clear what the Planner needs to know in real-time: the queue status of each attraction, the preferences expressed
 by each user, and the relative location within the park. Figure~\ref{fig:planner-arch} shows the dependencies that the Planner has with the rest of
-the system, in particular, the information flows that the Planner needs to generate the plans are represented. The core of the \textit{Planner} is
+the system, in particular, the information represents the flows that the Planner needs to generate the plan. The core of the Planner is
 the \textit{Itinerary Service} which collects all the information from the other components and provides the plans to each visitor.
 
 \section{Visitors Manager}
 
-The Visitor Manager is in charge of managing park visitor information. In particular, it is responsible for managing the visitor sign-up, the
+The Visitor Manager is in charge of managing visitors' information. In particular, it is responsible for managing the visitor sign-up, the
 preferences they express when accessing the park, as well as maintaining a whole range of information useful for user profiling. Moreover, the
 Visitor Manager is responsible for managing the visitor's tickets, which are used to access the park and to pay for the services.
+The figure~\ref{fig:visitor-manager-arch} shows the internal architecture of the Visitor Manager component.
 
 \begin{figure}[H]
 	\centering
@@ -165,9 +162,7 @@ Visitor Manager is responsible for managing the visitor's tickets, which are use
 	}
 	\label{fig:visitor-manager-arch}
 \end{figure}
-
-The figure~\ref{fig:visitor-manager-arch} shows the internal architecture of the Visitor Manager component. The Visitor Manager is composed of three
-main modules:
+The Visitor Manager is composed of three main modules:
 
 \begin{itemize}
 	\item \textbf{Ticket Manager:} handles all the ticket-related operations like discounts, promotional offers, sales etc.
@@ -175,20 +170,18 @@ main modules:
 	\item \textbf{Preferences Manager:} handles all the preferences related to a visitor like the preferred attractions, attractions to avoid, etc.
 \end{itemize}
 
-This component, through the data gathered from each visitor, provides the \textit{Recommender System} with the visitor's preferences.
+This component, through the data gathered from each visitor, provides the Recommender System and the Planner with the visitor's preferences.
 
-Given the characteristics of this service and the operations it must perform, it is considered unnecessary to develop its version but rather to take
-advantage of platforms already in the market that offers this kind of functionality (user management, user profiling, preference management, etc.).
+Given the characteristics of this service and the operations it must perform, it is feasible to take advantage of platforms already in the market that offers this kind of functionality (user management, user profiling, preference management, etc.).
 For these reasons, it is not deemed necessary to examine this component further.
 
 \section{Suitable technologies for Mirabilandia as a Micro City}
-This chapter will examine in detail the technologies that are suitable for implementing the systems described above. Particularly the techniques
-available for proximity marketing, crowd density estimation and people localization in indoor and outdoor environments.
+This section will examine in detail the technologies that are suitable for implementing the systems described above. Particularly the techniques
+available for proximity marketing and people localization in outdoor environments.
 
 \subsection{Technologies for Proximity Marketing}\label{sec:proximity-marketing-technologies}
 The situated Recommendation System broadcasts notifications to devices near a certain spot. This is the same mechanism used for Proximity Marketing
-techniques and seems advantageous to use the same technologies to implement such a system since there is plenty of information in the literature
-regarding proximity marketing. In the following section, we will examine some of the current technologies used to implement this kind of systems.
+techniques and seems advantageous to use similar technologies to implement such a system since there is plenty of information about it in the literature. In the following section, we will examine some of the current technologies used to implement this kind of systems.
 
 \subsubsection{Proximity Marketing with Beacons}\label{sec:proximity-marketing-with-beacons}
 Bluetooth low energy (BLE) is a Bluetooth specification designed for IoT-based applications where power consumption is a critical aspect. It is a
@@ -211,24 +204,8 @@ information, i.e. the network name, and GPS parameters derived from the position
 cloud-based platform to the eligible devices and a mobile app listens for messages applicable to the subscriber, while the subscriber is in the
 relevant proximity.
 
-\subsection{Technologies for crowd density estimation}\label{subsec:sub-ghz-wireless-sensor-network-for-crowd-density-estimation}
-In our context, crowd density estimation could be advantageous to redirect visitors toward less crowded places within the park. The classic approach
-to obtaining this information is to make use of an optical camera-based system but the accuracy of these systems can be rather dependent on the
-lighting conditions and they tend to require the availability of a large amount of computing power. Furthermore, the use of optical cameras raises
-the spectre of privacy-related issues. A WSN-based system could potentially be used to simply avoid these issues~\cite{denis2018large}. In fact, the
-use of sub-GHz frequencies could be the best decision, due to their increased range and penetration capabilities through objects, walls and human
-individuals~\cite{denis2018large}. Moreover, this kind of transceivers, compared to the regular Wi-Fi, have a significant lower
-power-consumption~\cite{fudickar2014comparing}.
-
-As presented in~\cite{denis2018large}, they managed to show the feasibility of using a sub-GHz wireless network to estimate the density of
-large-scale crowds calculating the mean RSS-differences within a WSN between an empty and an active environment and used them as input to a
-probabilistic neural network. Whereas in~\cite{fudickar2014comparing}, showed that Sub GHz transceivers achieve significant lower RSS errors and are
-less influenced by obstacles attenuations. Their localisation achieved ca. 1 m more accurate median error distances than the corresponding versions
-that utilise Wi-Fi transceivers. In addition, the battery runtimes are extended by 48\% when using Sub GHz transceivers instead of Wi-Fi
-transceivers.
-
 \subsection{Technologies for visitors localization}\label{sec:technologies}
-Visitors localization could be useful for both proximity marketing and calculating the number of people in a queue. Indoor localization could be
+Visitors localization could be useful for both situated recommendations and calculating the number of people in a queue. Indoor localization could be
 helpful in our context as there are restaurants, shops and some attractions (e.g.\
 Reset\footnote{\url{https://www.mirabilandia.it/en/attivita/attrazioni/reset}}) not easily reached by the outdoor localization technologies.
 Moreover, the accuracy of outdoor localization technologies (e.g.\ GPS) may not be enough accurate for instance for the prize games
@@ -251,13 +228,13 @@ other.
 Wi-Fi is a family of wireless network protocols, which are commonly used for local area networking of devices and Internet access, allowing the
 nearby digital device to exchange data by radio waves.
 
-To date, Wi-Fi is a technology that has been pervasively adopted and made accessible to anyone because of cost, ease of installation and
+To date, Wi-Fi is a technology that has been pervasively adopted and made accessible to anyone because of costs, ease of installation and
 configuration.
 
 Unlike other technologies such as the global positioning system (GPS), Wi-Fi was not designed to perform device and/or person location. However, by
 exploiting ad-hoc techniques it is possible to leverage this tool to perform device localization. Finally, GPS does not always perform well in any
 context: in closed environments or where the GPS signal cannot reach, localization using this technology is approximate or even impractical. Another
-problem with GPS is its high power consumption, which is a serious challenge to battery-based mobile devices. To tackle the problems with GPS, many
+problem with GPS is its high power consumption, which is a serious challenge to battery-based mobile devices. To tackle these problems, many
 researchers have proposed a series of alternative localization schemes, including cellular-based systems~\cite{ibrahim2010cellsense}, infrared-based
 systems, ultrasonic-based systems, and radio frequency (RF)-based systems~\cite{bahl2000radar, youssef2002probabilistic}.
 
@@ -285,7 +262,7 @@ levels etc.~\cite{chaudhry2013indoor} Therefore, the RF values measured for loca
 from those stored in the database created at the training phase~\cite{chaudhry2013indoor}. As a result, the location estimation based on a static
 database may be inaccurate. Also, the training phase needs a human operator (or a human-assisted machine) to thoroughly collect the RF context and
 the location from which the context was collected. To tackle these problems, as suggested in~\cite{chaudhry2013indoor}, could be useful a system that
-considers the NFC technology: reference points of precisely known locations are spread in the environment, marked by NFC tags, to build the database
+considers the NFC technology: reference points of precisely known locations are spread in the environment and marked by NFC tags to build the database
 of fingerprints around. This could improve the training phase and allows easy adaptation to environmental changes.
 
 \subsubsection{Bluetooth as outdoor localization system}
@@ -317,11 +294,12 @@ To be more precise, the former technique allows a receiver equipped with a multi
 based on the phase delay of the signal received from the transmitter; the latter allows the transmitting device with multiple antennas to transmit a
 radio signal that permits the receiver to determine the directional angle to the transmitter.
 
-\section{Identified technologies to transform Mirabilandia in a Micro City}
-The technologies illustrated above can be used and applied to the Mirabilandia environment. The following paragraphs have the objective to describe
-how this would be possible with a fair degree of detail.
-\subsection{Planner strategies and considerations}
-In this section, we are not going to provide an actual technology or algorithm for making plans, but rather we want to focus on what goals an
+\section{Identified technologies and techniques to transform Mirabilandia in a Micro City}
+The technologies illustrated above can be used and applied to the Mirabilandia environment adding all the necessary elements to transform it into a Micro City. The following sections have the objective to describe how these technologies would be adopted with a fair degree of detail.
+Also, we will make some considerations about the components illustrating crucial aspects that need to be taken into account before the implementation.
+
+\subsection{Planner - strategies and considerations}
+In this section, we are not going to provide an actual technology or algorithm for the Planner component, but rather we want to focus on what goals an
 algorithm in charge of calculating the best plan should achieve based on various factors.
 
 As mentioned in the section~\ref{sec:planner}, we should take into account three main aspects in building the optimal plan for each visitor: the
@@ -339,18 +317,20 @@ could be useful in the evaluation of a plan.
 	\item \textbf{User Satisfaction Indicator} (USI): indicates the number of rides completed in an hour but which were expressed as preferences by the visitor.
 \end{itemize}
 
+In figure~\ref{fig:indicies}, is shown a possible correlation between the three indicators. 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/indiciescorrelation.png}
-	\caption{Correlation between the three indicators: \textit{CRI}, \textit{WTI} and \textit{USI}. This chart aims to give an empirical indication of the correlations between the three indicators. It's not based on any real data but it's a good way to understand the correlation between the three indicators.}
+	\caption{Thi chart aims to indicatively show the correlation between CRI (the yellow line), WTI (the blue line) and USI (the red line). It's not based on any real data but it's a good way to visualize the relationships between the three indicators.}
 	\label{fig:indicies}
 \end{figure}
 
-In figure~\ref{fig:indicies}, is shown a possible correlation between the three indicators. The chart aims to provide an intuition about the trend of
+The chart aims to provide an intuition about the trend of
 the three indicators. We specify that it is not derived from any measurements nor available data, but in our opinion is a good way to get what the
 indices mean.
 
-The \textit{CRI} and \textit{USI} ad in opposition to the \textit{WTI}: if a plan is identified to provide only attractions that the user has
+The \textit{CRI} and \textit{USI} are in opposition to the \textit{WTI}: if a plan is identified to provide only attractions that the user has
 indicated, then the user is very likely to queue a lot and consequently increase the \textit{WTI} indicator. On the other hand, if a plan maximizes
 the visitor's experience (increasing the \textit{CRI} indicator), then is quite likely that will be offered to them attractions that are not of their
 interest, reducing the \textit{USI} indicator. The challenge behind the planning algorithm is to find a balance between these three indicators.
@@ -360,25 +340,24 @@ in real-time the plan according to the environment changes. It is believed that 
 a better plan in real-time since it could learn from the past experiences of the visitors and adapt the plan accordingly. Moreover, due to the
 complexity of the environment could not be feasible to tackle all possible scenarios, so a machine-learning approach could help to improve the plan.
 
-\subsection{Localization techniques}
+\subsection{Localization System - strategies and considerations}
 In this section, we will discuss the suitability of the localization techniques described in the previous section for Mirabilandia.
 
-Given its size and organization, it comes naturally to think of Mirabilandia as a micro-city: streets, avenues and squares define the street network
-that connects all the park's attractions and activities, just as it does for any full-scale city. The arrangement of buildings around the streets
-also makes Mirabilandia a micro-city.
+Given its size and organization, it comes naturally to think of Mirabilandia as a Micro City: streets, avenues and squares define the street network
+that connects all the park's attractions and shows, and the arrangement of buildings around the streets.
 
 Given the similarities to a full-size city, we can assume with some degree of confidence that the amusement park environment is almost identical to
 the city environment. Therefore, we assume that the noise and electromagnetic pollution are quite similar, and therefore all the considerations made
 in the previous sections apply.
 
-There is no definite information on the spread and coverage of Wi-Fi within the park, however, it is possible to assume that there is. Conversely, it
-is by no means a given that there are Bluetooth devices that can act as beacons. In light of these considerations, we found that localization using
+There is no definite information on the spread and coverage of Wi-Fi within the park, however, it is possible to assume that there is. Conversely, there isn't any information about the spread of Bluetooth devices within the park.
+In light of these considerations, we found that localization using
 Wi-Fi is the most reasonable in terms of both effectiveness and cost of installation and configuration. The choice of using Wi-Fi as a technology to
 support visitor tracking is based on three main considerations:
 
 \begin{itemize}
 	\item The cost of installation and configuration is relatively low since we have assumed a partially available infrastructure
-	\item The spread of the technology is relatively wide, so any visitor's device support this technology.
+	\item The spread of the technology is relatively wide, so any visitor's device support this technology
 	\item The literature about localization using Wi-Fi is relatively large, so it is feasible to use this technology.
 \end{itemize}
 
@@ -469,14 +448,15 @@ The adoption of this technique leads to several advantages:
 We believe that Wi-Fi-based calculation of visitor location within the amusement park is a promising solution in terms of both effectiveness (more
 accurate location and lower consumption) and costs instead of using a traditional system like GPS.
 
-\subsection{Situated Recommendation system}\label{sec:situated-recommendation-sys}
+\subsection{Situated Recommendation System - strategies and considerations}\label{sec:situated-recommendation-sys}
 To implement the situated Recommendation system in Mirabilandia we could assume that the technology for detecting the presence of a visitor in a
 certain spot could be abstracted.
 
 In fact, could be sufficient to associate the location of the visitor with an ID and the ID with an action. Then the system sends a recommendation
-for the user based on the action, the position and the visitor's information. generates This way, the ``situated'' part of the system can be
+for the user based on the action, the position and the visitor's information.
+This way, the ``situated'' part of the system can be
 implemented in a very simple way: every location of interest is previously set and every time a visitor is near, sends to the visitor's wearable its
-id. Then, the wearable sends to the recommendation system the visitor's info and the collected id, checks the correspondence of the id with an
+ID. Then, the wearable sends to the recommendation system the visitor's info and the collected ID, checks the correspondence of the ID with an
 action, decides if the visitor is feasible to get the corresponding recommendation and, if so, sends the recommendation to the visitor. The
 Recommendation System will implement the usual Machine Learning algorithms to take the decision of sending a recommendation.
 
@@ -498,7 +478,7 @@ Traditional cloud-based IoT systems are challenged by the large scale, heterogen
 computing is a possible solution as it's a distributed computing paradigm that extends cloud computing to the edge of the network: it allows the
 decentralization of applications, management, data analytics, etc. into the network itself.
 
-This model enables ubiquitous access to a shared continuum of scalable computing resources. The deployment of distributed, latency-aware applications
+The deployment of distributed, latency-aware applications
 and services is facilitated and consists of fog nodes (physical or virtual), residing between smart end devices and centralized (cloud) services. The
 fog nodes are context-aware and support a common data management and communication system. They can be organized in clusters - either vertically (to
 support isolation), horizontally (to support federation), or relative to fog nodes' latency distance to the smart end devices. Fog computing
@@ -512,7 +492,7 @@ First, it's important to understand that cloud and fog computing are different, 
 computing is used to process time-sensitive data, while cloud computing is used to process data that is not time-driven. While cloud computing is
 designed to provide high availability and on-demand scaling, the latency introduced by the communication could increase a lot the response time. Fog
 computing is designed to reduce latency by processing data locally. The main advantage of fog computing is the reduction of latency, but it has some
-drawbacks. The main one is the lack of scalability. Fog computing is not designed to scale, so it's not possible to add more nodes to increase
+drawbacks. The main one is the lack of high scalability. Fog computing is not designed to scale, so it's not possible to add more nodes to increase
 processing power. Another drawback is the high cost of the infrastructure.
 
 Thus, we can conclude that the cloud has the advantages of providing high computing power and scaling on demand; on the other hand, it has as its
@@ -588,3 +568,5 @@ aggregator of information that it then makes available to the other services. If
 factors it is deemed that the computation should be done offline, then the device reverts to operating as described above, i.e., it sends only the
 information that is useful for making the position computation, which will be done by the \textit{Map Manager}. In this way, one can
 opportunistically determine where it is best to perform the computation of the position estimate.
+Given the importance of this component and the amount of work it will have to do, attention must be paid to aspects of high availability to prevent
+this component to stop working since the operation of other services depends on it.
