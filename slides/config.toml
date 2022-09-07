@@ -1,7 +1,13 @@
-baseURL = 'https://ICPS-MicroCity.github.io/amusement-park-anaylisis'
+baseURL = 'https://icps-microcity.github.io/amusement-park-analysis/'
 languageCode = 'en-us'
 title = 'Amusement Park Analysis'
 theme = "reveal-hugo"
+
+[params.reveal_hugo]
+theme = "white"
+highlight_theme = "solarized-light"
+width = "1440"
+height = "900"
 
 [markup.goldmark.renderer]
 unsafe = true
