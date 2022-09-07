@@ -1,8 +1,8 @@
 name: Compile Latex and deploy report
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['doc/**']
   pull_request:
   workflow_dispatch:
 
