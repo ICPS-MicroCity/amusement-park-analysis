@@ -1,0 +1,12 @@
+baseURL = 'https://ICPS-MicroCity.github.io/amusement-park-anaylisis'
+languageCode = 'en-us'
+title = 'Amusement Park Analysis'
+theme = "reveal-hugo"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
