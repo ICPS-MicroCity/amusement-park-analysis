@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="326px" preserveAspectRatio="none" style="width:787px;height:326px;background:#FFFFFF;" version="1.1" viewBox="0 0 787 326" width="787px" zoomAndPan="magnify"><defs/><g><!--MD5=[61b138bab6150f84fd47de656412d600]
+cluster Recommendation System--><g id="cluster_Recommendation System"><rect fill="none" height="183" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="690" x="7" y="71"/><rect fill="none" height="10" style="stroke:#181818;stroke-width:1.0;" width="15" x="677" y="76"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="675" y="78"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="675" y="82"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="176" x="264" y="98.5332">Recommendation System</text></g><!--MD5=[ef56afc394acf23590217e06f1693cf7]
+entity attractions_recommender--><g id="elem_attractions_recommender"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="247" y="190"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="425" y="195"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="423" y="197"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="423" y="201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="262" y="224.5332">Attractions recommender</text></g><!--MD5=[cca97232823f957297166cc510604a10]
+entity recommendation_history--><g id="elem_recommendation_history"><path d="M505,200.5 C505,190.5 593,190.5 593,190.5 C593,190.5 681,190.5 681,200.5 L681,227.1094 C681,237.1094 593,237.1094 593,237.1094 C593,237.1094 505,237.1094 505,227.1094 L505,200.5 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M505,200.5 C505,210.5 593,210.5 593,210.5 C593,210.5 681,210.5 681,200.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="515" y="229.0332">Recommendation history</text></g><!--MD5=[e044f9706d1b0f7e0b46c62cd7557221]
+entity notifier_manager--><g id="elem_notifier_manager"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="144" x="521" y="107"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="645" y="112"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="643" y="114"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="643" y="118"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="536" y="141.5332">Notifier Manager</text></g><!--MD5=[cb5cc47fbdb6496c888284d9689258e8]
+entity reward_manager--><g id="elem_reward_manager"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="148" x="23" y="147"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="151" y="152"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="149" y="154"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="149" y="158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="38" y="181.5332">Reward Manager</text></g><!--MD5=[f1285378626e1fd024aababe05e12984]
+entity shows_recommender--><g id="elem_shows_recommender"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="172" x="260" y="107"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="412" y="112"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="410" y="114"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="410" y="118"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="275" y="141.5332">Shows recommender</text></g><!--MD5=[64823cce09de26726eb8cbf56f844b98]
+entity map_manager--><g id="elem_map_manager"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="33.5" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="140.5" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="138.5" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="138.5" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="48.5" y="41.5332">Map Manager</text></g><!--MD5=[37a757b38a138210df45e2ba1bb9a006]
+entity virtual_queing--><g id="elem_virtual_queing"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="180" x="7" y="270"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="167" y="275"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="165" y="277"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="165" y="281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="22" y="304.5332">Virtual Queing System</text></g><!--MD5=[d7e7691e416611fc5d3d744e6930defe]
+entity visitor_manager--><g id="elem_visitor_manager"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="139" x="523.5" y="273"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="642.5" y="278"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="640.5" y="280"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="640.5" y="284"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="538.5" y="307.5332">Visitor Manager</text></g><!--MD5=[cfd4b2bff0b744335e5c50bb0bd41cb8]
+entity visitor--><g id="elem_visitor"><ellipse cx="760.5" cy="100.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M760.5,108.5 L760.5,135.5 M747.5,116.5 L773.5,116.5 M760.5,135.5 L747.5,150.5 M760.5,135.5 L773.5,150.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="741" y="166.5332">Visitor</text></g><!--MD5=[c23e50ef6e9c878566cfeaf104f0f871]
+link shows_recommender to recommendation_history--><g id="link_shows_recommender_recommendation_history"><path d="M417.86,155.01 C450.79,166.16 489.81,179.38 522.56,190.48 " fill="none" id="shows_recommender-recommendation_history" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d6339680c9cd8dddd4d1f7d27cb83c41]
+link attractions_recommender to recommendation_history--><g id="link_attractions_recommender_recommendation_history"><path d="M445.24,214 C464.94,214 485.52,214 504.81,214 " fill="none" id="attractions_recommender-recommendation_history" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2d7071fe1e2728ef6354a72f34bb8b40]
+reverse link virtual_queing to attractions_recommender--><g id="link_virtual_queing_attractions_recommender"><path d="M176.89,268.45 C206.88,258.73 240.94,247.7 270.52,238.12 " fill="none" id="virtual_queing-backto-attractions_recommender" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="172.11,270,181.9022,271.055,176.8703,268.4704,179.4549,263.4385,172.11,270" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f78c5350f1863a0487e49fadfe0ddf58]
+reverse link visitor_manager to attractions_recommender--><g id="link_visitor_manager_attractions_recommender"><path d="M518.34,272.05 C486.5,261.26 449.39,248.69 417.86,238.01 " fill="none" id="visitor_manager-backto-attractions_recommender" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="523.41,273.76,516.1669,267.0864,518.6738,272.1574,513.6027,274.6643,523.41,273.76" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[64be61bc23dfab284cb8c5c90e52906b]
+link shows_recommender to visitor_manager--><g id="link_shows_recommender_visitor_manager"><path d="M417.62,155.01 C427.31,159.85 436.74,165.49 445,172 C480.46,199.96 470.43,224.94 505,254 C512.18,260.04 520.36,265.48 528.75,270.31 " fill="none" id="shows_recommender-to-visitor_manager" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="533.43,272.93,527.5358,265.0396,529.0687,270.4848,523.6235,272.0177,533.43,272.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9e535f7f6edd36ce3e9decfb7ed11804]
+reverse link map_manager to attractions_recommender--><g id="link_map_manager_attractions_recommender"><path d="M144.49,58.05 C158.9,67.53 174.31,78.86 187,91 C219.37,121.97 211.86,144.21 247,172 C255.71,178.89 265.72,184.86 275.95,189.95 " fill="none" id="map_manager-backto-attractions_recommender" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="140.06,55.17,145.435,63.4229,144.2552,57.8904,149.7876,56.7106,140.06,55.17" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d5c630f7076cbbbb94fbdf269ce65979]
+reverse link map_manager to shows_recommender--><g id="link_map_manager_shows_recommender"><path d="M162.54,57.13 C200.62,72.55 248.47,91.92 285.61,106.96 " fill="none" id="map_manager-backto-shows_recommender" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="157.48,55.08,164.3133,62.1727,162.1125,56.9615,167.3237,54.7607,157.48,55.08" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[03013e3f127bbd56734f06a7e2fa23cc]
+link reward_manager to attractions_recommender--><g id="link_reward_manager_attractions_recommender"><path d="M171.11,183.73 C194.86,187.86 221.62,192.52 246.9,196.92 " fill="none" id="reward_manager-attractions_recommender" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b7e7b420494cadef49ebe2122894981e]
+link reward_manager to shows_recommender--><g id="link_reward_manager_shows_recommender"><path d="M171.11,159.16 C198.99,154.65 231.01,149.46 259.91,144.78 " fill="none" id="reward_manager-shows_recommender" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0800f2b1def0b98a428ea96d91cff505]
+link attractions_recommender to notifier_manager--><g id="link_attractions_recommender_notifier_manager"><path d="M417.86,189.99 C450.23,179.03 488.48,166.07 520.87,155.1 " fill="none" id="attractions_recommender-notifier_manager" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c575e591769eb7b19f5a6f56664b130b]
+link shows_recommender to notifier_manager--><g id="link_shows_recommender_notifier_manager"><path d="M432,131 C461.02,131 493.16,131 520.96,131 " fill="none" id="shows_recommender-notifier_manager" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cf666fee676540dedef15f3c8e730e9a]
+link notifier_manager to visitor--><g id="link_notifier_manager_visitor"><path d="M665.15,131 C692.83,131 722.28,131 740.78,131 " fill="none" id="notifier_manager-visitor" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[0d9b04bb020948ec02faac84caf74c36]
+@startuml recommender
+left to right direction
+
+component "Map Manager" as map_manager
+component "Virtual Queing System" as virtual_queing
+component "Visitor Manager" as visitor_manager
+
+component "Recommendation System" {
+    left to right direction
+    component "Attractions recommender" as attractions_recommender
+    database "Recommendation history" as recommendation_history    
+    component "Notifier Manager" as notifier_manager
+    component "Reward Manager" as reward_manager
+    component "Shows recommender" as shows_recommender
+}
+
+actor "Visitor" as visitor
+
+shows_recommender - - recommendation_history
+attractions_recommender - - recommendation_history
+
+attractions_recommender .up.> virtual_queing
+
+visitor_manager <.down. attractions_recommender
+shows_recommender .down.> visitor_manager
+
+attractions_recommender .up.> map_manager
+shows_recommender .up.> map_manager
+
+reward_manager - - attractions_recommender
+reward_manager - - shows_recommender
+
+attractions_recommender - - notifier_manager
+shows_recommender - - notifier_manager
+
+notifier_manager .. visitor
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

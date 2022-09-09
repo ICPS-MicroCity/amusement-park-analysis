@@ -25,3 +25,12 @@ $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
 @import "reveal-js/css/theme/template/theme";
+
+.column {
+    float: left;
+    width: 100%;
+  }
+
+.miraImg {
+    height: 800px;
+}

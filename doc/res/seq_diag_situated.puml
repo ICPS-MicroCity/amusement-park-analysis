@@ -1,4 +1,4 @@
-@startuml situated-recommendation
+@startuml seq-diag-situated
 
 
 participant "User Position" as user_position

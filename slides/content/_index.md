@@ -47,12 +47,8 @@ In the context of the _Amusement Park_, the following concepts are defined:
 - **Reward:** the recompense received by the visitor for accepting a recommendation
 
 ---
+
 {{% section %}}
-
-# Mirabilandia as a Micro City
-
----
-
 # Mirabilandia today
 
 - Limited technological support to **visitors**
@@ -60,9 +56,20 @@ In the context of the _Amusement Park_, the following concepts are defined:
   - Mobile application
 - No technological support about **queue managements**
 - No system to improve the visitor experience, based on their interests
+  
+---
+
+<div class="column">
+<img class="miraImg" src="img/miraPlan.jpg" alt="mira-plan">
+
+<img class="miraImg" src="img/miraextr.jpg" alt="mira-extr">
+</div>
+
+{{% /section %}}
 
 ---
 
+{{% section %}}
 # State of the art
 
 The state of the art analysis was lead by the following requirements:
@@ -84,8 +91,8 @@ Their flagship products are:
 Either of these products leverage the _Experience Engine_ (TE2) and a patented _Virtual Queuing Technology_.
 
 ---
-
-## TODO: immagini accesso
+<img class="stretch" src="img/qsmart.jpg" alt="qsmart">
+<!-- <img class="" src="img/prism.png" alt="prism"> -->
 
 ---
 
@@ -102,10 +109,16 @@ They provide the following services:
 - Time-based suggestions
 - Booking activities
 
+---
+<img class="stretch" src="img/dgenie.png" alt="genie">
+
 {{% /section %}}
 
 ---
 
+# Mirabilandia as a Micro City
+
+---
 # Overview
 
 We will illustrate an architecture with all the components needed to satisfy the characteristics
@@ -126,37 +139,37 @@ The architecture structure is composed of the following elements:
 
 # Architecture
 
-TODO: metti immagine architettura
+<img class="stretch no-border" src="img/architecture-overview.svg" alt="architecture">
 
 ---
 
 ## Map Manager
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/map-manager-overview.svg" alt="map-manager">
 
 ---
 
 ## Recommendation System
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/recommender.svg" alt="recommender">
 
 ---
 
 ## Virtual Queing System
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/virtual-queuing.svg" alt="virtual-q">
 
 ---
 
 ## Planner
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/planner.svg" alt="planner">
 
 ---
 
 ## Visitors Manager
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/visitor-manager.svg" alt="visitor-manager">
 
 {{% /section %}}
 
@@ -204,7 +217,7 @@ TODO: stupire con effetti speciali
 
 ## Situated Recommendation System
 
-TODO: metti diagramma di sequenza
+<img class="stretch no-border" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
 {{% /section %}}
 
@@ -214,7 +227,7 @@ TODO: metti diagramma di sequenza
 
 We deem that the best way to deploy the system is to use an hybrid approach, leveraging the cloud, the fog and the edge layers.
 
-TODO: metti immagine
+<img class="stretch no-border" src="img/deployment.svg" alt="deployment">
 
 ---
 

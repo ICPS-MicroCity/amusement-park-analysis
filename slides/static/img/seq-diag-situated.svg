@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="472px" preserveAspectRatio="none" style="width:499px;height:472px;background:#FFFFFF;" version="1.1" viewBox="0 0 499 472" width="499px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="78.5391" style="stroke:#000000;stroke-width:1.5;" width="326" x="102" y="280.7188"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="53" x2="53" y1="82.6094" y2="390.2578"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="145" x2="145" y1="82.6094" y2="390.2578"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="303" x2="303" y1="82.6094" y2="390.2578"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="463" x2="463" y1="82.6094" y2="390.2578"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="97" x="5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="12" y="71.5332">User Position</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="97" x="5" y="389.2578"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="12" y="410.791">User Position</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="112" y="79.5332">Wearable</text><ellipse cx="145.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M145.5,21.5 L145.5,48.5 M132.5,29.5 L158.5,29.5 M145.5,48.5 L132.5,63.5 M145.5,48.5 L158.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="112" y="403.791">Wearable</text><ellipse cx="145.5" cy="415.3672" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M145.5,423.3672 L145.5,450.3672 M132.5,431.3672 L158.5,431.3672 M145.5,450.3672 L132.5,465.3672 M145.5,450.3672 L158.5,465.3672 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="229" x="189" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="215" x="196" y="71.5332">Shows/Attractions Recommenders</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="229" x="189" y="389.2578"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="215" x="196" y="410.791">Shows/Attractions Recommenders</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="428" y="79.5332">ID-Actions</text><path d="M445,29 C445,19 463,19 463,19 C463,19 481,19 481,29 L481,55 C481,65 463,65 463,65 C463,65 445,65 445,55 L445,29 " fill="#E2E2F0" style="stroke:#181818;stroke-width:1.5;"/><path d="M445,29 C445,39 463,39 463,39 C463,39 481,39 481,29 " fill="none" style="stroke:#181818;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="428" y="403.791">ID-Actions</text><path d="M445,416.8672 C445,406.8672 463,406.8672 463,406.8672 C463,406.8672 481,406.8672 481,416.8672 L481,442.8672 C481,452.8672 463,452.8672 463,452.8672 C463,452.8672 445,452.8672 445,442.8672 L445,416.8672 " fill="#E2E2F0" style="stroke:#181818;stroke-width:1.5;"/><path d="M445,416.8672 C445,426.8672 463,426.8672 463,426.8672 C463,426.8672 481,426.8672 481,416.8672 " fill="none" style="stroke:#181818;stroke-width:1.5;"/><polygon fill="#181818" points="133.5,110.9609,143.5,114.9609,133.5,118.9609,137.5,114.9609" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="53.5" x2="139.5" y1="114.9609" y2="114.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="10" x="60.5" y="110.1045">id</text><polygon fill="#181818" points="291.5,141.3125,301.5,145.3125,291.5,149.3125,295.5,145.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="145.5" x2="297.5" y1="145.3125" y2="145.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="152.5" y="140.4561">position id, user info</text><polygon fill="#181818" points="451,171.6641,461,175.6641,451,179.6641,455,175.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="303.5" x2="457" y1="175.6641" y2="175.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="310.5" y="170.8076">position id</text><polygon fill="#181818" points="314.5,202.0156,304.5,206.0156,314.5,210.0156,310.5,206.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="308.5" x2="462" y1="206.0156" y2="206.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="320.5" y="201.1592">action</text><line style="stroke:#181818;stroke-width:1.0;" x1="303.5" x2="345.5" y1="252.7188" y2="252.7188"/><line style="stroke:#181818;stroke-width:1.0;" x1="345.5" x2="345.5" y1="252.7188" y2="265.7188"/><line style="stroke:#181818;stroke-width:1.0;" x1="304.5" x2="345.5" y1="265.7188" y2="265.7188"/><polygon fill="#181818" points="314.5,261.7188,304.5,265.7188,314.5,269.7188,310.5,265.7188" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="50" x="310.5" y="231.5107">generate</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="314.5" y="247.8623">recommendation</text><path d="M102,280.7188 L163,280.7188 L163,289.0703 L153,299.0703 L102,299.0703 L102,280.7188 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="78.5391" style="stroke:#000000;stroke-width:1.5;" width="326" x="102" y="280.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="117" y="295.2139">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="150" x="178" y="294.1377">[recommendation feasible]</text><polygon fill="#181818" points="156.5,317.4219,146.5,321.4219,156.5,325.4219,152.5,321.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="150.5" x2="302.5" y1="321.4219" y2="321.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="162.5" y="316.5654">recommendation</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="102" x2="428" y1="330.4219" y2="330.4219"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="174" x="107" y="341.8408">[recommendation not available]</text><polygon fill="#181818" points="156.5,347.2578,146.5,351.2578,156.5,355.2578,152.5,351.2578" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="150.5" x2="302.5" y1="351.2578" y2="351.2578"/><polygon fill="#181818" points="64.5,368.2578,54.5,372.2578,64.5,376.2578,60.5,372.2578" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58.5" x2="302.5" y1="372.2578" y2="372.2578"/><!--MD5=[8fc5b7d8dadad71279f80efceb811610]
+@startuml seq-diag-situated
+
+
+participant "User Position" as user_position
+actor Wearable as wearable
+participant "Shows/Attractions Recommenders" as recommendation_system
+database "ID-Actions" as id_actions
+
+
+user_position -> wearable : id
+wearable -> recommendation_system : position id, user info
+recommendation_system -> id_actions : position id
+id_actions - -> recommendation_system : action
+recommendation_system -> recommendation_system : generate \n recommendation
+
+alt recommendation feasible
+recommendation_system -> wearable : recommendation 
+else recommendation not available
+recommendation_system - -> wearable
+end
+
+recommendation_system - -> user_position
+
+
+' component "User Position" as user_position
+' actor "Wearable" as wearable
+' component "Recommendation System" as recommedation_system
+
+' database "ID-Actions storage" as storage
+
+' user_position ..> wearable : id
+
+' wearable ..> recommedation_system : "user info\n position id"
+' recommedation_system ..> wearable : "recommendation"
+' recommedation_system - - storage
+
+@enduml
+
+@startuml seq-diag-situated
+
+
+participant "User Position" as user_position
+actor Wearable as wearable
+participant "Shows/Attractions Recommenders" as recommendation_system
+database "ID-Actions" as id_actions
+
+
+user_position -> wearable : id
+wearable -> recommendation_system : position id, user info
+recommendation_system -> id_actions : position id
+id_actions - -> recommendation_system : action
+recommendation_system -> recommendation_system : generate \n recommendation
+
+alt recommendation feasible
+recommendation_system -> wearable : recommendation 
+else recommendation not available
+recommendation_system - -> wearable
+end
+
+recommendation_system - -> user_position
+
+
+
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

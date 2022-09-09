@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="280px" preserveAspectRatio="none" style="width:571px;height:280px;background:#FFFFFF;" version="1.1" viewBox="0 0 571 280" width="571px" zoomAndPan="magnify"><defs/><g><!--MD5=[cadc769a56c136672098fb62b4fc949e]
+cluster vqs--><g id="cluster_vqs"><rect fill="none" height="206" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="311" x="117.5" y="7"/><rect fill="none" height="10" style="stroke:#181818;stroke-width:1.0;" width="15" x="408.5" y="12"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="406.5" y="14"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="406.5" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="163" x="191.5" y="34.5332">Virtual Queuing System</text></g><!--MD5=[f0b526faaf8feb753c089a281c3ef5d9]
+entity qm--><g id="elem_qm"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="143" x="133.5" y="121"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="256.5" y="126"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="254.5" y="128"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="254.5" y="132"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="148.5" y="155.5332">Queue Manager</text></g><!--MD5=[2a7ee079f88478435ddde51c3af7f1fd]
+entity qn--><g id="elem_qn"><path d="M342.5,169 L407.5,169 C412.5,169 412.5,182.8047 412.5,182.8047 C412.5,182.8047 412.5,196.6094 407.5,196.6094 L342.5,196.6094 C337.5,196.6094 337.5,182.8047 337.5,182.8047 C337.5,182.8047 337.5,169 342.5,169 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M407.5,169 C402.5,169 402.5,182.8047 402.5,182.8047 C402.5,196.6094 407.5,196.6094 407.5,196.6094 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="342.5" y="188.5332">Queue n</text></g><!--MD5=[5aa9fe14e2b4221da937042b0842c101]
+entity q2--><g id="elem_q2"><path d="M342.5,106 L407.5,106 C412.5,106 412.5,119.8047 412.5,119.8047 C412.5,119.8047 412.5,133.6094 407.5,133.6094 L342.5,133.6094 C337.5,133.6094 337.5,119.8047 337.5,119.8047 C337.5,119.8047 337.5,106 342.5,106 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M407.5,106 C402.5,106 402.5,119.8047 402.5,119.8047 C402.5,133.6094 407.5,133.6094 407.5,133.6094 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="342.5" y="125.5332">Queue 2</text></g><!--MD5=[1e0e2dbac2f3cca3269c18ad1edf5798]
+entity q1--><g id="elem_q1"><path d="M342.5,43 L407.5,43 C412.5,43 412.5,56.8047 412.5,56.8047 C412.5,56.8047 412.5,70.6094 407.5,70.6094 L342.5,70.6094 C337.5,70.6094 337.5,56.8047 337.5,56.8047 C337.5,56.8047 337.5,43 342.5,43 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M407.5,43 C402.5,43 402.5,56.8047 402.5,56.8047 C402.5,70.6094 407.5,70.6094 407.5,70.6094 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="342.5" y="62.5332">Queue 1</text></g><!--MD5=[1f0e52a1457a111061ef2aae8e5ec9c5]
+entity s1--><g id="elem_s1"><ellipse cx="34.5" cy="50" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="6" y="81.5332">Source 1</text></g><!--MD5=[dc66687c89eac77dba91b7320324a287]
+entity s2--><g id="elem_s2"><ellipse cx="34.5" cy="145" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="6" y="176.5332">Source 2</text></g><!--MD5=[4647957a334afa5b2232915896330279]
+entity sn--><g id="elem_sn"><ellipse cx="34.5" cy="240" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="6" y="271.5332">Source n</text></g><!--MD5=[e9eea186e533d2cd1d59219f1202608f]
+entity wt--><g id="elem_wt"><ellipse cx="205" cy="238" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="164" y="269.5332">Waiting Time</text></g><!--MD5=[cfd4b2bff0b744335e5c50bb0bd41cb8]
+entity visitor--><g id="elem_visitor"><ellipse cx="545" cy="89.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M545,97.5 L545,124.5 M532,105.5 L558,105.5 M545,124.5 L532,139.5 M545,124.5 L558,139.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="525.5" y="155.5332">Visitor</text></g><!--MD5=[0ca3a59301ee8700ea501aedfc33a09f]
+link qm to qn--><g id="link_qm_qn"><path d="M276.76,161.01 C297.56,165.71 319.48,170.67 337.23,174.68 " fill="none" id="qm-qn" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[305de163a70efcbd3187f43912f55eff]
+link qm to q2--><g id="link_qm_q2"><path d="M276.76,134.47 C297.56,131.37 319.48,128.11 337.23,125.47 " fill="none" id="qm-q2" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6e6447b2ca4188dbda21dedb9006d236]
+link qm to q1--><g id="link_qm_q1"><path d="M251.91,120.95 C282.41,104.97 321.42,84.54 347.03,71.13 " fill="none" id="qm-q1" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[90962e9c9958c8fc5dd92fce94b92f38]
+link sn to qm--><g id="link_sn_qm"><path d="M43.63,235.42 C63.72,224.09 116.95,194.08 156.61,171.72 " fill="none" id="sn-to-qm" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="161.38,169.03,151.5758,169.9667,157.0248,171.4861,155.5055,176.9351,161.38,169.03" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a3ab8de363825351edf5d9bc989e1534]
+link s2 to qm--><g id="link_s2_qm"><path d="M43.63,145 C59.16,145 94.53,145 128.11,145 " fill="none" id="s2-to-qm" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="133.48,145,124.48,141,128.48,145,124.48,149,133.48,145" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[375848eb318ac824094ee04b506b7371]
+link s1 to qm--><g id="link_s1_qm"><path d="M43.63,54.58 C63.72,65.91 116.95,95.92 156.61,118.28 " fill="none" id="s1-to-qm" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="161.38,120.97,155.5055,113.0649,157.0248,118.5139,151.5758,120.0333,161.38,120.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[49558b2a9b6c426959b455a43ad07e12]
+reverse link q2 to visitor--><g id="link_q2_visitor"><path d="M418.28,120 C452.73,120 499.72,120 525.38,120 " fill="none" id="q2-backto-visitor" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="412.87,120,421.87,124,417.87,120,421.87,116,412.87,120" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="445.5" y="116.4951">enqueue</text></g><!--MD5=[30f5f1522ab5bd0301544eb610705a1b]
+reverse link wt to qm--><g id="link_wt_qm"><path d="M205,223.79 C205,205.61 205,187.44 205,169.26 " fill="none" id="wt-backto-qm" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="205,228.92,209,219.92,205,223.92,201,219.92,205,228.92" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c80b4ba3323bb45fa2c23f39828a4969]
+@startuml virtual-queuing
+left to right direction
+component "Virtual Queuing System" as vqs {
+    component "Queue Manager" as qm
+    queue "Queue n" as qn
+    queue "Queue 2" as q2
+    queue "Queue 1" as q1
+
+    qm -down- qn
+    qm -down- q2
+    qm -down- q1
+}
+
+interface "Source 1" as s1
+interface "Source 2" as s2
+interface "Source n" as sn
+
+interface "Waiting Time" as wt
+
+actor "Visitor" as visitor
+
+qm <.up. sn
+qm <.up. s2
+qm <.up. s1
+
+q2 <- - visitor: enqueue
+
+qm .left.> wt
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
