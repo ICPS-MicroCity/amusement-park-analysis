@@ -49,6 +49,7 @@ In the context of the _Amusement Park_, the following concepts are defined:
 ---
 
 {{% section %}}
+
 # Mirabilandia today
 
 - Limited technological support to **visitors**
@@ -70,6 +71,7 @@ In the context of the _Amusement Park_, the following concepts are defined:
 ---
 
 {{% section %}}
+
 # State of the art
 
 The state of the art analysis was lead by the following requirements:
@@ -119,6 +121,7 @@ They provide the following services:
 # Mirabilandia as a Micro City
 
 ---
+
 # Overview
 
 We will illustrate an architecture with all the components needed to satisfy the characteristics
@@ -211,7 +214,39 @@ These indicators could be used to determine a QoS for each plan and for the over
 
 ## Localization System
 
-TODO: stupire con effetti speciali
+The location via GPS could not be feasible because of **high power consumption** and **low accuracy**.
+
+The localization technology should observe the following requirements:
+
+- Power Efficient
+- Low installations cost
+- Best accuracy possible
+
+---
+
+## Fingerprint-base localization
+
+The fingerprint-based localization is a technique that uses the signal strength of the received signal to determine the location of the device.
+
+In order to determines the location of the device, the following steps are performed:
+
+- Scan the environment collecting the signal strength of the received signal from each AP
+- Compare the signal strength of the received signal with the signal strength of the APs in the database
+- Determine the location of the device based on the APs with the highest similarity
+
+---
+
+## Fingerprint-based localization formalization
+
+Denote with $\sigma_i = | r_i - r^{'}_{i}|$ the difference between two **RSSI**.
+
+The dissimilarities between two fingerprints can be computed as:
+
+$\eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}$ where $p = | A \cup A^{'} |$
+
+The location can be determined taken the fingerprint with the minimum dissimilarity:
+
+$$f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)$$
 
 ---
 
