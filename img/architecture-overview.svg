@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="352px" preserveAspectRatio="none" style="width:707px;height:352px;background:#FFFFFF;" version="1.1" viewBox="0 0 707 352" width="707px" zoomAndPan="magnify"><defs/><g><!--MD5=[7df3a54cbd76283237549dc372343e4c]
+entity recommendation_system--><g id="elem_recommendation_system"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="200" x="7" y="153"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="187" y="158"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="185" y="160"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="185" y="164"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="22" y="187.5332">Recommendation System</text></g><!--MD5=[feb13187a4e12c0f7e43ab86a34517b0]
+entity vm--><g id="elem_vm"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="337" y="153"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="463" y="158"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="461" y="160"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="461" y="164"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="352" y="187.5332">Visitors Manager</text></g><!--MD5=[75390d3fefe5b03c70cb446d957a6395]
+entity planner--><g id="elem_planner"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="89" x="612.5" y="153"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="681.5" y="158"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="679.5" y="160"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="679.5" y="164"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="627.5" y="187.5332">Planner</text></g><!--MD5=[64823cce09de26726eb8cbf56f844b98]
+entity map_manager--><g id="elem_map_manager"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="317.5" y="299"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="424.5" y="304"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="422.5" y="306"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="422.5" y="310"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="332.5" y="333.5332">Map manager</text></g><!--MD5=[d0eb881447e4fde111ec32ea5381d92d]
+entity vqs--><g id="elem_vqs"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="196" x="283" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="459" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="457" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="457" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="298" y="41.5332">Virtual Queueing System</text></g><!--MD5=[87c06df9597f53570113c1a78388e848]
+link planner to map_manager--><g id="link_planner_map_manager"><path d="M612.66,201.14 C562.66,227.22 481.61,269.51 429.84,296.52 " fill="none" id="planner-to-map_manager" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="425.23,298.92,435.0591,298.2967,429.6614,296.6042,431.3539,291.2065,425.23,298.92" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="536" y="255.4951">uses</text></g><!--MD5=[602ba7e85302485648f010270c20c45e]
+link recommendation_system to map_manager--><g id="link_recommendation_system_map_manager"><path d="M151.02,201.14 C200.66,227.22 281.12,269.51 332.51,296.52 " fill="none" id="recommendation_system-to-map_manager" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="337.09,298.92,330.9763,291.1984,332.6617,296.5984,327.2617,298.2837,337.09,298.92" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="261" y="255.4951">uses</text></g><!--MD5=[53e2f73364e39289535486fbbadaea98]
+reverse link vqs to planner--><g id="link_vqs_planner"><path d="M429.95,57.54 C481.77,84.58 562.82,126.86 612.77,152.92 " fill="none" id="vqs-backto-planner" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="425.34,55.14,431.4639,62.8535,429.7714,57.4558,435.1691,55.7633,425.34,55.14" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="536" y="109.4951">uses</text></g><!--MD5=[124270a1b0383f316c7fb8162aa62f1a]
+reverse link vqs to recommendation_system--><g id="link_vqs_recommendation_system"><path d="M332.4,57.54 C280.96,84.58 200.5,126.86 150.91,152.92 " fill="none" id="vqs-backto-recommendation_system" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="336.98,55.14,327.1525,55.7881,332.5545,57.467,330.8756,62.869,336.98,55.14" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="261" y="109.4951">uses</text></g><!--MD5=[dde822f98f3f2039f6747a1e617d0ecb]
+link recommendation_system to vm--><g id="link_recommendation_system_vm"><path d="M207.05,177 C247.64,177 293.81,177 331.85,177 " fill="none" id="recommendation_system-to-vm" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="336.92,177,327.92,173,331.92,177,327.92,181,336.92,177" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="258" y="170.4951">uses</text></g><!--MD5=[a493ec47ca051c37bd8d0d6b26449ce7]
+reverse link vm to planner--><g id="link_vm_planner"><path d="M488.31,177 C529.26,177 577.88,177 612.38,177 " fill="none" id="vm-backto-planner" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="483.11,177,492.11,181,488.11,177,492.11,173,483.11,177" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="533.75" y="170.4951">uses</text></g><!--MD5=[7aef5e221b25cae968451f84c26b5b00]
+@startuml architecture-overview
+top to bottom direction
+
+'skinparam componentStyle rectangle
+skinparam nodesep 100
+skinparam ranksep 80
+' node "Recommendation System" as recommendation_system {
+'     [Attractions recommender]
+'     [Show recommender]
+'     [Restaurant recommender]
+'     [Shop recommender]
+' }
+
+[Recommendation System] as recommendation_system
+[Visitors Manager] as vm
+[Planner] as planner
+[Map manager] as map_manager
+[Virtual Queueing System] as vqs
+
+'actor Guest as guest
+
+planner ..> map_manager : uses
+recommendation_system ..> map_manager : uses
+vqs <.. planner : uses
+vqs <.. recommendation_system : uses
+vm <.left. recommendation_system : uses
+vm <.right. planner : uses
+' guest <- -> vqs : interact with
+' guest .. map_manager : interacts with
+' guest .. recommendation_system
+' guest .. planner
+
+@enduml
+
+@startuml architecture-overview
+top to bottom direction
+
+skinparam nodesep 100
+skinparam ranksep 80
+
+[Recommendation System] as recommendation_system
+[Visitors Manager] as vm
+[Planner] as planner
+[Map manager] as map_manager
+[Virtual Queueing System] as vqs
+
+
+planner ..> map_manager : uses
+recommendation_system ..> map_manager : uses
+vqs <.. planner : uses
+vqs <.. recommendation_system : uses
+vm <.left. recommendation_system : uses
+vm <.right. planner : uses
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

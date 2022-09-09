@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="348px" preserveAspectRatio="none" style="width:477px;height:348px;background:#FFFFFF;" version="1.1" viewBox="0 0 477 348" width="477px" zoomAndPan="magnify"><defs/><g><!--MD5=[e6c7d79575b4f236080fa0739aa21ef1]
+cluster mm--><g id="cluster_mm"><rect fill="none" height="228" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="398" x="73" y="7"/><rect fill="none" height="10" style="stroke:#181818;stroke-width:1.0;" width="15" x="451" y="12"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="449" y="14"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="449" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="96" x="224" y="34.5332">Map Manager</text></g><!--MD5=[a45388d319dd5763e30a41e5a1fc69a1]
+entity dii--><g id="elem_dii"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="218" x="89" y="43"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="287" y="48"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="285" y="50"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="285" y="54"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="104" y="77.5332">Device Information Ingestion</text></g><!--MD5=[5b060d6b8f4177e77a7b5f586f08b447]
+entity li--><g id="elem_li"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="157" x="119.5" y="171"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="256.5" y="176"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="254.5" y="178"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="254.5" y="182"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="134.5" y="205.5332">Location Inference</text></g><!--MD5=[cb08b6240d8340f0a69925bf22e7f9be]
+entity ld--><g id="elem_ld"><path d="M347,181.5 C347,171.5 401,171.5 401,171.5 C401,171.5 455,171.5 455,181.5 L455,208.1094 C455,218.1094 401,218.1094 401,218.1094 C401,218.1094 347,218.1094 347,208.1094 L347,181.5 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><path d="M347,181.5 C347,191.5 401,191.5 401,191.5 C401,191.5 455,191.5 455,181.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="357" y="210.0332">Location Data</text></g><!--MD5=[002537d386d1f68a9aa978f7fb49d1b7]
+entity device--><g id="elem_device"><ellipse cx="27.5" cy="36.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M27.5,44.5 L27.5,71.5 M14.5,52.5 L40.5,52.5 M27.5,71.5 L14.5,86.5 M27.5,71.5 L40.5,86.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="6" y="102.5332">Device</text></g><!--MD5=[7cf1c9dd4630e98362c0697016ffe790]
+entity le--><g id="elem_le"><ellipse cx="198" cy="308" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="141" y="339.5332">Location Endpoint</text></g><!--MD5=[8a219f9adf2e65f729f43ac5d0dd5c47]
+link device to dii--><g id="link_device_dii"><path d="M49.16,67 C58.55,67 70.45,67 83.42,67 " fill="none" id="device-to-dii" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="88.63,67,79.63,63,83.63,67,79.63,71,88.63,67" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[89b8e157b4443fe5278dcc995029414d]
+reverse link li to dii--><g id="link_li_dii"><path d="M198,165.48 C198,140.76 198,116.04 198,91.32 " fill="none" id="li-backto-dii" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="198,170.75,202,161.75,198,165.75,194,161.75,198,170.75" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9eafe1ea8c3a5f173ee26e596f83d8ae]
+link li to ld--><g id="link_li_ld"><path d="M281.95,195 C301.96,195 322.93,195 341.55,195 " fill="none" id="li-ld" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="346.74,195,337.74,191,341.74,195,337.74,199,346.74,195" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="276.71,195,285.71,199,281.71,195,285.71,191,276.71,195" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[754e40af6da16400859962a490366732]
+reverse link le to li--><g id="link_le_li"><path d="M198,293.46 C198,268.74 198,244.03 198,219.31 " fill="none" id="le-backto-li" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="198,298.73,202,289.73,198,293.73,194,289.73,198,298.73" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a988dfb3168d7290bee4a097711a5c7a]
+@startuml map-manager-overview
+left to right direction
+skinparam nodesep 80
+skinparam ranksep 40
+
+actor "Device" as device
+
+component "Map Manager" as mm {
+    component "Device Information Ingestion" as dii
+    component "Location Inference" as li
+    database "Location Data" as ld
+}
+
+interface "Location Endpoint" as le
+
+device -down-> dii
+dii .left.> li
+li <..> ld
+li .left.> le
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

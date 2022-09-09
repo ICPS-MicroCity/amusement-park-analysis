@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="226px" preserveAspectRatio="none" style="width:503px;height:226px;background:#FFFFFF;" version="1.1" viewBox="0 0 503 226" width="503px" zoomAndPan="magnify"><defs/><g><!--MD5=[f1307e32d346f66dcf98fb0ec38c139c]
+cluster planner--><g id="cluster_planner"><rect fill="none" height="100" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="174" x="239" y="54"/><rect fill="none" height="10" style="stroke:#181818;stroke-width:1.0;" width="15" x="393" y="59"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="391" y="61"/><rect fill="none" height="2" style="stroke:#181818;stroke-width:1.0;" width="4" x="391" y="65"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="54" x="299" y="81.5332">Planner</text></g><!--MD5=[4e670a9cb4c7a586780137f14b672bfb]
+entity itinerary--><g id="elem_itinerary"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="142" x="255" y="90"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="377" y="95"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="375" y="97"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="375" y="101"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="270" y="124.5332">Itinerary Service</text></g><!--MD5=[d0eb881447e4fde111ec32ea5381d92d]
+entity vqs--><g id="elem_vqs"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="188" x="7" y="90"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="175" y="95"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="173" y="97"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="173" y="101"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="22" y="124.5332">Virtual Queuing System</text></g><!--MD5=[7061a1a8c004955e358db249191eb953]
+entity mm--><g id="elem_mm"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="37.5" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="144.5" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="142.5" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="142.5" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="52.5" y="41.5332">Map Manager</text></g><!--MD5=[feb13187a4e12c0f7e43ab86a34517b0]
+entity vm--><g id="elem_vm"><rect fill="#F1F1F1" height="47.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="139" x="31.5" y="173"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="150.5" y="178"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="148.5" y="180"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="148.5" y="184"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="46.5" y="207.5332">Visitor Manager</text></g><!--MD5=[cfd4b2bff0b744335e5c50bb0bd41cb8]
+entity visitor--><g id="elem_visitor"><ellipse cx="476.5" cy="83.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M476.5,91.5 L476.5,118.5 M463.5,99.5 L489.5,99.5 M476.5,118.5 L463.5,133.5 M476.5,118.5 L489.5,133.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="457" y="149.5332">Visitor</text></g><!--MD5=[bf1a19467d7fa15fc3002ed4623c5174]
+link vqs to itinerary--><g id="link_vqs_itinerary"><path d="M195.28,114 C213.34,114 232.06,114 249.47,114 " fill="none" id="vqs-to-itinerary" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="254.83,114,245.83,110,249.83,114,245.83,118,254.83,114" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1dae24d170d5b6abcdc991142a330151]
+link mm to itinerary--><g id="link_mm_itinerary"><path d="M164.71,54.34 C192.96,64.86 226.42,77.31 255.44,88.11 " fill="none" id="mm-to-itinerary" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="260.43,89.97,253.3891,83.0834,255.7437,88.2269,250.6001,90.5815,260.43,89.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a341ebe66bb3b01f66f7dc17a0aee33b]
+reverse link vm to itinerary--><g id="link_vm_itinerary"><path d="M171.38,171.18 C199.75,160.62 232.38,148.47 260.26,138.1 " fill="none" id="vm-backto-itinerary" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="166.5,172.99,176.3299,173.6015,171.1863,171.2469,173.5409,166.1034,166.5,172.99" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4cc3c071c82ef0ccc2be5844d1357651]
+link itinerary to visitor--><g id="link_itinerary_visitor"><path d="M397.34,114 C419.23,114 441.57,114 456.73,114 " fill="none" id="itinerary-visitor" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[7c18ea5650c62e29f2bf35876978013a]
+@startuml planner
+left to right direction
+
+component "Planner" as planner {
+    component "Itinerary Service" as itinerary
+}
+
+component "Virtual Queuing System" as vqs
+component "Map Manager" as mm
+component "Visitor Manager" as vm
+
+actor "Visitor" as visitor
+
+itinerary <.up. vqs
+itinerary <.up. mm
+vm <.. itinerary
+
+itinerary .. visitor
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
