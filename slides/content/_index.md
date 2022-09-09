@@ -130,11 +130,11 @@ preferences and a situated recommendation system with a rewards system.
 
 The architecture structure is composed of the following elements:
 
-- A tracking system of visitors' position within the park
-- A recommendation and reward system
-- A system to manage queues in a smart way
+- A **tracking system** of visitors' position within the park
+- A **recommendation** and **reward system**
+- A system to **manage queues** in a smart way
 - A manager for visitors' information
-- A service to generate custom plans for each visitors for a day in the park.
+- A service to generate **custom plans** for each visitors for a day in the park.
 
 ---
 
@@ -142,37 +142,37 @@ The architecture structure is composed of the following elements:
 
 # Architecture
 
-<img class="stretch no-border" src="img/architecture-overview.svg" alt="architecture">
+<img width="70%" src="img/architecture-overview.svg" alt="architecture">
 
 ---
 
 ## Map Manager
 
-<img class="stretch no-border" src="img/map-manager-overview.svg" alt="map-manager">
+<img width="45%" src="img/map-manager-overview.svg" alt="map-manager">
 
 ---
 
 ## Recommendation System
 
-<img class="stretch no-border" src="img/recommender.svg" alt="recommender">
+<img width="75%" src="img/recommender.svg" alt="recommender">
 
 ---
 
 ## Virtual Queing System
 
-<img class="stretch no-border" src="img/virtual-queuing.svg" alt="virtual-q">
+<img width="60%" src="img/virtual-queuing.svg" alt="virtual-q">
 
 ---
 
 ## Planner
 
-<img class="stretch no-border" src="img/planner.svg" alt="planner">
+<img width="60%" src="img/planner.svg" alt="planner">
 
 ---
 
 ## Visitors Manager
 
-<img class="stretch no-border" src="img/visitor-manager.svg" alt="visitor-manager">
+<img width="55%" src="img/visitor-manager.svg" alt="visitor-manager">
 
 {{% /section %}}
 
@@ -252,7 +252,7 @@ $$f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)$$
 
 ## Situated Recommendation System
 
-<img class="stretch no-border" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
+<img width="45%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
 {{% /section %}}
 
@@ -262,7 +262,7 @@ $$f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)$$
 
 We deem that the best way to deploy the system is to use an hybrid approach, leveraging the cloud, the fog and the edge layers.
 
-<img class="stretch no-border" src="img/deployment.svg" alt="deployment">
+<img width="60%" src="img/deployment.svg" alt="deployment">
 
 ---
 
