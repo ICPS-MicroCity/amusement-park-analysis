@@ -152,6 +152,18 @@ The architecture structure is composed of the following elements:
 
 ---
 
+## Planner
+
+<img width="60%" src="img/planner.svg" alt="planner">
+
+---
+
+## Visitors Manager
+
+<img width="55%" src="img/visitor-manager.svg" alt="visitor-manager">
+
+---
+
 ## Recommendation System
 
 <img width="75%" src="img/recommender.svg" alt="recommender">
@@ -162,17 +174,6 @@ The architecture structure is composed of the following elements:
 
 <img width="60%" src="img/virtual-queuing.svg" alt="virtual-q">
 
----
-
-## Planner
-
-<img width="60%" src="img/planner.svg" alt="planner">
-
----
-
-## Visitors Manager
-
-<img width="55%" src="img/visitor-manager.svg" alt="visitor-manager">
 
 {{% /section %}}
 
@@ -196,6 +197,12 @@ The following technologies were taken into account to evaluate their feasibility
 ---
 
 # Identified Technologies
+
+---
+
+## Situated Recommendation System
+
+<img width="45%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
 ---
 
@@ -247,12 +254,6 @@ $\eta(f, f^{'}) = \sqrt{\sum_{i=0}^{p} \sigma_i^{2}}$ where $p = | A \cup A^{'} 
 The location can be determined taken the fingerprint with the minimum dissimilarity:
 
 $$f^{*} = \arg \min_{f_i \in F} \ \eta(f, f_i)$$
-
----
-
-## Situated Recommendation System
-
-<img width="45%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
 {{% /section %}}
 
