@@ -174,7 +174,6 @@ The architecture structure is composed of the following elements:
 
 <img width="60%" src="img/virtual-queuing.svg" alt="virtual-q">
 
-
 {{% /section %}}
 
 ---
@@ -201,12 +200,25 @@ The following technologies were taken into account to evaluate their feasibility
 ---
 
 ## Situated Recommendation System
-- *visitor*'s position has a corresponding ID
+
+{{< container >}}
+
+{{< columns >}}
+
+- _visitor_'s position has a corresponding ID
 - ID and user info are sent to the **Recommender** by the wearable device
 - the corresponding **action** is retrieved
 - the **Recommender** decides wether the visitor is feasible to get the recommendation
 
-<img width="42%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
+{{< /columns >}}
+
+{{< columns >}}
+
+<img width="82%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
+
+{{< /columns >}}
+
+{{< /container >}}
 
 ---
 
