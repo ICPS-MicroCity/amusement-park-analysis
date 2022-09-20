@@ -206,7 +206,7 @@ The following technologies were taken into account to evaluate their feasibility
 - the corresponding **action** is retrieved
 - the **Recommender** decides wether the visitor is feasible to get the recommendation
 
-<img width="45%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
+<img width="42%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
 ---
 
