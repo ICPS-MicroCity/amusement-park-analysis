@@ -237,7 +237,7 @@ The localization technology should observe the following requirements:
 
 ## Fingerprint-base localization
 
-The fingerprint-based localization is a technique that uses the signal strength of the received signal to determine the location of the device.
+The fingerprint-based localization is a technique that uses the **Wi-Fi** signal strength of the received signal to determine the location of the device.
 
 In order to determines the location of the device, the following steps are performed:
 
