@@ -202,9 +202,9 @@ The following technologies were taken into account to evaluate their feasibility
 
 ## Situated Recommendation System
 - *visitor*'s position has a corresponding ID
-- ID and user info are sent to the recommender
-- the corresponding action is retrieved
-- systems decides wether the visitor is feasible to get the recommendation
+- ID and user info are sent to the **Recommender** by the wearable device
+- the corresponding **action** is retrieved
+- the **Recommender** decides wether the visitor is feasible to get the recommendation
 
 <img width="45%" src="img/seq-diag-situated.svg" alt="seq-diag-situated">
 
